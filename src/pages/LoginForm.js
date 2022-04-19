@@ -18,27 +18,23 @@ const LoginForm = () => {
     };
 
     const loginUser = (e) =>{
+
         e.preventDefault(); //submit이 action을 안타고 자기 할일을 그만함.
-        console.log(User.username);
-        console.log(User.password);
-        fetch("http://localhost:8000/api/login",{
+        fetch("http://localhost:8000/login",{
             method : "POST",
             headers :{
-                "Content-Type" : "application/json; charset=utf-8"
+                "Content-Type" : "application/json; charset=utf-8"  // 스프링시큐리티가 x-www-form-urlencoded 만 응답하기 때문에 변경
             },
-            body: JSON.stringify(User)
+            body: JSON.stringify(User)  // json ->  qs로 변경
         }).then((res) => {
-            console.log(res.status);
-            if(res.status === 200){
-                alert("로그인 완료");
-                window.location.href = "/";
-            }
-            else{
-                alert("존재하지 않는 아이디입니다");
-            }
+            let jwtToken = res.headers.get("Authorization");
+            console.log(jwtToken);
+            localStorage.setItem("Authorization", jwtToken);
+            alert("로그인 완료");
+            window.location.href = "/";
         })
-            .then((res)=> {
-                console.log(res);
+            .then((res) => {
+            console.log("");
             });
     };
 

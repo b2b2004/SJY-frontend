@@ -21,7 +21,7 @@ const changeValue = (e) => {
 
 const submitUser = (e) =>{
     e.preventDefault(); //submit이 action을 안타고 자기 할일을 그만함.
-    fetch("http://localhost:8000/api/user",{
+    fetch("http://localhost:8000/auth/joinProc",{
         method : "POST",
         headers :{
             "Content-Type" : "application/json; charset=utf-8"
