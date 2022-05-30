@@ -12,6 +12,13 @@ const Header = () => {
                     <Link to="/loginForm" className="navbar-brand">로그인</Link>
                     <br />
                     <Link to="/joinForm" className="navbar-brand">회원가입</Link>
+                    <br />
+                    <Link to="/googleLoginForm" className="navbar-brand">OAuth 로그인</Link>
+                    <br />
+                    <Link to="/board" className="navbar-brand">질문 게시판</Link>
+                    <br />
+                    <Link to="/profile" className="navbar-brand">내 정보</Link>
+                    <br />
                 </Nav>
             </Navbar>
             <br />

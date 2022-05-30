@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.home,
+.study,
+.contests,
+.questions,
+.sign-in {
+    display: flex;
+    height: 90vh;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+}
+
+.study {
+    font-size: 100px;
+}
+
+.contests {
+    font-size: 100px;
+}
+
+.questions {
+    font-size: 100px;
+}
+
+.sign-in {
+    font-size: 100px;
+}
+
+.botImage {
+    right: 30px;
+    bottom: 30px;
+    width: 70px;
+    height: 70px; 
+    border-radius: 70%;
+    overflow: hidden;
+    border: 2px solid rgb(113, 155, 255);
+    cursor: pointer;
+    box-shadow: 3px 3px 10px 1px rgb(177, 203, 255);
+    position: fixed;
+}

@@ -1,11 +1,15 @@
 import React from 'react';
+import '../App.css';
+import Slider from '../components/Slider';
+import Cards from '../components/Cards';
+import Chatbot from '../components/Chatbot';
 
-const Home = () => {
-    return (
-        <div>
-            메인화면
-        </div>
-    );
-};
+function Home() {
+    return <>
+        <Slider />
+        <Cards />
+        <Chatbot />
+    </>;
+}
 
 export default Home;
