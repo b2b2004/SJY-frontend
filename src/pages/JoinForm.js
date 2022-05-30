@@ -10,7 +10,6 @@ const [User,setUser] = useState({
     email: '',
 });
 
-
 const changeValue = (e) => {
         setUser({
             ...User,

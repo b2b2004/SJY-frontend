@@ -1,0 +1,39 @@
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    display: flex;
+}
+
+.Nav {
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+}
+
+.Nav_title {
+    width: 200px;
+    height: 60px;
+    margin-left: 15px;
+    color: black;
+    font-family: "궁서";
+    text-decoration: none;
+}
+
+
+.Navs {
+    margin-left: 50px;
+    margin-top: 15px;
+    color: black;
+    font-family: "NanumGothic";
+    text-decoration: none;
+}
+
+.Nav_login {
+    color: black;
+    font-family: "NanumGothic";
+    text-decoration: none;
+    margin-left: 600px;
+}
