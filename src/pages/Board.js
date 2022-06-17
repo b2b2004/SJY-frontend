@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import BoardList from '../components/BoardList';
-import SaveForm from "./qna/SaveForm";
+import BoardList from '../components/qna/BoardList';
+import BoardSaveForm from "../components/qna/BoardSaveForm";
 
 const Board = () => {
     const [boards, setBoards] = useState([]);
@@ -18,7 +18,7 @@ const Board = () => {
     return (
         <div>
             <h1>질문 게시판</h1><br />
-            <SaveForm /> <br />
+            <BoardSaveForm /> <br />
             {boards.map((board) => (
                 <BoardList key={board.id} board={board} />
             ))}

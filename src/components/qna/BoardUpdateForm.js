@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 
-const UpdateForm = (props) => {
+const BoardUpdateForm = (props) => {
   console.log(props);
   const id = props.id;
 
@@ -54,9 +54,6 @@ const UpdateForm = (props) => {
   };
 
   return (
-
-
-
     <Form onSubmit={submitBoard}>
       <Form.Group controlId="formBasicEmail">
         <Form.Control
@@ -78,7 +75,6 @@ const UpdateForm = (props) => {
         />
       </Form.Group>
 
-
       <Button variant="warning" type="submit">
         수정
       </Button>
@@ -86,4 +82,4 @@ const UpdateForm = (props) => {
   );
 };
 
-export default UpdateForm;
+export default BoardUpdateForm;

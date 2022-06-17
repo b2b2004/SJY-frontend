@@ -1,0 +1,122 @@
+.question {
+    margin-top: 5rem;
+    margin-left: 10rem;
+}
+
+.question__container {
+    width: 90vw;
+    height: 100vh;
+
+}
+
+.question__input {
+    margin-top: 20px;
+    height: 20vh;
+    width: 50vw;
+    background-color: white;
+    border-color: rgb(231, 231, 231);
+    border-radius: 5px;
+    outline-color: rgba(177, 203, 255, 0.735);
+    font-size: 15px;
+    resize: none;
+}
+
+.button {
+    margin-left: 450px;
+    margin-top: 10px;
+}
+
+.delete {
+    margin-right: 10px;
+    background-color: rgb(255, 117, 117);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.revise {
+    margin-right: 10px;
+    background-color: rgb(177, 203, 255);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.write {
+    background-color: rgb(177, 203, 255);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.questionss {
+    margin-top: 30px;
+    background-color: rgb(177, 203, 255);
+    max-height: 200vh;
+    width: 50vw;
+    box-shadow: 3px 3px 10px rgba(126, 155, 209, 0.637);
+}
+
+.question__username {
+    padding-top: 10px;
+    margin-left: 60px;
+    float: left;
+}
+
+.question__date {
+    padding-top: 10px;
+    margin-left: 530px;
+    font-size: 12px;
+}
+
+.good {
+    height: 15px;
+    width: 15px;
+    margin-left: 530px;
+    float: left;
+}
+
+.comment {
+    height: 15px;
+    width: 15px;
+    margin-left: 20px;
+    margin-top: 3px;
+}
+
+.question__content {
+    margin-left: 20px;
+    margin-top: 10px;
+
+}
+.comment__input {
+    height: 20vh;
+    width: 40vw;
+    border-color: rgb(231, 231, 231);
+    border-radius: 5px;
+    outline-color: rgba(177, 203, 255, 0.735);
+    font-size: 15px;
+    resize: none;
+    float: left;
+}
+
+.comment_write {
+    margin-top: 40px;
+    margin-bottom: 60px;
+    margin-left: 20px;
+    background-color: rgb(177, 203, 255);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}

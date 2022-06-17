@@ -1,0 +1,87 @@
+.information {
+    padding: 4rem;
+}
+
+.information__container{
+    background-color: rgba(177, 203, 255, 0.300);
+    margin-top: 20px;
+    width: 70vw;
+    height: 100vh;
+    box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.68);
+    border-radius: 10px;
+}
+
+.pwchange {
+    margin-top: 30px;
+    margin-left: 850px;
+    margin-right: 40px;
+    background-color: rgb(255, 117, 117);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition-duration: 0.4s;
+}
+
+.pwchange:hover {
+    background: rgb(255, 0, 0);
+    color: white;
+}
+
+.memberdrop {
+    background-color: rgb(255, 117, 117);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition-duration: 0.4s;
+}
+
+.memberdrop:hover {
+    background: rgb(255, 0, 0);
+    color: white;
+}
+
+.information__profile {
+    margin-top: 30px;
+    margin-left: 90px;
+}
+
+.nickname {
+    margin-left: 30px;
+}
+
+.change {
+    margin-left: 10px;
+    background-color: rgb(177, 203, 255);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 5px 10px;
+    display: inline-block;
+    font-size: 15px;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+.change:hover {
+    background: rgb(139, 178, 255);
+    color: white;
+}
+
+.area {
+    margin-left: 14px;
+}
+
+.activity {
+    margin-left: 40px;
+    margin-top: 30px;
+}
+
+.studying {
+    margin-left: 40px;
+    margin-top: 30px;
+}

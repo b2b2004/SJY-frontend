@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
-import Slider from '../components/Slider';
-import Cards from '../components/Cards';
+import Slider from '../components/imagesSlider/Slider';
+import Cards from '../components/card/Cards';
 import Chatbot from '../components/Chatbot';
 
 function Home() {

@@ -1,6 +1,6 @@
-import First from "../image/First.jpg";
-import Second from "../image/Second.jpg";
-import Third from "../image/Third.jpg";
+import First from "../../image/First.jpg";
+import Second from "../../image/Second.jpg";
+import Third from "../../image/Third.jpg";
 
 export default [
     {
