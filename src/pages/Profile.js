@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {Form} from "react-bootstrap";
 import {stringify} from "qs";
-import BoardList from "../components/BoardList";
+import BoardList from "../components/qna/BoardList";
 
 function Profile() {
     const Authorization = localStorage.getItem("Authorization");
     const [boards, setBoards] = useState([]);
     const [users, setuser] = useState([]);
+
     // const [users, setuser] = useState({
     //     user: '',
     //     username: '',

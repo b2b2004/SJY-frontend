@@ -1,11 +1,8 @@
 import React, {useState} from 'react';
 import {Button, Card, Nav} from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import SaveForm from "../pages/qna/SaveForm";
-import Navbar from "./Navbar";
-import UpdateForm from "../pages/qna/UpdateForm";
-import CommentSaveForm from "../pages/Comment/CommentSaveForm";
-import CommentList from "../pages/Comment/CommentList";
+import BoardUpdateForm from "./BoardUpdateForm";
+import CommentSaveForm from "./comment/CommentSaveForm";
+import CommentList from "./comment/CommentList";
 
 
 const BoardList = (props) => {
@@ -42,7 +39,7 @@ const BoardList = (props) => {
     <Card>
       <Card.Body onSubmit={toggleShow}>
         {isShow ?
-            <UpdateForm id={id}/> :
+            <BoardUpdateForm id={id}/> :
             <div>
             <Card.Title>{title}</Card.Title>
             <Card.Title> {content}</Card.Title>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import { Button } from './Button';
-import Modal from './Modal/Modal';
+import Modal from "../modal/Signin";
 
 
 function Navbar() {
@@ -11,7 +11,6 @@ function Navbar() {
 
     const openModal = () => setModalOpen(true);
     const closeModal = () => setModalOpen(false);
-
 
     const [click, setClick] = useState(false);
     const [button, setButton] = useState(true);
@@ -45,7 +44,7 @@ function Navbar() {
                 </div>
                 <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                     <li className='nav-item'>
-                        <Link to='/study' className='nav-links' onClick={closeMobileMenu}>
+                        <Link to='/sopboard' className='nav-links' onClick={closeMobileMenu}>
                             스터디
                         </Link>
                     </li>
@@ -55,7 +54,7 @@ function Navbar() {
                         </Link>
                     </li>
                     <li className='nav-item'>
-                        <Link to='/Board' className='nav-links' onClick={closeMobileMenu}>
+                        <Link to='/Boardtest' className='nav-links' onClick={closeMobileMenu}>
                             질문게시판
                         </Link>
                     </li>

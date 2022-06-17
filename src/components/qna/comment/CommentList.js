@@ -1,7 +1,7 @@
 import {Button, Card, Form} from "react-bootstrap";
 import React, {useEffect, useState} from "react";
-import UpdateForm from "../qna/UpdateForm";
-import BoardList from "../../components/BoardList";
+import BoardUpdateForm from "../BoardUpdateForm";
+import BoardList from "../BoardList";
 import CommentShow from "./CommentShow";
 
 const CommentList = (props) => {

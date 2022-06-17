@@ -1,0 +1,206 @@
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal button {
+    outline: none;
+    cursor: pointer;
+    border: 0;
+}
+
+.modal > section {
+    width: 90%;
+    max-width: 450px;
+    margin: 0 auto;
+    border-radius: 0.3rem;
+    background-color: #fff;
+    /* 팝업이 열릴때 스르륵 열리는 효과 */
+    animation: modal-show 0.3s;
+    overflow: hidden;
+}
+
+.modal > section > header {
+    position: relative;
+    padding: 16px 64px 16px 16px;
+    background-color: #f1f1f1;
+    font-weight: 700;
+}
+
+.modal > section > header button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 30px;
+    font-size: 21px;
+    font-weight: 700;
+    text-align: center;
+    color: #999;
+    background-color: transparent;
+}
+
+.modal > section > main {
+    padding: 16px;
+    border-bottom: 1px solid #dee2e6;
+    border-top: 1px solid #dee2e6;
+}
+
+.modal.openModal {
+    display: flex;
+    align-items: center;
+    /* 팝업이 열릴때 스르륵 열리는 효과 */
+    animation: modal-bg-show 0.3s;
+}
+
+@keyframes modal-show {
+    from {
+        opacity: 0;
+        margin-top: -50px;
+    }
+    to {
+        opacity: 1;
+        margin-top: 0;
+    }
+}
+@keyframes modal-bg-show {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.signinId {
+    margin-top: 10px;
+    border-radius: 2px;
+    width: 100%;
+    height: 40px;
+    border: 1px solid #e5e5e5;
+    padding: 9px 12px;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+input::placeholder {
+    color: #999999;
+}
+
+.signinPw {
+    margin-top: 15px;
+    border-radius: 2px;
+    width: 100%;
+    height: 40px;
+    border: 1px solid #e5e5e5;
+    padding: 9px 12px;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+.signinBtn {
+    height: 40px;
+    width: 100%;
+    align-items: center;
+    background-color: #000000;
+    border-radius: 3px;
+    color: white;
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.socialBox {
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.kakao {
+    background-color: #feec34;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    border-radius: 3px;
+}
+
+.kakaoText {
+    width: 300px;
+    font-size: 15px;
+    text-align: center;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.kakaoLogo {
+    width: 22px;
+    height: 23px;
+}
+
+.naver {
+    background-color: #2DB400;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    border-radius: 3px;
+}
+
+.naverText {
+    padding-top: 10px;
+    width: 300px;
+    color: #fff;
+    font-size: 15px;
+    text-align: center;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.naverLogo {
+    padding-top: 8px;
+    width: 23px;
+    height: 29px;
+}
+
+.google {
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    border-radius: 3px;
+}
+
+.googleText {
+    width: 300px;
+    font-size: 15px;
+    text-align: center;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.googleLogo {
+    padding-top: 3px;
+    width: 24px;
+    height: 26px;
+}
+
+.signinLine {
+    text-align: center;
+    color: #bcbcbc;
+    font-size: 12px;
+}
+.nsignup {
+    color: black;
+    text-decoration: underline;
+    cursor: pointer;
+}

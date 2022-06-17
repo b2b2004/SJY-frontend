@@ -1,7 +1,7 @@
 
 import {Button, Card, Form} from "react-bootstrap";
 import React from "react";
-import UpdateForm from "../qna/UpdateForm";
+import BoardUpdateForm from "../BoardUpdateForm";
 import CommentList from "./CommentList";
 import CommentSaveForm from "./CommentSaveForm";
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 
-const SaveForm = (props) => {
+const BoardSaveForm = (props) => {
   const [board, setBoard] = useState({
     title: '',
     content: '',
@@ -76,4 +76,4 @@ const SaveForm = (props) => {
   );
 };
 
-export default SaveForm;
+export default BoardSaveForm;
