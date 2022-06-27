@@ -1,90 +1,51 @@
-import React, {useState} from 'react';
-import "./Modal.css"
-import { Form, Button } from 'react-bootstrap';
-import kakao_login from "../../image/kakao1.png";
-import naver_login from "../../image/naver1.png";
-import google_login from "../../image/google1.png";
-const Modal = (props) => {
-    const { open, close } = props;
+import styled from "styled-components";
+import Portal from "./Portal";
 
+const Modal = ({ name, onClose, visible, children }) => {
 
-
-    const [User,setUser] = useState({
-        username: '',
-        password: '',
-    });
-
-    const changeValue = (e) => {
-        setUser({
-            ...User,
-            [e.target.name] : e.target.value
-        });
-
-    };
-
-
-
-    const loginUser = (e) =>{
-        e.preventDefault(); //submit이 action을 안타고 자기 할일을 그만함.
-        fetch("http://localhost:8000/login",{
-            method : "POST",
-            headers :{
-                "Content-Type" : "application/json; charset=utf-8"
-            },
-            body: JSON.stringify(User)  // json ->  qs로 변경
-        }).then((res) => {
-            let jwtToken = res.headers.get("Authorization");
-            console.log(jwtToken);
-            localStorage.setItem("Authorization", jwtToken);
-            alert("로그인 완료");
-            window.location.href = "/";
-        })
-            .then((res) => {
-                console.log("");
-            });
+    console.log(children);
+    const onMaskClick = (e) => {
+        if (onClose === undefined) return;
+        if (e.target === e.currentTarget) {
+            onClose(e);
+        }
     };
 
     return (
-        <div className={open ? 'openModal modal' : 'modal'}>
-            {open ? (
-                <section>
-                <header>
-                    Login
-                    <button className="close" onClick={close}>
-                    &times;
-                    </button>
-                </header>
-
-                <main>
-                    <div align="center">
-
-                        <Form onSubmit={loginUser}>
-                            <Form.Group className="mb-3">
-                                <Form.Control type="id" placeholder="id"  onChange={changeValue} name = "username" />
-                                <Form.Text className="text-muted">
-                                </Form.Text>
-                            </Form.Group>
-
-
-                            <Form.Group className="mb-3" controlId="formBasicPassword">
-                                <Form.Control type="password" placeholder="Password"  onChange={changeValue} name = "password" />
-                            </Form.Group>
-
-                            <Button variant="primary" type="submit">
-                                로그인
-                            </Button>
-                            <br /><br />
-                        </Form>
-
-                        <a href="http://localhost:8000/oauth2/authorization/kakao" ><img src={kakao_login}  /></a>
-                        <a href="http://localhost:8000/oauth2/authorization/naver"> <img src={naver_login} /></a>
-                        <a href="http://localhost:8000/oauth2/authorization/google"><img src={google_login} /></a>
-                    </div>
-                </main>
-                </section>
-            ) : null}
-        </div>
+        <Portal elementId="modal-root">
+            <ModalOverlay name={name} visible={visible} />
+            <ModalWrapper onClick={onMaskClick} tabIndex={-1} visible={visible}>
+                {children}
+            </ModalWrapper>
+        </Portal>
     );
 };
+
+const ModalWrapper = styled.div`
+  box-sizing: border-box;
+  display: ${(props) => (props.visible ? "block" : "none")};
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  overflow: auto;
+  outline: 0;
+  top:0;
+}
+`;
+
+const ModalOverlay = styled.div`
+  box-sizing: border-box;
+  display: ${(props) => (props.visible ? "block" : "none")};
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: ${(props) =>
+    props.name === "loading" ? "white" : "rgba(77, 77, 77, 0.5)"};
+  z-index: 999;
+`;
 
 export default Modal;

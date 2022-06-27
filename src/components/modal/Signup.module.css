@@ -1,0 +1,44 @@
+@value registerBackground from '../../common/color.css';
+
+.title {
+    margin: 0;
+    margin-top: 3rem;
+    text-align: center;
+    animation-duration: 3s;
+    animation-name: opacityAnimation;
+}
+
+.logo {
+    margin-top: 2rem;
+}
+
+.buttonClose {
+    margin-top: 4rem;
+    font-weight: bold;
+    color: white;
+    border-radius: 4px;
+    width: 8rem;
+    height: 2.5rem;
+    font-size: 1.25rem;
+
+    background-color: registerBackground;
+}
+
+@keyframes opacityAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .title {
+        font-size: 1.125rem;
+    }
+
+    img {
+        width: 15rem;
+    }
+}

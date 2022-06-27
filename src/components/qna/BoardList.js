@@ -32,7 +32,6 @@ const BoardList = (props) => {
         });
   };
 
-
   return (
 
     <div>

@@ -8,9 +8,7 @@ import PopularBoardLanking from "../../components/StudyOrProjectBoard/PopularBoa
 function StudyOrProjectBoard(){
     const [SopBoard, setSopboard] = useState([]);
 
-
     useEffect(()=>{
-
         fetch(
             "http://localhost:8000/sopBoard/AllBoard"
         )
@@ -24,8 +22,6 @@ function StudyOrProjectBoard(){
     return<>
         <h1>프로젝트 or 스터디</h1>
         <Button variant="primary" href="/sopwrite">글쓰기</Button>
-
-
         <h1>신규프로젝트</h1>
         <NewBoard />
         <h1>인기프로젝트</h1>
