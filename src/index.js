@@ -4,12 +4,45 @@ import App from './App';
 import {BrowserRouter} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css"
 import reportWebVitals from "./reportWebVitals";
+import {Provider} from "react-redux";
+import {combineReducers, configureStore, getDefaultMiddleware} from "@reduxjs/toolkit";
+import loginStepReducer from './store/loginStep';
+import storage from 'redux-persist/lib/storage';
+import {persistReducer} from "redux-persist";
+
+const reducers = combineReducers({
+    loginStep: loginStepReducer,
+});
+
+const persistConfig = {
+    key: 'user',
+    storage,
+    whitelist: ['user'],
+};
+
+const customizedMiddleware = getDefaultMiddleware({
+    serializableCheck: false,
+});
+
+
+const _persistedReducer = persistReducer(persistConfig, reducers);
+
+
+const store = configureStore({
+    reducer: _persistedReducer,
+    devTools: process.env.NODE_ENV !== 'production',
+    middleware: customizedMiddleware,
+});
+
+
 
 ReactDOM.render(
   <React.StrictMode>
+      <Provider store={store}>
       <BrowserRouter>
           <App />
       </BrowserRouter>
+      </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

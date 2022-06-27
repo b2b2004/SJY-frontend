@@ -22,6 +22,9 @@ import Manager from "./pages/Manager";
 import StudyOrProjectBoard from "./pages/studyOrProjectBoardPage/StudyOrProjectBoard";
 import SopWrite from "./pages/studyOrProjectBoardPage/SopWrite";
 import SopDetail from "./pages/studyOrProjectBoardPage/SopDetail";
+import ContestBoard from "./pages/ContestBoardPage/ContestBoard";
+import ContestDetail from "./pages/ContestBoardPage/ContestDetail";
+import ContestWrite from "./pages/ContestBoardPage/ContestWrite";
 
 function App() {
     return (
@@ -45,6 +48,9 @@ function App() {
                 <Route path="/sopBoard" exact={true} component={StudyOrProjectBoard} />
                 <Route path="/sopWrite" exact={true} component={SopWrite} />
                 <Route path="/sopDetail/:id" exact={true} component={SopDetail} />
+                <Route path="/contestBoard" exact={true} component={ContestBoard} />
+                <Route path="/contestDetail/:id" exact={true} component={ContestDetail} />
+                <Route path="/contestWrite" exact={true} component={ContestWrite} />
             </Container>
         </div>
     );

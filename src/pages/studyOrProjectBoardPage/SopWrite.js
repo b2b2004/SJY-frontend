@@ -1,9 +1,14 @@
-import React, { useState } from "react";
-import "react-datepicker/dist/react-datepicker.css";
-import {Button, Form} from "react-bootstrap";
+import React, {useEffect, useState} from "react";
+import {Button, CloseButton, Form} from "react-bootstrap";
+import Calendar from "react-calendar";
+import '../../components/StudyOrProjectBoard/SopCalendar.css'
+import 'react-calendar/dist/Calendar.css';
+import moment from "moment";
 
 function SopWrite(){
     const Authorization = localStorage.getItem("Authorization");
+    const [date, setDate] = useState(new Date());
+    const Checkbox = new Set();
     const [sopBoard, setsopBoard] = useState({
         boardType: '',
         meetType: '',
@@ -11,25 +16,49 @@ function SopWrite(){
         recruitment: '',
         duration_start: '',
         duration_end: '',
-        techStack: 'Vue',
+        techStack: '',
         title: '',
         content: '',
     });
+        const formData = [
+            { id: 1, name: "React"},
+            { id: 2, name: "Node"},
+            { id: 3, name: "SpringBoot"},
+            { id: 4, name: "Express"},
+        ]
 
-    const changeValue = (e) => {
-        setsopBoard({
-            ...sopBoard,
-            [e.target.name]: e.target.value,
-        });
-    };
+    useEffect(()=>{
+        console.log(date);
+    })
+
+        const changeValue = (e) => {
+            setsopBoard({
+                ...sopBoard,
+                [e.target.name]: e.target.value,
+            });
+        };
+
+        const changetechStack = (e) => {
+            if(Checkbox.has(e.target.value) === false){
+                Checkbox.add(e.target.value);
+                console.log(Checkbox);
+            }else if (Checkbox.has(e.target.value) === true)
+            {
+                Checkbox.delete(e.target.value);
+                console.log(Checkbox);
+            }
+        }
 
     const SopSummit = (e) => {
         e.preventDefault();
+
+        const a = [...Checkbox];
+        sopBoard.techStack = a.join(',');
+        sopBoard.duration_start = moment(date[0]).format("YYYY,MM,DD");
+        sopBoard.duration_end = moment(date[1]).format("YYYY,MM,DD");
+
+
         console.log(sopBoard);
-        // const str = sopBoard.techStack.join(','); 배열처리에서 쓸것
-        // console.log(str);
-
-
         fetch("http://localhost:8000/sopBoard/sopWrite",
             {
                 method: "POST",
@@ -73,29 +102,33 @@ function SopWrite(){
         </select>
 
         <h1>기술스택</h1>
-            <input onClick={changeValue} type="checkbox" name="techStack" value="리엑트" className="checkbox1" />
-            <label htmlFor="check1">리엑트</label>
-            <input onClick={changeValue} type="checkbox" name="techStack" value="앵귤러" className="checkbox2" />
-            <label htmlFor="check2">앵귤러</label>
-            <input onChange={changeValue} type="checkbox" name="techStack[2]" value="뷰" className="checkbox3" />
-            <label htmlFor="check3">뷰</label>
-            <input onChange={changeValue} type="checkbox" name="techStack[3]" value="노드" className="checkbox4" />
-            <label htmlFor="check4">노드</label>
-            <input onChange={changeValue} type="checkbox" name="techStack[4]" value="익스프레스" className="checkbox5" />
-            <label htmlFor="check5">익스프레스</label>
+            {formData.map((item)=>(
+                <label key={item.id}>
+                    {item.name}
+                    <input
+                        type="checkbox"
+                        value={item.name}
+                        onClick={changetechStack}
+                    />
+                </label>
+            ))}
+
 
         <h1>기간</h1>
+            <div className='app'>
+                <div className='calendar-container'>
+                    <Calendar
+                        onChange={setDate}
+                        value={date}
+                        selectRange={true}
+                    />
+                    {moment(date[0]).format("YYYY,MM,DD")}
+                    <br />
+                    {moment(date[1]).format("YYYY,MM,DD")}
+                </div>
+            </div>
 
-            <Form>
-                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Control onChange={changeValue} name="duration_start" type="text" placeholder="시작일" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                    <Form.Control onChange={changeValue} name="duration_end"  type="text"  placeholder="마감일"  />
-                </Form.Group>
-            </Form>
             <br />
-
 
             <Form>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -108,7 +141,6 @@ function SopWrite(){
                     <Form.Control onChange={changeValue} name="content"  as="textarea" rows={10} placeholder="내용"  />
                 </Form.Group>
             </Form>
-
             <Button  type="submit">생성</Button>
     </Form>
     )
