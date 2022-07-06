@@ -4,20 +4,23 @@ import React from "react";
 import BoardUpdateForm from "../BoardUpdateForm";
 import CommentList from "./CommentList";
 import CommentSaveForm from "./CommentSaveForm";
+import './commentShow.css';
 
 const commentShow = (props) => {
-    const { id, username, content } = props.comment;
+    const { id, username, content, Board_date } = props.comment;
 
     return (
         <div>
-            <Card>
-                <Card.Body>
-                            <Card.Title>username : {username}</Card.Title>
-                            <Card.Title>내용 : {content}</Card.Title>
-                </Card.Body>
+            <div className="commentContainer">
+                <div className="userNickname">
+                    {username}
+                </div>
 
-            </Card>
-            <br />
+                <div className="title">
+                    {content}
+                </div>
+            </div>
+
         </div>
     );
 }

@@ -1,7 +1,9 @@
 import {Card, CardGroup, ListGroup, ListGroupItem} from "react-bootstrap";
+import TechStackImage from "../TechStackImage";
+import './allSopBoard.css';
+
 
 function AllSOPBoard(props){
-
 
     const { id, title, content, username, boardType, meetType, techStack, recruitment, hit} = props.SopBoard;
 
@@ -12,22 +14,35 @@ function AllSOPBoard(props){
     }
 
     return <>
-        <CardGroup style={{width: '18rem'}} onClick={move}>
-            <Card>
-                <Card.Body>
-                    <Card.Title>제목 = {title}</Card.Title>
-                    <Card.Text>
-                        <Card.Text>username = {username}</Card.Text>
-                        <Card.Text>{boardType}</Card.Text>
-                        <Card.Text>모집방식 = {meetType}</Card.Text>
-                        <Card.Text>모집인원 = 0/{recruitment}</Card.Text>
+        <CardGroup className='CardGroup' onClick={move}>
+            <Card style={{
+                borderRadius: "20px",
+                border: "2px solid lightgrey",
+            }}>
+                <Card.Body className='Card_Body'>
+                    <Card.Text className='Card_Text'>
+                        <Card.Text>시작 예정일</Card.Text>
+                        <Card.Title className='Card_Title'>{title}</Card.Title>
+                        <Card.Text className='HashTag'>#{boardType} #{meetType} #{recruitment}명</Card.Text>
+                        <small className="text-muted">{techStack}</small>
                     </Card.Text>
+
+
+
+                    {/*<small className="text-muted">content={content}
+                        </small>*/}
+                    <div className='bottom_Text'>
+                        <hr/>
+                        <small>{username}</small>
+                        <div className='count_number'>
+                            <TechStackImage key={id} techStack={techStack} />
+                            <small className="text-muted">
+                                {hit}
+                            </small>
+                        </div>
+                    </div>
+
                 </Card.Body>
-                <Card.Footer>
-                    <small className="text-muted">content={content}     </small>
-                    <small className="text-muted">techStack={techStack}     </small>
-                    <small className="text-muted">조회수={hit}     </small>
-                </Card.Footer>
             </Card>
         </CardGroup>
     </>

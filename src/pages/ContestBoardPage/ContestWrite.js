@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import {Button, Form, Spinner} from "react-bootstrap";
 import axios from "axios";
+import moment from "moment";
 
 
 function ContestWrite(){
     const Authorization = localStorage.getItem("Authorization");
     const [image, setImage] = useState({
-        image_file: "",
+        image_file: '',
         preview_URL: "img/default_image.png"
         });
     const [loaded, setLoaded] = useState(false);
@@ -52,13 +53,20 @@ function ContestWrite(){
         });
     };
 
-
     const SopSummit = async (e) => {
         e.preventDefault();
+
+        const FrontName = moment().format('YYYYMMDDHHmmss');
+        const BackName = image.image_file.name;
+        const imageName = FrontName + BackName;
+        console.log(imageName);
+
+
         if(image.image_file){
+            console.log(image.image_file);
             const formData = new FormData()
             formData.append('multipartFiles', image.image_file);
-            console.log(image.image_file);
+            formData.append('imageName', imageName);
             await axios.post('http://localhost:8000/uploadImage', formData);
             alert("서버에 등록이 완료되었습니다!");
             setImage({
@@ -71,9 +79,9 @@ function ContestWrite(){
             alert("사진을 등록하세요!")
         }
 
-
-        contestBoard.image = image.image_file.name;
+        contestBoard.image = imageName;
         console.log(contestBoard.image);
+
         fetch("http://localhost:8000/contestBoard/contestBoardWrite",
             {
                 method: "POST",
@@ -82,13 +90,16 @@ function ContestWrite(){
                 },
                 body: JSON.stringify(contestBoard)
             })
-            .then()
+            .then(()=>{
+                alert("글쓰기 완료");
+                window.location.href = "/contestboard";
+            })
             .then()
     }
 
 
     return(
-        <Form onSubmit={SopSummit}>
+        <div>
             <div>사진칸</div>
             <div className="uploader-wrapper">
                 <input type="file" accept="image/*"
@@ -114,7 +125,7 @@ function ContestWrite(){
                 </div>
             </div>
 
-
+        <Form onSubmit={SopSummit}>
             <h1>접수 기간</h1>
             <Form>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -162,6 +173,7 @@ function ContestWrite(){
             </Form>
             <Button  type="submit">생성</Button>
         </Form>
+        </div>
     )
 }
 

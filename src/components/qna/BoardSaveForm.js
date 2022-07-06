@@ -1,10 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import './boardSaveForm.css'
 
 const BoardSaveForm = (props) => {
   const [board, setBoard] = useState({
-    title: '',
     content: '',
   });
 
@@ -48,31 +48,25 @@ const BoardSaveForm = (props) => {
   };
 
   return (
-    <Form onSubmit={submitBoard}>
-      <Form.Group controlId="formBasicEmail">
-        <Form.Control
-          type="text"
-          placeholder="제목을 입력하세요"
-          onChange={changeValue}
-          name="title"
-        />
-      </Form.Group>
+      <Form onSubmit={submitBoard}>
+      <div className="boardInput">
+          <textarea
+              placeholder="내용을 입력하세요"
+              onChange={changeValue}
+              name="content"
+          ></textarea>
+          <div className="buttonWrapper">
+              <button
+                  className="buttonComplete"
+                  name="content"
+                  type="submit"
 
-      <Form.Group controlId="formBasicEmail">
-        <Form.Control
-          type="text"
-          placeholder="내용을 입력하세요"
-          onChange={changeValue}
-          name="content"
-        />
-      </Form.Group>
-
-      <Button variant="primary" type="submit">
-        등록하기
-      </Button>
-
-    
-    </Form>
+              >
+                  등록
+              </button>
+          </div>
+      </div>
+      </Form>
   );
 };
 

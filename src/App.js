@@ -16,7 +16,7 @@ import Contests from "./pages/Contests";
 import Questions from "./pages/Questions";
 import Navbar from "./components/nav/Navbar";
 import Profile from "./pages/Profile";
-import Board from "./pages/Board";
+import Board from "./pages/QnaBoardPage/Board";
 import Information from "./components/profile/Information";
 import Manager from "./pages/Manager";
 import StudyOrProjectBoard from "./pages/studyOrProjectBoardPage/StudyOrProjectBoard";
@@ -25,13 +25,14 @@ import SopDetail from "./pages/studyOrProjectBoardPage/SopDetail";
 import ContestBoard from "./pages/ContestBoardPage/ContestBoard";
 import ContestDetail from "./pages/ContestBoardPage/ContestDetail";
 import ContestWrite from "./pages/ContestBoardPage/ContestWrite";
+import Main from "./pages/main/main";
 
 function App() {
     return (
         <div>
             <Navbar />
+            <Route path="/" exact={true} component={Main}/>
             <Container>
-                <Route path="/" exact={true} component={Home}/>
                 <Route path="/loginForm" exact={true} component={loginForm}/>
                 <Route path="/joinForm" exact={true} component={JoinForm}/>
                 <Route path="/googleLoginForm/" exact={true} component={GoogleLoginForm}/>

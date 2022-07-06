@@ -1,5 +1,6 @@
 import {Button, Form} from "react-bootstrap";
 import React, {useState} from "react";
+import './commentSaveForm.css'
 
 const CommentSaveForm = (props) => {
     console.log(props);
@@ -52,7 +53,10 @@ const CommentSaveForm = (props) => {
 
 
     return (
-        <Form onSubmit={submitComment}>
+        <div>
+            <br></br>
+            <br></br>
+        <Form onSubmit={submitComment} className="comment_saveForm">
 
             <Form.Group controlId="formBasicEmail">
                 <Form.Control
@@ -63,11 +67,17 @@ const CommentSaveForm = (props) => {
                 />
             </Form.Group>
 
-            <Button variant="primary" type="submit">
-                등록하기
-            </Button>
+            <button
+                className="comment_input"
+                name="content"
+                type="submit"
+
+            >
+                등록
+            </button>
 
         </Form>
+        </div>
     );
 }
 

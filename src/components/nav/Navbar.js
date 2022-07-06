@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import {Link, useHistory} from 'react-router-dom';
-import styles from './Navbar.css';
-import { Button } from './Button';
+import styles from "./navbar.module.css";
 import Modal from "../modal/Modal";
 import {useDispatch, useSelector} from "react-redux";
 import LoginModal from "../modal/loginModal";
-import LoginUser from "../modal/login_user";
 import { setModalVisible } from "../../store/loginStep";
+import {getValue} from "@testing-library/user-event/dist/utils";
 
 
 const Navbar = React.memo(() => {
@@ -48,51 +46,40 @@ const Navbar = React.memo(() => {
 
     window.addEventListener('resize', showButton);
 
+    const ChagePage = (e) => {
+        window.location.href = `/${e.target.value}`;
+    };
+
     return (
         <>
-            <nav className='navbar'>
-                <div className='navbar-container'>
-                    <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-                        Cod_meter
-                    </Link>
-                    <div className='menu-icon' onClick={handleClick}>
-                        <i className={click ? 'fas fa-times' : 'fas fa-bars'}/>
-                    </div>
-                    <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-                        <li className='nav-item'>
-                            <Link to='/sopboard' className='nav-links' onClick={closeMobileMenu}>
-                                스터디
-                            </Link>
-                        </li>
-                        <li className='nav-item'>
-                            <Link to='/contestBoard' className='nav-links' onClick={closeMobileMenu}>
-                                공모전
-                            </Link>
-                        </li>
-                        <li className='nav-item'>
-                            <Link to='/Boardtest' className='nav-links' onClick={closeMobileMenu}>
-                                질문게시판
-                            </Link>
-                        </li>
-                        <li className='nav-item'>
-                            <Link to='/profile' className='nav-links' onClick={closeMobileMenu}>
-                                내 정보
-                            </Link>
-                        </li>
-                    </ul>
-                    {/*<React.Fragment>*/}
-                    {/*{button && <Button buttonStyle='btn--outline' onClick={openModal}>SIGN IN</Button>}*/}
-                    {/*<Modal open={modalOpen} close={closeModal} header="Modal heading"></Modal>*/}
-                    {/*</React.Fragment>*/}
-                    <div className={styles.loginElementWrapper}>
-                            <Button className={styles.login} onClick={openModal}>
-                                로그인
-                            </Button>
-
-                    </div>
+            <nav className={styles.navbar}>
+                <a href="/">
+                    <img
+                        className={styles.logo}
+                        src="/images/logo/codemeter_logo_.png"
+                        alt="logo"
+                    />
+                </a>
+                <div className={styles.loginElementWrapper}>
+                    <button value="sopboard" className={styles.postRegister} onClick={ChagePage}>
+                        스터디
+                    </button>
+                    <button value="contestboard" className={styles.postRegister} onClick={ChagePage}>
+                        공모전
+                    </button>
+                    <button value="boardTest" className={styles.postRegister} onClick={ChagePage}>
+                        질문게시판
+                    </button>
+                    <button value="profile" className={styles.postRegister} onClick={ChagePage}>
+                        내 정보
+                    </button>
+                    <button className={styles.postRegister} onClick={openModal}>
+                        로그인
+                    </button>
                     <Modal visible={modalVisible} name="login" onClose={closeModal}>
                         <LoginModal handleClose={closeModal} tabIndex={0}></LoginModal>
                     </Modal>
+
                 </div>
             </nav>
         </>

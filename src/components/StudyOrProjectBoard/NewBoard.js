@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
-
+import {Card, CardGroup} from "react-bootstrap";
+import './newBoard.css';
 function NewBoard(){
 
 const [SopBoard, setSopBoard] = useState([]);
@@ -13,11 +14,29 @@ const [SopBoard, setSopBoard] = useState([]);
             })
     },[])
 
+
+
+    const move = () =>{
+        window.location.href = "/SopDetail/"+ SopBoard.id;
+    }
     return<>
 
         {SopBoard.map((SopBoard, idx) =>
             <div key={idx}>
-            <a>id={SopBoard.id} title={SopBoard.title} <br/></a>
+                <div className='NewBoard_Wrap'>
+                    <CardGroup className='CardGroup' onClick={move}>
+                        <Card>
+                            <Card.Body className='Card_Body'>
+                                <Card.Text className='Card_Text'>
+                                    <Card.Text>시작 예정일</Card.Text>
+                                    <Card.Title className=''>{SopBoard.title}</Card.Title>
+                                    <Card.Text className='HashTag'>#{SopBoard.boardType} #{SopBoard.meetType} #{SopBoard.recruitment}명</Card.Text>
+                                    <small className="text-muted">{SopBoard.techStack}</small>
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </CardGroup>
+                </div>
             </div>
         ) }
     </>

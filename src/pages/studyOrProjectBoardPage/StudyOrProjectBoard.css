@@ -1,0 +1,64 @@
+.button_write {
+    float: right;
+    margin-right: 120px;
+}
+.study_container {
+    margin-left: 85px;
+    margin-right: 85px;
+    margin-top: 70px;
+}
+
+.sop_write_title_number {
+    background: #1d88f2;
+    display: inline;
+    border-radius: 100px;
+    width: 10px;
+}
+
+.studyOrProject_write_title {
+    display: inline;
+    font-weight: 600;
+    /*글자 두께*/
+
+}
+
+.studyOrProject_title {
+    font-weight: 600;
+    margin-top: 20px;
+
+    /*글자 두께*/
+
+}
+.main {
+    color: #1d88f2;
+    font-weight: bold;
+
+}
+
+hr {
+    height: 6px;
+}
+.project_container {
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 50px;
+}
+
+.newProject_wrap {
+    margin-top: 50px;
+}
+
+.popularProject_wrap {
+float: left;
+
+}
+.popularProject_Card {
+    float: left;
+}
+
+.allProject_wrap {
+    margin-top: 50px;
+    float: left;
+}
+
+
