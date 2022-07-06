@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
-import {Button, Card, Nav} from 'react-bootstrap';
+import {Card} from 'react-bootstrap';
 import BoardUpdateForm from "./BoardUpdateForm";
 import CommentSaveForm from "./comment/CommentSaveForm";
 import CommentList from "./comment/CommentList";
+import './boardList.css'
 
 
 const BoardList = (props) => {
-  const { id, title, content } = props.board;
+  const { id, title, content, Board_date, username } = props.board;
   const [isShow, setIsShow] = useState(false);
   const [isShow1, setIsShow1] = useState(false);
 
@@ -32,26 +33,29 @@ const BoardList = (props) => {
         });
   };
 
+
   return (
 
     <div>
-    <Card>
-      <Card.Body onSubmit={toggleShow}>
+    <Card className="board_container">
+      <Card.Body onSubmit={toggleShow} className="board_body">
         {isShow ?
             <BoardUpdateForm id={id}/> :
             <div>
-            <Card.Title>{title}</Card.Title>
+              <button onClick={deleteBoard} className="b-X-button">
+                  삭제
+              </button>
+              <button onClick={toggleShow} className="b-button">
+                수정
+              </button>
+              {'  '}
+              <Card.Title>{username}</Card.Title>
             <Card.Title> {content}</Card.Title>
-          <Button variant="warning" onClick={toggleShow}>
-          수정
-          </Button>
-        {'  '}
-          <Button variant="danger" onClick={deleteBoard}>
-          삭제
-          </Button>
+
             </div>
         }
-        </Card.Body>
+            </Card.Body>
+
       <Card.Body onSubmit={toggleShow1}>
         {isShow1 ?
             <div>
@@ -60,10 +64,12 @@ const BoardList = (props) => {
             </div>
 
             :
-            <a onClick={toggleShow1}> 댓글보기 ∨</a>
+            <button onClick={toggleShow1}> 댓글보기 ∨</button>
         }
+
       </Card.Body>
       </Card>
+      <br className="br_class"/>
   </div>
   );
 };

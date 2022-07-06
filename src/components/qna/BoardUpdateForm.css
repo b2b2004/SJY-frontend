@@ -1,0 +1,29 @@
+.c-button-cancle {
+    font-weight: bold;
+    color: white;
+    background: gray;
+    border-radius: 20px;
+    width: 4rem;
+    margin-bottom: 20px;
+    height: 2rem;
+    font-size: 0.9rem;
+}
+.c-button-complete {
+    font-weight: bold;
+    color: white;
+    background: dimgrey;
+    border-radius: 20px;
+    width: 4rem;
+    margin-bottom: 20px;
+    height: 2rem;
+    font-size: 0.9rem;
+}
+
+
+.commentInput textarea:hover {
+    border-color: #1d88f2;
+}
+
+.c-button-complete:hover {
+    background: #1d88f2;
+}

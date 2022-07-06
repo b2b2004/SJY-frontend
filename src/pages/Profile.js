@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {Form} from "react-bootstrap";
+import {Button, Form, Spinner} from "react-bootstrap";
 import BoardList from "../components/qna/BoardList";
+import axios from "axios";
+import "./Profile.css";
+import moment from "moment";
 
 function Profile() {
     const Authorization = localStorage.getItem("Authorization");
@@ -11,6 +14,14 @@ function Profile() {
         password1: '',
         password2: ''
     });
+    const [image, setImage] = useState({
+        image_file: '',
+        preview_URL: "img/default_image.png"
+    });
+    const [loaded, setLoaded] = useState(false);
+    let inputRef;
+
+
 
     const changeValue = (e) => {
         setPassword({
@@ -31,7 +42,11 @@ function Profile() {
             ).then((res) =>res.json()
             ).then((data)=>{
                 setuser(data);
-                console.log(data);
+            setImage(
+                {
+                    preview_URL: require(`../image/ProfileImage/${data.user.image}`)
+                }
+            )
         })
 
 
@@ -100,6 +115,64 @@ function Profile() {
     }
 
 
+    const saveImage = (e) =>{
+        e.preventDefault();
+        const fileReader = new FileReader();
+
+        if(e.target.files[0]){
+            setLoaded("loading")
+            fileReader.readAsDataURL(e.target.files[0])
+        }
+        fileReader.onload = () => {
+            setImage(
+                {
+                    image_file: e.target.files[0],
+                    preview_URL: fileReader.result
+                }
+            )
+            setLoaded(true);
+        }
+    }
+
+    const deleteImage = async () => {
+        setImage({
+            image_file: "",
+            preview_URL: "img/default_image.png",
+        });
+
+        const formData = new FormData()
+        formData.append('imageName', users.user.image);
+        formData.append('username', users.username);
+        await axios.post('http://localhost:8000/deleteImage/profile', formData);
+        alert("삭제 완료");
+    }
+
+    const sendImageToServer = async () => {
+
+        const FrontName = moment().format('YYYYMMDDHHmmss');
+        const BackName = image.image_file.name;
+        const imageName = "P" + FrontName + BackName;
+        console.log(imageName);
+
+        if(image.image_file){
+            const formData = new FormData()
+            formData.append('multipartFiles', image.image_file);
+            formData.append('imageName', imageName);
+            formData.append('username', users.username);
+            await axios.post('http://localhost:8000/uploadImage/profile', formData);
+            alert("등록 완료");
+            setImage({
+                image_file: "",
+                preview_URL: "img/default_image.png",
+            });
+        }
+        else{
+            alert("사진을 등록하세요!")
+        }
+    }
+
+
+
     return <div>
        username : {users.username}
         <br /><br />
@@ -118,6 +191,33 @@ function Profile() {
             </Form.Group>
             <button variant="primary" type="submit">비밀번호 변경하기</button>
             </Form>
+
+        <div className="uploader-wrapper">
+            <input type="file" accept="image/*"
+                   onChange={saveImage}
+                   ref={refParam => inputRef = refParam}
+                   style={{ display: "none" }}
+            />
+            <div className="img-wrapper">
+                {loaded === false || loaded === true ? (
+                    <img src={image.preview_URL} />
+                ) : (
+                    <Spinner className="img-spinner" tip = "이미지 불러오는중"/>
+                )}
+            </div>
+
+            <div className="upload-button">
+                <Button type="primary" onClick={() => inputRef.click()}>
+                    이미지 선택
+                </Button>
+                <Button color="error" variant="contained" onClick={deleteImage}>
+                    이미지 삭제
+                </Button>
+                <Button color="success" variant="contained" onClick={sendImageToServer}>
+                    이미지 저장
+                </Button>
+            </div>
+        </div>
 
         {boards.map((board) => (
             <BoardList key={board.id} board={board} />

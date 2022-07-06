@@ -1,0 +1,51 @@
+* {
+    font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+    box-sizing: border-box;
+}
+.CardGroup {
+    width: 19rem;
+    float: left;
+    margin-right: 30px;
+    margin-top: 30px;
+    align-content: center;
+    cursor: pointer;
+}
+
+.HashTag{
+    font-size: small;
+    color: grey;
+}
+
+.eye_img {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 3px;
+    margin-right: 1px;
+}
+
+.Card_Body {
+    width: 300px;
+    height: 300px;
+    margin-top: 30px;
+}
+
+.Card_Text {
+    align-content: center;
+    margin-left: 20px;
+}
+.count_number {
+    float: right;
+}
+
+.bottom_Text {
+    margin-top: 80px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.CardGroup:hover {
+    transform: scale(1.02);
+    transition: transform .35s;
+}

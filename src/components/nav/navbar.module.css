@@ -1,0 +1,52 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+}
+
+button {
+    outline: none;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+.loginElementWrapper {
+    display: flex;
+    margin-right: 1rem;
+}
+
+.logo {
+    width: 160px;
+    height: 34px;
+}
+
+.login {
+    margin-right: 2rem;
+    font-weight: 600;
+    font-size: 1.125rem;
+}
+
+.postRegister {
+    margin-right: 2rem;
+    font-weight: 600;
+    font-size: 1.125rem;
+}
+
+.user {
+    margin-right: 2rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+@media screen and (max-width: 575px) {
+    .postRegister {
+        display: none;
+    }
+    .loginElementWrapper {
+        margin-right: 0;
+    }
+    .login {
+        margin-right: 0;
+    }
+}

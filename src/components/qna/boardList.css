@@ -1,0 +1,73 @@
+.b-button {
+    float: right;
+}
+.b-button:hover {
+    color: #1d88f2;
+}
+
+.b-X-button {
+    float: right;
+}
+.b-X-button:hover {
+    color: red;
+}
+@value registerBackground from '../../common/color.css';
+
+.commentInput {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.commentInput textarea {
+    font-family: inherit;
+    padding: 1rem 1rem 1.5rem;
+    outline: none;
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+
+}
+textarea::placeholder {
+    color: grey;
+}
+
+.buttonComplete {
+    font-weight: bold;
+    color: white;
+    background: black;
+    border-radius: 20px;
+    width: 6rem;
+    margin-bottom: 40px;
+    height: 2rem;
+    font-size: 1rem;
+}
+
+.buttonWrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.3rem;
+}
+
+@media screen and (max-width: 575px) {
+    .commentCount {
+        font-size: 1.25rem;
+    }
+}
+
+.board_container:hover {
+    transform: scale(1.01);
+    border-color: #1d88f2;
+    transition: transform .20s;
+
+}
+
+.board_container {
+    border-radius: 20px;
+}
+.board_body {
+    margin-right: 30px;
+    margin-left: 30px;
+    margin-top: 10px
+}

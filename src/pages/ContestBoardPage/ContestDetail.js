@@ -9,14 +9,13 @@ function ContestDetail(props){
 
     useEffect(()=>{
         fetch(
-            'http://localhost:8000/sopBoard/' + id,{
+            'http://localhost:8000/contestBoard/' + id,{
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json; charset=utf-8',Authorization
                 },
                 body: JSON.stringify(id),
             }
-
         ).then((res)=>res.json())
             .then((res)=>{
                 setContestboard(res);
@@ -50,6 +49,7 @@ function ContestDetail(props){
     const deleteContestBoard = () => {
         fetch('http://localhost:8000/contestBoard/' + id, {
             method: 'DELETE',
+            body: JSON.stringify(contestboard.image),
         })
             .then((res) => res.text())
             .then((res) => {
@@ -68,6 +68,7 @@ function ContestDetail(props){
         <h1>id={contestboard.id}</h1>
         <h1>title={contestboard.title}</h1>
         <h1>hit={contestboard.hit}</h1>
+        <h1>image={contestboard.image}</h1>
         <Button variant="danger" onClick={deleteContestBoard}>
             삭제
         </Button>

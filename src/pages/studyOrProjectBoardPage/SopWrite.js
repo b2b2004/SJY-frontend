@@ -4,6 +4,7 @@ import Calendar from "react-calendar";
 import '../../components/StudyOrProjectBoard/SopCalendar.css'
 import 'react-calendar/dist/Calendar.css';
 import moment from "moment";
+import './sopWrite.css';
 
 function SopWrite(){
     const Authorization = localStorage.getItem("Authorization");
@@ -21,10 +22,12 @@ function SopWrite(){
         content: '',
     });
         const formData = [
-            { id: 1, name: "React"},
-            { id: 2, name: "Node"},
-            { id: 3, name: "SpringBoot"},
-            { id: 4, name: "Express"},
+            { id: 1, name: "react"},
+            { id: 2, name: "node.js"},
+            { id: 3, name: "spring"},
+            { id: 4, name: "vue"},
+            { id: 5, name: "c++"},
+            { id: 6, name: "java"},
         ]
 
     useEffect(()=>{
@@ -67,7 +70,10 @@ function SopWrite(){
                 },
                 body: JSON.stringify(sopBoard),
             })
-            .then()
+            .then(()=>{
+                alert("글쓰기 완료");
+                window.location.href = "/sopboard";
+            })
             .then()
     }
 

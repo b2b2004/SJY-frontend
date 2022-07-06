@@ -9,7 +9,7 @@ import {combineReducers, configureStore, getDefaultMiddleware} from "@reduxjs/to
 import loginStepReducer from './store/loginStep';
 import storage from 'redux-persist/lib/storage';
 import {persistReducer} from "redux-persist";
-
+import "./index.css";
 const reducers = combineReducers({
     loginStep: loginStepReducer,
 });

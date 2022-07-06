@@ -2,6 +2,8 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import "./BoardUpdateForm.css"
+import backdrop from "bootstrap/js/src/util/backdrop";
 
 const BoardUpdateForm = (props) => {
   console.log(props);
@@ -10,6 +12,7 @@ const BoardUpdateForm = (props) => {
   const [board, setBoard] = useState({
     title: '',
     content: '',
+    Board_date:'',
   });
 
   useEffect(() => {
@@ -54,31 +57,33 @@ const BoardUpdateForm = (props) => {
   };
 
   return (
-    <Form onSubmit={submitBoard}>
-      <Form.Group controlId="formBasicEmail">
-        <Form.Control
-          type="text"
-          placeholder="제목을 입력하세요"
-          onChange={changeValue}
-          name="title"
-          value={board.title}
-        />
-      </Form.Group>
+      <Form onSubmit={submitBoard}>
+        <div className="commentInput">
+          <textarea
+              placeholder={board.content}
+              onChange={changeValue}
+              name="content"
+          ></textarea>
+          <div className="buttonWrapper">
+            {/*<button*/}
+            {/*    className="c-button-cancle"*/}
+            {/*    name="content"*/}
+            {/*    type="button"*/}
+            {/*>*/}
+            {/*  취소*/}
+            {/*</button>*/}
+            <button
+                className="c-button-complete"
+                name="content"
+                type="submit"
 
-      <Form.Group controlId="formBasicEmail">
-        <Form.Control
-          type="text"
-          placeholder="내용을 입력하세요"
-          onChange={changeValue}
-          name="content"
-          value={board.content}
-        />
-      </Form.Group>
+            >
+              완료
+            </button>
 
-      <Button variant="warning" type="submit">
-        수정
-      </Button>
-    </Form>
+          </div>
+        </div>
+      </Form>
   );
 };
 
