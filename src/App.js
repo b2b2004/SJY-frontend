@@ -16,15 +16,15 @@ import Contests from "./pages/Contests";
 import Questions from "./pages/Questions";
 import Navbar from "./components/nav/Navbar";
 import Profile from "./pages/Profile";
-import Board from "./pages/QnaBoardPage/Board";
+import Board from "./pages/qnaBoardPage/Board";
 import Information from "./components/profile/Information";
 import Manager from "./pages/Manager";
 import StudyOrProjectBoard from "./pages/studyOrProjectBoardPage/StudyOrProjectBoard";
 import SopWrite from "./pages/studyOrProjectBoardPage/SopWrite";
 import SopDetail from "./pages/studyOrProjectBoardPage/SopDetail";
-import ContestBoard from "./pages/ContestBoardPage/ContestBoard";
-import ContestDetail from "./pages/ContestBoardPage/ContestDetail";
-import ContestWrite from "./pages/ContestBoardPage/ContestWrite";
+import ContestBoard from "./pages/contestBoardPage/ContestBoard";
+import ContestDetail from "./pages/contestBoardPage/ContestDetail";
+import ContestWrite from "./pages/contestBoardPage/ContestWrite";
 import Main from "./pages/main/main";
 
 function App() {

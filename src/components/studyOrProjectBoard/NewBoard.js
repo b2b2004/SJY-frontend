@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Card, CardGroup} from "react-bootstrap";
-import './newBoard.css';
+import './NewBoard.css';
 function NewBoard(){
 
 const [SopBoard, setSopBoard] = useState([]);

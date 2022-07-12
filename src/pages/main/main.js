@@ -1,7 +1,7 @@
 import React from 'react';
 import './main.css';
 import Slider from "../../components/imagesSlider/Slider";
-import PopularBoardLanking from "../../components/StudyOrProjectBoard/PopularBoardLanking";
+import PopularBoardLanking from "../../components/studyOrProjectBoard/PopularBoardLanking";
 
 
 function Main() {

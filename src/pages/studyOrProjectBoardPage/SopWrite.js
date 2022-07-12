@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Button, CloseButton, Form} from "react-bootstrap";
 import Calendar from "react-calendar";
-import '../../components/StudyOrProjectBoard/SopCalendar.css'
+import '../../components/studyOrProjectBoard/SopCalendar.css'
 import 'react-calendar/dist/Calendar.css';
 import moment from "moment";
 import './sopWrite.css';

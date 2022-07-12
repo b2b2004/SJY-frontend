@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import styles from "./navbar.module.css";
+import styles from "./Navbar.module.css";
 import Modal from "../modal/Modal";
 import {useDispatch, useSelector} from "react-redux";
-import LoginModal from "../modal/loginModal";
+import LoginModal from "../modal/LoginModal";
 import { setModalVisible } from "../../store/loginStep";
 import {getValue} from "@testing-library/user-event/dist/utils";
 
