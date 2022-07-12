@@ -1,0 +1,6 @@
+.botImage {
+    border-radius: 70%;
+    border: 2px solid rgb(188, 208, 255);
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgb(177, 203, 255);
+}

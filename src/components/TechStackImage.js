@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import AllSOPBoard from "./StudyOrProjectBoard/AllSOPBoard";
+import AllSOPBoard from "./studyOrProjectBoard/AllSOPBoard";
 import "./TechStackImage.css"
 
 function TechStackImage(props){

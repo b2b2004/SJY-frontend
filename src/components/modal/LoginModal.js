@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./loginModal.module.css";
+import styles from "./LoginModal.module.css";
 import { useSelector } from "react-redux";
 import SetLoginContainer from "./Set_Login_Container";
 import Signup from "./Signup";

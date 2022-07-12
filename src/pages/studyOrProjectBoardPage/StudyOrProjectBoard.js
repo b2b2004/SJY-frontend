@@ -1,8 +1,8 @@
 import {Button} from "react-bootstrap";
-import AllSOPBoard from "../../components/StudyOrProjectBoard/AllSOPBoard";
-import NewBoard from "../../components/StudyOrProjectBoard/NewBoard";
+import AllSOPBoard from "../../components/studyOrProjectBoard/AllSOPBoard";
+import NewBoard from "../../components/studyOrProjectBoard/NewBoard";
 import React, {useEffect, useState} from "react";
-import PopularBoardLanking from "../../components/StudyOrProjectBoard/PopularBoardLanking";
+import PopularBoardLanking from "../../components/studyOrProjectBoard/PopularBoardLanking";
 import './StudyOrProjectBoard.css';
 
 function StudyOrProjectBoard(){

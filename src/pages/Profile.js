@@ -4,6 +4,8 @@ import BoardList from "../components/qna/BoardList";
 import axios from "axios";
 import "./Profile.css";
 import moment from "moment";
+import Select from "react-select";
+
 
 function Profile() {
     const Authorization = localStorage.getItem("Authorization");
@@ -174,6 +176,54 @@ function Profile() {
 
 
     return <div>
+
+        <div className='information'>
+            <h1>내 정보</h1>
+            <div className="image">
+                <input type="file" accept="image/*"
+                       onChange={saveImage}
+                       ref={refParam => inputRef = refParam}
+                       style={{ display: "none" }}
+                />
+                <div className="img-wrapper">
+                    {loaded === false || loaded === true ? (
+                        <img src={image.preview_URL} />
+                    ) : (
+                        <Spinner className="img-spinner" tip = "이미지 불러오는중"/>
+                    )}
+                </div>
+                <div className="imageControl">
+                    <button className="imageUpload" onClick={() => inputRef.click()}>
+                        이미지 선택
+                    </button>
+                    <button className="imageDelete" onClick={deleteImage}>
+                        이미지 제거
+                    </button>
+                    <button className="imageDelete" onClick={sendImageToServer}>
+                        이미지 저장
+                    </button>
+                </div>
+            </div>
+            <div className='information__profile'>
+                <p className="description">Codmeter에서 사용되는 이름입니다.</p>
+                <hr />
+                <div className='nicknameTitle'>닉네임</div>
+                <input
+                    name="name"
+                    className="nickname"
+                    type="text"
+                />
+                {/* <button className='change'>수정</button> */}
+                </div>
+            </div>
+            <button className='pwchange'>비밀번호 변경</button>
+            <button className='memberdrop' onClick={deleteId}>회원탈퇴</button>
+            <button className='complete'>완료</button>
+
+
+
+
+        <br /><br />
        username : {users.username}
         <br /><br />
         <button onClick={deleteId}>아이디 삭제하기</button><br /><br />
@@ -218,12 +268,9 @@ function Profile() {
                 </Button>
             </div>
         </div>
-
         {boards.map((board) => (
             <BoardList key={board.id} board={board} />
         ))}
-
-
     </div>
 }
 export default Profile;

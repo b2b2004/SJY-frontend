@@ -1,6 +1,6 @@
 import {Card, CardGroup, ListGroup, ListGroupItem} from "react-bootstrap";
 import TechStackImage from "../TechStackImage";
-import './allSopBoard.css';
+import './AllSopBoard.css';
 
 
 function AllSOPBoard(props){
