@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Portal from "./Portal";
+import SopPortal from "./SopPortal";
 
-const Modal = ({ name, onClose, visible, children }) => {
+const SopModal = ({ name, onClose, visible, children }) => {
 
     const onMaskClick = (e) => {
         if (onClose === undefined) return;
@@ -11,12 +11,12 @@ const Modal = ({ name, onClose, visible, children }) => {
     };
 
     return (
-        <Portal elementId="modal-root">
+        <SopPortal elementId="modal-root">
             <ModalOverlay name={name} visible={visible} />
             <ModalWrapper onClick={onMaskClick} tabIndex={-1} visible={visible}>
                 {children}
             </ModalWrapper>
-        </Portal>
+        </SopPortal>
     );
 };
 
@@ -47,4 +47,4 @@ const ModalOverlay = styled.div`
   z-index: 999;
 `;
 
-export default Modal;
+export default SopModal;

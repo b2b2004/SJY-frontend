@@ -4,7 +4,7 @@ import Calendar from "react-calendar";
 import '../../components/studyOrProjectBoard/SopCalendar.css'
 import 'react-calendar/dist/Calendar.css';
 import moment from "moment";
-import './sopWrite.css';
+import './SopWrite.css';
 
 function SopWrite(){
     const Authorization = localStorage.getItem("Authorization");
@@ -20,6 +20,7 @@ function SopWrite(){
         techStack: '',
         title: '',
         content: '',
+        roleType: 'LEADER',
     });
         const formData = [
             { id: 1, name: "react"},
@@ -60,21 +61,25 @@ function SopWrite(){
         sopBoard.duration_start = moment(date[0]).format("YYYY,MM,DD");
         sopBoard.duration_end = moment(date[1]).format("YYYY,MM,DD");
 
-
         console.log(sopBoard);
-        fetch("http://localhost:8000/sopBoard/sopWrite",
-            {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json; charset=utf-8',Authorization
-                },
-                body: JSON.stringify(sopBoard),
-            })
-            .then(()=>{
-                alert("글쓰기 완료");
-                window.location.href = "/sopboard";
-            })
-            .then()
+        if(sopBoard.meetType != null && sopBoard.boardType != null){
+            fetch("http://localhost:8000/sopBoard/sopWrite",
+                {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json; charset=utf-8',Authorization
+                    },
+                    body: JSON.stringify(sopBoard),
+                })
+                .then(()=>{
+                    alert("글쓰기 완료");
+                    window.location.href = "/sopboard";
+                })
+                .then()
+        }
+        else{
+            alert("MeetType , BoardType 설정안함");
+        }
     }
 
 
