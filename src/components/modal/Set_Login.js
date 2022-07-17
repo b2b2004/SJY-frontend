@@ -46,9 +46,6 @@ const SetNickname = ({ nickname, setNickname, handleLoginStep }) => {
     }
 
 
-
-
-
     return (
         <>
             <Form onSubmit={loginUser} >

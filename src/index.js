@@ -7,11 +7,13 @@ import reportWebVitals from "./reportWebVitals";
 import {Provider} from "react-redux";
 import {combineReducers, configureStore, getDefaultMiddleware} from "@reduxjs/toolkit";
 import loginStepReducer from './store/loginStep';
+import sopBoardStepReducer from './store/SopBoardStep';
 import storage from 'redux-persist/lib/storage';
 import {persistReducer} from "redux-persist";
 import "./index.css";
 const reducers = combineReducers({
     loginStep: loginStepReducer,
+    sopBoardStep: sopBoardStepReducer,
 });
 
 const persistConfig = {
