@@ -6,6 +6,7 @@ import {useParams} from "react-router-dom";
 function SopManageNoticeWrite() {
 
     const param = useParams();
+    const id = param.id;
     const [sopManageBoard, setSopManageBoard] = useState({
         sopBoardId: '',
         title: '',
@@ -21,10 +22,10 @@ function SopManageNoticeWrite() {
         });
     }
     const SopManageBoardSumit = (e) =>{
-        const a = parseInt(param.id);
+        e.preventDefault();
+        const a = parseInt(id);
         sopManageBoard.sopBoardId = a;
         console.log("sopBoardId = " + sopManageBoard.sopBoardId);
-        e.preventDefault();
         fetch("http://localhost:8000/sopBoard/NoticeWrite",
             {
                 method: "POST",
@@ -35,7 +36,7 @@ function SopManageNoticeWrite() {
             })
             .then(()=>{
                 alert("글쓰기 완료");
-                window.location.href = "/SopManage/"+ param.id;
+                window.location.href = "/SopDetail/"+ id;
             })
             .then()
     }

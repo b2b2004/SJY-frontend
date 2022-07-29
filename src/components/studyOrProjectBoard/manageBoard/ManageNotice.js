@@ -1,4 +1,5 @@
 function ManageNotice(props){
+    console.log(props.sopManageNotice);
 
     const {id , sopBoardId , title , content} = props.sopManageNotice;
     const move = () =>{

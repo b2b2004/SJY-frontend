@@ -9,6 +9,7 @@ import SopModal from "../../components/modal/SopModal";
 import SopWriteModal from "../../components/modal/SopWriteModal";
 import {setModalVisible} from "../../store/SopBoardStep";
 import {useDispatch, useSelector} from "react-redux";
+import {useHistory} from "react-router-dom";
 
 function StudyOrProjectBoard(){
     const [SopBoard, setSopboard] = useState([]);

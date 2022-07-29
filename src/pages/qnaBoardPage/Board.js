@@ -13,6 +13,7 @@ const Board = () => {
             .then((res) => res.json())
             .then((res) => {
                 setBoards(res);
+                console.log(res);
             }); // 비동기 함수
     }, []);
 

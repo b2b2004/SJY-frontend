@@ -268,9 +268,11 @@ function Profile() {
                 </Button>
             </div>
         </div>
+
         {boards.map((board) => (
             <BoardList key={board.id} board={board} />
         ))}
+
     </div>
 }
 export default Profile;

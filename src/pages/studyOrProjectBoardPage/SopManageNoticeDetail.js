@@ -22,7 +22,7 @@ function SopManageNoticeDetail(){
     },[])
 
     const move = () =>{
-        window.location.href = "/SopManage/"+ sopManageBoard.sopBoardId;
+        window.location.href = "/SopDetail/"+ sopManageBoard.sopBoardId;
     }
 
     return<>
