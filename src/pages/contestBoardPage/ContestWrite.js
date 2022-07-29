@@ -107,6 +107,7 @@ function ContestWrite(){
                        ref={refParam => inputRef = refParam}
                        style={{ display: "none" }}
                 />
+
                 <div className="img-wrapper">
                     {loaded === false || loaded === true ? (
                         <img src={image.preview_URL} />
@@ -132,7 +133,7 @@ function ContestWrite(){
                     <Form.Control onChange={changeValue} name="duration_start" type="text" placeholder="시작일" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                    <Form.Control onChange={changeValue} name="duration_end"  type="text"  placeholder="마감일"  />
+                    <Form.Control onChange={changeValue} name="duration_end"   type="text"  placeholder="마감일"  />
                 </Form.Group>
             </Form>
 
@@ -141,23 +142,29 @@ function ContestWrite(){
                     <Form.Label>주최</Form.Label>
                     <Form.Control onChange={changeValue} name="host"  type="textarea" rows={10} placeholder="주최"  />
                 </Form.Group>
+
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                     <Form.Label>주관</Form.Label>
                     <Form.Control onChange={changeValue} name="supervision"  type="textarea" rows={10} placeholder="주관"  />
                 </Form.Group>
+
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                     <Form.Label>후원/협찬</Form.Label>
                     <Form.Control onChange={changeValue} name="sponsor"  type="textarea" rows={10} placeholder="후원/협찬"  />
                 </Form.Group>
+
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                     <Form.Label>상금</Form.Label>
                     <Form.Control onChange={changeValue} name="prize"  type="textarea" rows={10} placeholder="시상"  />
                 </Form.Group>
+
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                     <Form.Label>홈페이지</Form.Label>
                     <Form.Control onChange={changeValue} name="homepage"  type="textarea" rows={10} placeholder="홈페이지"  />
                 </Form.Group>
+
             </Form>
+
 
 
             <Form>

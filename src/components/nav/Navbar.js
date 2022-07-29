@@ -79,7 +79,6 @@ const Navbar = React.memo(() => {
                     <Modal visible={modalVisible} name="login" onClose={closeModal}>
                         <LoginModal handleClose={closeModal} tabIndex={0}></LoginModal>
                     </Modal>
-
                 </div>
             </nav>
         </>

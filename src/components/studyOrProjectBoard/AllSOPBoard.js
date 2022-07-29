@@ -1,20 +1,18 @@
 import {Card, CardGroup, ListGroup, ListGroupItem} from "react-bootstrap";
 import TechStackImage from "../TechStackImage";
 import './AllSopBoard.css';
+import {useHistory} from "react-router-dom";
+import {useEffect, useState} from "react";
 
 
 function AllSOPBoard(props){
 
     const { id, title, content, username, boardType, meetType, techStack, recruitment, hit} = props.SopBoard;
 
-
-
-    const move = () =>{
-        window.location.href = "/SopDetail/"+ id;
-    }
-
     return <>
-        <CardGroup className='CardGroup' onClick={move}>
+        <CardGroup className='CardGroup' onClick={() =>{
+            window.location.href = "/SopDetail/"+ id;
+        }}>
             <Card style={{
                 borderRadius: "20px",
                 border: "2px solid lightgrey",

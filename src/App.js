@@ -29,6 +29,7 @@ import Main from "./pages/main/main";
 import SopManage from "./pages/studyOrProjectBoardPage/SopManage";
 import SopManageNoticeWrite from "./pages/studyOrProjectBoardPage/SopManageNoticeWrite";
 import SopManageNoticeDetail from "./pages/studyOrProjectBoardPage/SopManageNoticeDetail";
+import SopMangerWrite from "./pages/studyOrProjectBoardPage/SopMangerWrite";
 
 function App() {
     return (
@@ -58,6 +59,7 @@ function App() {
                 <Route path="/sopManage/:id" exact={true} component={SopManage} />
                 <Route path="/sopManageNoticeWrite/:id" exact={true} component={SopManageNoticeWrite} />
                 <Route path="/sopManageNoticeDetail/:id" exact={true} component={SopManageNoticeDetail} />
+                <Route path="/sopManagerWrite/:id" exact={true} component={SopMangerWrite} />
             </Container>
         </div>
     );

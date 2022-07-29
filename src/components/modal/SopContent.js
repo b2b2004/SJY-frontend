@@ -22,19 +22,24 @@ const SopContent = ({ handleClose }) => {
     const SopSummit = (e) => {
         e.preventDefault();
         console.log(sopBoard);
-        fetch("http://localhost:8000/sopBoard/sopWrite",
-            {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json; charset=utf-8',Authorization
-                },
-                body: JSON.stringify(sopBoard),
-            })
-            .then(()=>{
-                alert("글쓰기 완료");
-                window.location.href = "/sopboard";
-            })
-            .then()
+        if (sopBoard.meetType != null && sopBoard.boardType != null) {
+            fetch("http://localhost:8000/sopBoard/sopWrite",
+                {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json; charset=utf-8', Authorization
+                    },
+                    body: JSON.stringify(sopBoard),
+                })
+                .then(() => {
+                    alert("글쓰기 완료");
+                    window.location.href = "/sopboard";
+                })
+                .then()
+        }
+        else{
+            alert("meetType / boardType를 입력해주세요");
+        }
     }
 
 
