@@ -1,9 +1,9 @@
-
 import React, {useEffect, useState} from "react";
-import './CommentList.css';
 import moment from "moment";
-const CommentList = (props) => {
 
+function SopDetailCommentList(props){
+
+    console.log(props);
     const { id, username, content, board_date } = props.comment;
     const date = moment(board_date).format("YYYY,MM,DD, H:mm:ss");
     const Authorization = localStorage.getItem("Authorization");
@@ -24,13 +24,13 @@ const CommentList = (props) => {
             console.log(data.image);
             setImage(
                 {
-                    preview_URL: require(`../../../image/ProfileImage/${data.image}`)
+                    preview_URL: require(`../../image/ProfileImage/${data.image}`)
                 }
             )
         })
     },[])
 
-    return (
+    return<>
         <div>
             <div className="commentContainer">
                 <div className="userNickname">
@@ -45,8 +45,7 @@ const CommentList = (props) => {
             </div>
 
         </div>
-    );
-
+    </>
 }
 
-export default CommentList;
+export default SopDetailCommentList;

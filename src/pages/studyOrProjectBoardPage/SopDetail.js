@@ -5,6 +5,10 @@ import {useHistory} from "react-router-dom";
 import SopDetailNotice from "../../components/studyOrProjectBoard/SopDetailNotice";
 import SopDetailCP from "../../components/studyOrProjectBoard/SopDetailCP";
 import SopDetailManage from "../../components/studyOrProjectBoard/SopDetailManage";
+import SopDetailSchedule from "../../components/studyOrProjectBoard/SopDetailSchedule";
+import SopDetailQnaList from "../../components/studyOrProjectBoard/SopDetailQnaList";
+import SopDetailQnaWrite from "../../components/studyOrProjectBoard/SopDetailQnaWrite";
+import BoardList from "../../components/qna/BoardList";
 
 function SopDetail(props){
     const id = props.match.params.id;
@@ -17,8 +21,14 @@ function SopDetail(props){
         detail: true,
         schedule: false,
         notice: false,
+        Qna: false,
         manage: false
     })
+    const [sopDetailQna , setSopDetailQna] = useState({
+        id:"",
+        username:""
+    });
+
     useEffect( () => {
         fetch(
             "http://localhost:8000/sopBoard/OneBoard", {
@@ -34,6 +44,7 @@ function SopDetail(props){
                 console.log(sopboard);
             })
     },[])
+
     useEffect(()=>{
         // 현재 접속한 유저
         fetch("http://localhost:8000/profile",{
@@ -48,6 +59,17 @@ function SopDetail(props){
             console.log(data);
         })
     },[])
+
+    useEffect(() => {
+        fetch('http://localhost:8000/sopBoard/qnaboard/' + id)
+            .then((res) => res.json())
+            .then((res) => {
+                console.log(res);
+                setSopDetailQna(res);
+                console.log(res);
+            }); // 비동기 함수
+    }, []);
+
 
     useEffect(()=>{
         // 조회수 관리
@@ -76,11 +98,21 @@ function SopDetail(props){
             <Button onClick={setmenu} name="detail" variant="outline-primary">상세페이지</Button> {' '}
             <Button onClick={setmenu} name="schedule" variant="outline-primary">세부일정</Button>{' '}
             <Button onClick={setmenu} name="notice" variant="outline-primary">공지사항</Button>{' '}
+            <Button onClick={setmenu} name="Qna" variant="outline-primary">질문게시판</Button>{' '}
             <Button onClick={setmenu} name="manage" variant="outline-primary">관리</Button>{' '}
 
             <div>
                 {component.detail === true ? <SopDetailCP sopboard={sopboard} key={sopboard.id} /> : <></>}
+                {component.schedule === true ? <SopDetailSchedule sopboard={sopboard} key={sopboard.id} /> : <></>}
                 {component.notice === true ? <SopDetailNotice sopboard={sopboard} key={sopboard.id} /> : <></>}
+                {component.Qna === true ?
+                    <div>
+                        <SopDetailQnaWrite sopboard={sopboard} key={sopboard.id} /> <br />
+                        {sopDetailQna.map((sopDetailQna) => (
+                            <SopDetailQnaList key={sopDetailQna.id} sopDetailQna={sopDetailQna} />
+                        ))}
+                    </div>
+                    : <></>}
                 {component.manage === true ? <SopDetailManage sopboard={sopboard} key={sopboard.id} /> : <></>}
             </div>
 

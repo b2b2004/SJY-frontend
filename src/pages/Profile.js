@@ -4,7 +4,6 @@ import BoardList from "../components/qna/BoardList";
 import axios from "axios";
 import "./Profile.css";
 import moment from "moment";
-import Select from "react-select";
 
 
 function Profile() {
@@ -18,9 +17,10 @@ function Profile() {
     });
     const [image, setImage] = useState({
         image_file: '',
-        preview_URL: "img/default_image.png"
+        preview_URL: ''
     });
     const [loaded, setLoaded] = useState(false);
+    const [username,setUsername] = useState();
     let inputRef;
 
 
@@ -34,22 +34,22 @@ function Profile() {
 
 
     useEffect(() => {
-
-        fetch("http://localhost:8000/profile",{
-                method: 'GET',
-                headers:{
-                    Authorization
+            fetch("http://localhost:8000/profile",{
+                    method: 'GET',
+                    headers:{
+                        Authorization
+                    }
                 }
-            }
             ).then((res) =>res.json()
             ).then((data)=>{
                 setuser(data);
-            setImage(
-                {
-                    preview_URL: require(`../image/ProfileImage/${data.user.image}`)
-                }
-            )
-        })
+                console.log(data);
+                    setImage(
+                        {
+                            preview_URL: require(`../image/ProfileImage/${data.user.image}`)
+                        }
+                    )
+            })
 
 
          fetch("http://localhost:8000/profile/board",{
@@ -139,7 +139,7 @@ function Profile() {
     const deleteImage = async () => {
         setImage({
             image_file: "",
-            preview_URL: "img/default_image.png",
+            preview_URL: require("../image/user.png"),
         });
 
         const formData = new FormData()
@@ -163,17 +163,34 @@ function Profile() {
             formData.append('username', users.username);
             await axios.post('http://localhost:8000/uploadImage/profile', formData);
             alert("등록 완료");
-            setImage({
-                image_file: "",
-                preview_URL: "img/default_image.png",
-            });
         }
         else{
             alert("사진을 등록하세요!")
         }
     }
 
+    const changeNicknameValue = (e) =>{
+        console.log(e.target.value);
+        setUsername({
+            ...username,
+            [e.target.name]: e.target.value,
+        });
+    }
 
+    const chageNickname = (e) =>{
+
+        console.log(username.username);
+        const Chagneusername = username.username;
+        fetch("http://localhost:8000/profile/changeNickname/"+Chagneusername,{
+                method: 'PUT',
+                headers:{
+                    "Content-Type" : "application/json; charset=utf-8",
+                    Authorization
+                },
+            })
+            .then()
+            .then()
+    }
 
     return <div>
 
@@ -207,28 +224,24 @@ function Profile() {
             <div className='information__profile'>
                 <p className="description">Codmeter에서 사용되는 이름입니다.</p>
                 <hr />
-                <div className='nicknameTitle'>닉네임</div>
+                <div className='nicknameTitle' >닉네임</div>
                 <input
-                    name="name"
+                    onChange={changeNicknameValue}
+                    defaultValue={users.username}
+                    name="username"
                     className="nickname"
                     type="text"
                 />
-                {/* <button className='change'>수정</button> */}
+                <button className='change' onClick={chageNickname}>적용</button>
                 </div>
             </div>
             <button className='pwchange'>비밀번호 변경</button>
             <button className='memberdrop' onClick={deleteId}>회원탈퇴</button>
-            <button className='complete'>완료</button>
 
 
 
 
         <br /><br />
-       username : {users.username}
-        <br /><br />
-        <button onClick={deleteId}>아이디 삭제하기</button><br /><br />
-
-
             <Form onSubmit={changePw}>
             <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Control type="password" placeholder="현재 비밀번호"  onChange={changeValue} name = "password" />
@@ -241,33 +254,6 @@ function Profile() {
             </Form.Group>
             <button variant="primary" type="submit">비밀번호 변경하기</button>
             </Form>
-
-        <div className="uploader-wrapper">
-            <input type="file" accept="image/*"
-                   onChange={saveImage}
-                   ref={refParam => inputRef = refParam}
-                   style={{ display: "none" }}
-            />
-            <div className="img-wrapper">
-                {loaded === false || loaded === true ? (
-                    <img src={image.preview_URL} />
-                ) : (
-                    <Spinner className="img-spinner" tip = "이미지 불러오는중"/>
-                )}
-            </div>
-
-            <div className="upload-button">
-                <Button type="primary" onClick={() => inputRef.click()}>
-                    이미지 선택
-                </Button>
-                <Button color="error" variant="contained" onClick={deleteImage}>
-                    이미지 삭제
-                </Button>
-                <Button color="success" variant="contained" onClick={sendImageToServer}>
-                    이미지 저장
-                </Button>
-            </div>
-        </div>
 
         {boards.map((board) => (
             <BoardList key={board.id} board={board} />

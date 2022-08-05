@@ -1,10 +1,11 @@
-import {Button, Form} from "react-bootstrap";
+import {Form} from "react-bootstrap";
 import React, {useState} from "react";
-import './CommentSaveForm.css'
 
-const CommentSaveForm = (props) => {
+function SopDetailCommentSaveForm(props){
+    console.log(props);
     const Authorization = localStorage.getItem("Authorization");
     const id = props.id;
+    const sopboardId = props.sopboardId;
 
 
     const [comment, setComment] = useState({
@@ -22,7 +23,7 @@ const CommentSaveForm = (props) => {
     const submitComment = (e) => {
         e.preventDefault(); // submit이 action을 안타고 자기 할일을 그만함.
 
-        fetch('http://localhost:8000/comment', {
+        fetch('http://localhost:8000/sopQnaComment', {
             method: 'POST',
             headers: {
                 Authorization,
@@ -42,41 +43,40 @@ const CommentSaveForm = (props) => {
                 console.log(res);
                 // Catch는 여기서 오류가 나야 실행됨.
                 if (res !== null) {
-                    window.location.href = "/boardtest";
+                    window.location.href = "/SopDetail/" + sopboardId;
                 } else {
                     // alert('게시글 등록에 실패하였습니다.');
                 }
             });
     };
 
-
-    return (
+    return<>
         <div>
             <br></br>
             <br></br>
-        <Form onSubmit={submitComment} className="comment_saveForm">
+            <Form onSubmit={submitComment} className="comment_saveForm">
 
-            <Form.Group controlId="formBasicEmail">
-                <Form.Control
-                    type="text"
-                    placeholder="내용을 입력하세요"
-                    onChange={changeValue}
+                <Form.Group controlId="formBasicEmail">
+                    <Form.Control
+                        type="text"
+                        placeholder="내용을 입력하세요"
+                        onChange={changeValue}
+                        name="content"
+                    />
+                </Form.Group>
+
+                <button
+                    className="comment_input"
                     name="content"
-                />
-            </Form.Group>
+                    type="submit"
 
-            <button
-                className="comment_input"
-                name="content"
-                type="submit"
+                >
+                    등록
+                </button>
 
-            >
-                등록
-            </button>
-
-        </Form>
+            </Form>
         </div>
-    );
+    </>
 }
 
-export default CommentSaveForm;
+export default SopDetailCommentSaveForm;

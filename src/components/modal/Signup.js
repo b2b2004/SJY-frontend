@@ -15,6 +15,7 @@ const Signup = ({ handleClose }) => {
         username: '',
         password: '',
         email: '',
+        image: "user.png"
     });
 
     const changeValue = (e) => {
