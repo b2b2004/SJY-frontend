@@ -65,18 +65,10 @@ const BoardUpdateForm = (props) => {
               name="content"
           ></textarea>
           <div className="buttonWrapper">
-            {/*<button*/}
-            {/*    className="c-button-cancle"*/}
-            {/*    name="content"*/}
-            {/*    type="button"*/}
-            {/*>*/}
-            {/*  취소*/}
-            {/*</button>*/}
             <button
                 className="c-button-complete"
                 name="content"
                 type="submit"
-
             >
               완료
             </button>

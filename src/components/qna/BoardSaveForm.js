@@ -1,12 +1,13 @@
 import React from 'react';
 import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import './boardSaveForm.css'
+import './BoardSaveForm.css'
 
 const BoardSaveForm = (props) => {
-  const [board, setBoard] = useState({
-    content: '',
-  });
+      const Authorization = localStorage.getItem("Authorization");
+      const [board, setBoard] = useState({
+        content: '',
+      });
 
   const changeValue = (e) => {
     setBoard({
@@ -16,15 +17,12 @@ const BoardSaveForm = (props) => {
   };
 
   const submitBoard = (e) => {
-
-      const Authorization = localStorage.getItem("Authorization");
     e.preventDefault(); // submit이 action을 안타고 자기 할일을 그만함.
 
     fetch('http://localhost:8000/board', {
       method: 'POST',
       headers: {
-          Authorization,
-        'Content-Type': 'application/json; charset=utf-8',
+        'Content-Type': 'application/json; charset=utf-8',Authorization
       },
       body: JSON.stringify(board),
     })
@@ -60,7 +58,6 @@ const BoardSaveForm = (props) => {
                   className="buttonComplete"
                   name="content"
                   type="submit"
-
               >
                   등록
               </button>
