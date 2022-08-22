@@ -3,6 +3,8 @@ import {nextStep, previousStep, setTitle} from "../../store/SopBoardStep";
 import {useDispatch} from "react-redux";
 import styles from "./Set_Login.module.css";
 import {Form} from "react-bootstrap";
+import './SopTitle.css';
+
 
 const SopTitle = ({ handleClose }) => {
 
@@ -25,22 +27,28 @@ const SopTitle = ({ handleClose }) => {
     return <>
         <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                <Form.Label>제목</Form.Label>
-                <Form.Control onChange={changeValue} name="title" type="textarea" placeholder="제목" />
+                <div className='title-wrapper'>
+                    <div className='fadein'>
+                        <Form.Label className="title">제목을 입력해주실 수 있나요?</Form.Label>
+                    </div>
+                </div>
+                <input onChange={changeValue}  name="title" placeholder="제목" className="sopBoardTitleWrapper"></input>
             </Form.Group>
         </Form>
 
-        <button
-            onClick={backhandleSopBoardStep}
-            className={styles.buttonNext}
-        >이전 단계
-        </button>
 
-        <button
-            onClick={nexthandleSopBoardStep}
-            className={styles.buttonNext}
-        >다음 단계
-        </button>
+        <footer className='modal_footer'>
+            <img
+                className="arrow-right-title"
+                src="/images/arrow-right.png"
+                onClick={nexthandleSopBoardStep} />
+
+            <img
+                className="arrow-left-title"
+                src="/images/arrow-left.png"
+                onClick={backhandleSopBoardStep} />
+
+        </footer>
     </>;
 };
 

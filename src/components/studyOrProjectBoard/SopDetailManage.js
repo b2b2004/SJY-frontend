@@ -1,5 +1,7 @@
 import {Button, Form} from "react-bootstrap";
 import React, {useEffect, useState} from "react";
+import './SopDetailManage.css';
+// 스터디 상세 관리 페이지
 
 function SopDetailManage(props){
     const {id} = props.sopboard;

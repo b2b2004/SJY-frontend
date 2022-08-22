@@ -45,49 +45,51 @@ const Signup = ({ handleClose }) => {
 
 
     return (
-                        <Form onSubmit={submitUser}>
+        <div>
+            <Form onSubmit={submitUser}>
+                <div className='name'>
+                    아이디
+                </div>
+                <input
+                    name="username"
+                    id="signupId"
+                    type="text"
+                    placeholder="아이디"
+                    onChange={changeValue}
+                />
+                <div className='name'>
+                    비밀번호
+                </div>
+                <input
+                    name="password"
+                    id="signupId"
+                    type="password"
+                    placeholder="비밀번호"
+                    onChange={changeValue}
+                />
+                <div className='name'>
+                    이메일
+                </div>
+                <input
+                    name="email"
+                    id="signupEmail"
+                    type="email"
+                    placeholder="이메일"
+                    onChange={changeValue}
+                />
+                <button className="signinBtn" type="submit">
+                    회원가입
+                </button>
+                <button
+                    onClick={backhandleLoginStep}
+                    id='signupLine'
+                >
+                    뒤로가기
+                </button>
 
-                            <div className='id'>
-                                아이디
-                            </div>
-                            <input
-                                name="username"
-                                className="signupId"
-                                type="text"
-                                placeholder="아이디를 입력해주세요."
-                                onChange={changeValue}
-                            />
-                            <div className='pw'>
-                                비밀번호
-                            </div>
-                            <input
-                                name="password"
-                                className="signupPw"
-                                type="password"
-                                placeholder="비밀번호를 입력해주세요."
-                                onChange={changeValue}
-                            />
-                            <div className='pwCheck'>
-                                이메일
-                            </div>
-                            <input
-                                name="email"
-                                className="signupPwCheck"
-                                type="email"
-                                placeholder="이메일을 입력해주세요."
-                                onChange={changeValue}
-                            />
-                            <button className="signupBtn" type='submit'>
-                                가입하기
-                            </button>
+            </Form>
 
-                            <button
-                                onClick={backhandleLoginStep}
-                                className={styles.buttonNext}
-                            >
-                                로그인창으로가기(구현 좀)
-                            </button>
-                        </Form>
+        </div>
     );
 };
 

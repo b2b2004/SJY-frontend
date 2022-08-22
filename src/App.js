@@ -13,7 +13,6 @@ import Board from "./pages/qnaBoardPage/Board";
 import Information from "./components/profile/Information";
 import Manager from "./pages/Manager";
 import StudyOrProjectBoard from "./pages/studyOrProjectBoardPage/StudyOrProjectBoard";
-import SopWrite from "./pages/studyOrProjectBoardPage/SopWrite";
 import SopDetail from "./pages/studyOrProjectBoardPage/SopDetail";
 import ContestBoard from "./pages/contestBoardPage/ContestBoard";
 import ContestDetail from "./pages/contestBoardPage/ContestDetail";
@@ -40,7 +39,6 @@ function App() {
                 <Route path="/information" exact={true} component={Information} />
                 <Route path="/manager" exact={true} component={Manager} />
                 <Route path="/sopBoard" exact={true} component={StudyOrProjectBoard} />
-                <Route path="/sopWrite" exact={true} component={SopWrite} />
                 <Route path="/sopDetail/:id" exact={true} component={SopDetail} />
                 <Route path="/contestBoard" exact={true} component={ContestBoard} />
                 <Route path="/contestDetail/:id" exact={true} component={ContestDetail} />

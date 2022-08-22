@@ -8,7 +8,6 @@ function ContestDetail(props){
     const Authorization = localStorage.getItem("Authorization");
     const [contestboard, setContestboard] = useState([])
     const [user, setUser] = useState([])
-
     const [contestImageUrl, setContestImageUrl] = (useState({
         imageUrl: ''
     }))
@@ -31,7 +30,6 @@ function ContestDetail(props){
                         imageUrl: require(`../../image/ContestImage/${res.image}`)
                     }
                 )
-
             })
 
         fetch("http://localhost:8000/profile",{
@@ -76,10 +74,9 @@ function ContestDetail(props){
     return<>
 
         <>
+            <div className="contestDetailTitle">{contestboard.title}</div>
             <div className="detail">
-                <h1>공모전 정보</h1>
                 <img className="contestCover" alt="cover" src={contestImageUrl.imageUrl} />
-                <hr className="a" />
                 <div className="contestInfo">
                     <div className="dayContainer">
                         <div className="dayTitle">
@@ -89,7 +86,6 @@ function ContestDetail(props){
                             {contestboard.duration_start} ~ {contestboard.duration_end}
                         </div>
                     </div>
-                    <hr className="b" />
                     <div className="hostContainer">
                         <div className="hostTitle">
                             주최
@@ -98,7 +94,6 @@ function ContestDetail(props){
                             {contestboard.host}
                         </div>
                     </div>
-                    <hr className="b" />
                     <div className="manageContainer">
                         <div className="manageTitle">
                             주관
@@ -107,32 +102,31 @@ function ContestDetail(props){
                             {contestboard.supervision}
                         </div>
                     </div>
-                    <hr className="b" />
+
                     <div className="awardContainer">
                         <div className="awardTitle">
                             시상
                         </div>
                         <div className="awardContent">
-                            {contestboard.prize}만원
+                            시상금: {contestboard.prize} 만원
                         </div>
                     </div>
-                    <hr className="b" />
+
                     <div className="homeContainer">
                         <div className="homeTitle">
                             홈페이지
                         </div>
                         <div className="homeContent">
-                            <a className="homepage" >{contestboard.homepage}</a>
+                            <a className="homepage" href={contestboard.homepage}>홈페이지 바로가기</a>
                         </div>
                     </div>
                 </div>
-                <hr className="b" />
             </div>
             <div className="contestDetail">
                 <div className="chamgo">※ 본 내용은 참고 자료입니다.  반드시 주최사 홈페이지의 일정 및 상세 내용을 확인하세요.</div>
-                <hr className="c" />
+
                 <div className="block">공모요강</div>
-                <hr className="d" />
+
                 <div className="subjectContainer">
                     <div className="subjectTitle">
                         응모주제
@@ -143,7 +137,7 @@ function ContestDetail(props){
                         * 교육명 : AI보안 기술개발 전문교육과정
                     </div>
                 </div>
-                <hr className="d" />
+
                 <div className="qualificationContainer">
                     <div className="qualificationTitle">
                         응모자격
@@ -158,7 +152,7 @@ function ContestDetail(props){
                         ③ 기타 지병․건강쇠약 등으로 근로가 불가하다고 판단되는 자
                     </div>
                 </div>
-                <hr className="d" />
+
                 <div className="benefitContainer">
                     <div className="benefitTitle">
                         혜택내역
@@ -172,7 +166,7 @@ function ContestDetail(props){
                         - 블렌디드 온라인 교육(Front-end, Back-end) 2,000여개 제공
                     </div>
                 </div>
-                <hr className="d" />
+
                 <div className="wayContainer">
                     <div className="wayTitle">
                         접수방법
@@ -185,7 +179,7 @@ function ContestDetail(props){
                         - 개인정보수집동의서 (필수)
                     </div>
                 </div>
-                <hr className="d" />
+
                 <img className="contestCoverFull" alt="cover" src={contestImageUrl.imageUrl} />
                 <button className="contestList">목록</button>
             </div>

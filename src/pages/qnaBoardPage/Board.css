@@ -4,3 +4,12 @@
     font-size: xx-large;
 
 }
+.Qna_title {
+    font-family: "Spoqa Han Sans Neo", sans-serif;
+}
+
+.qna_wrapper {
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-top: 3%;
+}

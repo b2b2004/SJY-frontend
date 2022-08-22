@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {nextStep, previousStep, set_duration_end, set_duration_start, setBoardType} from "../../store/SopBoardStep";
 import {useDispatch} from "react-redux";
-import styles from "./Set_Login.module.css";
+import "./SopDuration.css";
 import Calendar from "react-calendar";
 import moment from "moment";
 
@@ -30,34 +30,37 @@ const SopDuration = ({ handleClose }) => {
         dispatch(nextStep());
     };
 
-    return <>
-        <h1>기간</h1>
-        <div className='app'>
-            <div className='calendar-container'>
-                <Calendar
-                    onChange={setDate}
-                    value={date}
-                    selectRange={true}
-                />
-                {moment(date[0]).format("YYYY,MM,DD")}
-                <br />
-                {moment(date[1]).format("YYYY,MM,DD")}
+    return  (
+        <>
+            <div className="sopCalendar_wrapper">
+                <div className="fadein">
+                    <h1 className="title">기간은 언제까지인가요?</h1>
+                </div>
             </div>
-        </div>
 
+            <div className="app">
+                {/*{moment(date[0]).format("YYYY년 MM월 DD일")}   ~   {moment(date[1]).format("YYYY년 MM월 DD일")}*/}
+                {/*<br/>*/}
+                <div className="calendar-container">
+                    <Calendar onChange={setDate} value={date} selectRange={true} />
+                </div>
+            </div>
 
-        <button
-            onClick={backhandleSopBoardStep}
-            className={styles.buttonNext}
-        >이전 단계
-        </button>
+            <footer className="modal_footer">
+                <img
+                    className="arrow-right-tech"
+                    src="/images/arrow-right.png"
+                    onClick={nexthandleSopBoardStep}
+                />
 
-        <button
-            onClick={nexthandleSopBoardStep}
-            className={styles.buttonNext}
-        >다음 단계
-        </button>
-    </>;
+                <img
+                    className="arrow-left-tech"
+                    src="/images/arrow-left.png"
+                    onClick={backhandleSopBoardStep}
+                />
+            </footer>
+        </>
+    );
 };
 
 export default SopDuration;

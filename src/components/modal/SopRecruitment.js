@@ -1,15 +1,20 @@
 import React, {useState} from "react";
 import {nextStep, previousStep, setBoardType, setRecruitment} from "../../store/SopBoardStep";
 import {useDispatch} from "react-redux";
-import styles from "./Set_Login.module.css";
+import Select from "react-select";
+import './SopRecruitment.css';
 
 const SopRecruitment = ({ handleClose }) => {
 
     const dispatch = useDispatch();
+
+
     const changeValue = (e) => {
-        console.log("e.target.value = " +e.target.value);
-        dispatch(setRecruitment(e.target.value));
+        console.log(e.value);
+        console.log("e.target.value = " +e.value);
+        dispatch(setRecruitment(e.value));
     };
+
     const backhandleSopBoardStep = async () => {
         dispatch(previousStep());
     };
@@ -19,30 +24,49 @@ const SopRecruitment = ({ handleClose }) => {
         dispatch(nextStep());
     };
 
+    const peopleNumber = [
+        { value: "0", label: "미정" },
+        { value: "1", label: "1" },
+        { value: "2", label: "2" },
+        { value: "3", label: "3" },
+        { value: "4", label: "4" },
+        { value: "5", label: "5" },
+        { value: "6명 이상", label: "6" },
+    ]
+
     return <>
-        <h1>모집 인원</h1>
-        <select onChange={changeValue} name="recruitment">
-            <option value="0">미정</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-        </select>
+        <div className ="sopRecruitment_wrapper">
+            <div className='fadein'>
+                <h1 className="title">모집 인원은 몇명인가요?</h1>
+            </div>
+            {/*<Select*/}
+            {/*    onChange={changeValue}*/}
+            {/*    name="recruitment"*/}
+            {/*    options={ peopleNumber }*/}
+            {/*    defaultValue={peopleNumber[0]}/>*/}
+            <Select
+                name="recruitment"
+                onChange={changeValue}
+                className="languages"
+                classNamePrefix="select"
+                options={peopleNumber}
+                placeholder="인원을 선택해주세요."
+            />
 
+        </div>
+        <footer className='modal_footer'>
 
-        <button
-            onClick={backhandleSopBoardStep}
-            className={styles.buttonNext}
-        >이전 단계
-        </button>
+            <img
+                className="arrow-right-tech"
+                src="/images/arrow-right.png"
+                onClick={nexthandleSopBoardStep} />
 
-        <button
-            onClick={nexthandleSopBoardStep}
-            className={styles.buttonNext}
-        >다음 단계
-        </button>
+            <img
+                className="arrow-left-tech"
+                src="/images/arrow-left.png"
+                onClick={backhandleSopBoardStep} />
+        </footer>
+
     </>;
 };
 

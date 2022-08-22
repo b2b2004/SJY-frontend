@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import './SopNav.css';
 
 function SopNav(props){
     const [sopboard, setSopboard] = useState({});
@@ -33,8 +34,13 @@ function SopNav(props){
 
     },[])
     return<>
-        <h1>스터디 제목 : {sopboard.title}</h1>
-        <h1><img src={image.imageUrl}/>작성자 : {sopboard.username} </h1>
+        <h1 className='sopboard_title'>{sopboard.title}</h1>
+        <h1 className='sopboard_leader'>
+            <img src={image.imageUrl}/>
+            <div className='sopboard_leader_font'>
+                {sopboard.username}
+            </div>
+        </h1>
     </>
 }
 

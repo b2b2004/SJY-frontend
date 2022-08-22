@@ -52,29 +52,34 @@ const CommentSaveForm = (props) => {
 
     return (
         <div>
-            <br></br>
-            <br></br>
-        <Form onSubmit={submitComment} className="comment_saveForm">
 
-            <Form.Group controlId="formBasicEmail">
-                <Form.Control
-                    type="text"
-                    placeholder="내용을 입력하세요"
-                    onChange={changeValue}
+            <br></br>
+            <br></br>
+
+            <Form onSubmit={submitComment} className="comment_saveForm">
+
+                <div className='comment_form_wrapper'>
+                    <Form.Group >
+                        <Form.Control
+                            className='comment_Form'
+                            type="text"
+                            placeholder="내용을 입력하세요"
+                            onChange={changeValue}
+                            name="content"
+                        />
+                    </Form.Group>
+                </div>
+
+                <button
+                    className="comment_input"
                     name="content"
-                />
-            </Form.Group>
+                    type="submit"
 
-            <button
-                className="comment_input"
-                name="content"
-                type="submit"
+                >
+                    등록
+                </button>
 
-            >
-                등록
-            </button>
-
-        </Form>
+            </Form>
         </div>
     );
 }

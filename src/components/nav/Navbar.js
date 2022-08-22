@@ -4,14 +4,11 @@ import Modal from "../modal/Modal";
 import {useDispatch, useSelector} from "react-redux";
 import LoginModal from "../modal/LoginModal";
 import { setModalVisible } from "../../store/loginStep";
-import {getValue} from "@testing-library/user-event/dist/utils";
 
 
 const Navbar = React.memo(() => {
     const dispatch = useDispatch();
-    //   const [modalOpen, setModalOpen] = useState(false);
-    //   const openModal = () => setModalOpen(true);
-    //   const closeModal = () => setModalOpen(false);
+    const [authorization, setAuthorization] = useState(localStorage.getItem("Authorization"));
 
     const closeModal = () => {
         document.body.style.overflow = "auto";
@@ -22,9 +19,6 @@ const Navbar = React.memo(() => {
         dispatch(setModalVisible(true));
     };
     const modalVisible = useSelector((state) => state.loginStep.modalVisible);
-
-
-
 
     const [click, setClick] = useState(false);
     const [button, setButton] = useState(true);
@@ -50,6 +44,12 @@ const Navbar = React.memo(() => {
         window.location.href = `/${e.target.value}`;
     };
 
+    const logout = (e) =>{
+        window.confirm("로그아웃 하시겠습니까?");
+        localStorage.setItem("Authorization", null);
+        window.location.href = "/";
+    }
+
     return (
         <>
             <nav className={styles.navbar}>
@@ -70,12 +70,21 @@ const Navbar = React.memo(() => {
                     <button value="boardTest" className={styles.postRegister} onClick={ChagePage}>
                         질문게시판
                     </button>
-                    <button value="profile" className={styles.postRegister} onClick={ChagePage}>
-                        내 정보
-                    </button>
-                    <button className={styles.postRegister} onClick={openModal}>
-                        로그인
-                    </button>
+                    {authorization !== 'null' ?
+                        <button value="profile" className={styles.postRegister} onClick={ChagePage}>
+                            내 정보
+                        </button>
+                        :
+                    <></>}
+
+                    {authorization !== 'null' ?
+                        <button className={styles.postRegister} onClick={logout}>
+                            로그아웃
+                        </button>:                   
+                        <button className={styles.postRegister} onClick={openModal}>
+                            로그인
+                        </button>
+                    }
                     <Modal visible={modalVisible} name="login" onClose={closeModal}>
                         <LoginModal handleClose={closeModal} tabIndex={0}></LoginModal>
                     </Modal>

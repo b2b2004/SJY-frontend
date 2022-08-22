@@ -1,5 +1,6 @@
 import {Form} from "react-bootstrap";
 import React, {useState} from "react";
+import './SopDetailQnaWrite.css';
 
 function SopDetailQnaWrite(props){
     console.log(props);
@@ -47,12 +48,13 @@ function SopDetailQnaWrite(props){
 
     return<>
         <Form onSubmit={submitBoard}>
-            <div className="commentInput">
-          <textarea
-              placeholder={sopQnaboard.content}
-              onChange={changeValue}
-              name="content"
-          ></textarea>
+            <div className='sop_qna_wrapper'>
+                    <textarea className='sop_qna_input'
+                              placeholder={sopQnaboard.content}
+                              onChange={changeValue}
+                              name="content">
+
+                    </textarea>
                 <div className="buttonWrapper">
                     <button
                         className="c-button-complete"
@@ -65,7 +67,7 @@ function SopDetailQnaWrite(props){
                 </div>
             </div>
         </Form>
-        </>
+    </>
 }
 
 export default SopDetailQnaWrite;

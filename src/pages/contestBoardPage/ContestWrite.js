@@ -3,6 +3,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import {Button, Form, Spinner} from "react-bootstrap";
 import axios from "axios";
 import moment from "moment";
+import "./ContestWrite.css";
 
 
 function ContestWrite(){
@@ -99,88 +100,90 @@ function ContestWrite(){
 
 
     return(
-        <div>
-            <div>사진칸</div>
-            <div className="uploader-wrapper">
-                <input type="file" accept="image/*"
-                       onChange={saveImage}
-                       ref={refParam => inputRef = refParam}
-                       style={{ display: "none" }}
-                />
+        <>
+            <textarea onChange={changeValue} name="title" className="contestWriteTitle" placeholder="제목" />
+            <div className="writeWrite">
 
-                <div className="img-wrapper">
-                    {loaded === false || loaded === true ? (
-                        <img src={image.preview_URL} />
-                    ) : (
-                        <Spinner className="img-spinner" tip = "이미지 불러오는중"/>
-                    )}
+                <div className="uploader-wrapper">
+                    <input type="file" accept="image/*"
+                           onChange={saveImage}
+                           ref={refParam => inputRef = refParam}
+                           style={{ display: "none" }}
+                    />
+                    <div className="contestCoverWrapper">
+                        {loaded === false || loaded === true ? (
+                            <img src={image.preview_URL} alt="포스터 등록" className="posterCover"/>
+                        ) : (
+                            <Spinner className="img-spinner" tip = "이미지 불러오는중"/>
+                        )}
+                    </div>
+                    <div className="upload-button">
+                        <button className="posterIn" type="primary" onClick={() => inputRef.click()}>
+                            등록하기
+                        </button>
+                        <button className="posterOut" type="primary" danger>       {/*onclick*/}
+                            삭제하기
+                        </button>
+                    </div>
                 </div>
 
-                <div className="upload-button">
-                    <Button type="primary" onClick={() => inputRef.click()}>
-                        Preview
-                    </Button>
-                    <Button type="primary" danger>
-                        Delete
-                    </Button>
-                </div>
+                <Form onSubmit={SopSummit}>
+                    <div className="contestWriteWrapper">
+                        <div className="inDurationContainer">
+                            <div className="inDurationTitle">
+                                접수기간
+                            </div>
+                            <div className="inDurationContent">
+                                <textarea onChange={changeValue} name="duration_start" className="duration_start" placeholder="ex)20XX.XX.XX" />
+                                <div className="m">~</div>
+                                <textarea onChange={changeValue} name="duration_end" className="duration_end" placeholder="ex)20XX.XX.XX"  />
+                            </div>
+                        </div>
+                        <div className="inHostContainer">
+                            <div className="inHostTitle">
+                                주최
+                            </div>
+                            <div className="inHostContent">
+                                <textarea onChange={changeValue} name="host" className="host" placeholder="주최기관명"  />
+                            </div>
+                        </div>
+                        <div className="inSupervisionContainer">
+                            <div className="inSupervisionTitle">
+                                주관
+                            </div>
+                            <div className="inSupervisionContent">
+                                <textarea onChange={changeValue} name="supervision" className="supervision" placeholder="주관기관명"  />
+                            </div>
+                        </div>
+                        <div className="inSponsorContainer">
+                            <div className="inSponsorTitle">
+                                후원/협찬
+                            </div>
+                            <div className="inSponsorContent">
+                                <textarea onChange={changeValue} name="sponsor" className="sponsor" placeholder="후원/협찬 기관명"  />
+                            </div>
+                        </div>
+                        <div className="inPrizeContainer">
+                            <div className="inPrizeTitle">
+                                시상
+                            </div>
+                            <div className="inPrizeContent">
+                                <textarea onChange={changeValue} name="prize" className="prize" placeholder="시상금(만원)"  />
+                            </div>
+                        </div>
+                        <div className="inHomepageContainer">
+                            <div className="inHomepageTitle">
+                                홈페이지
+                            </div>
+                            <div className="inHomepageContent">
+                                <textarea onChange={changeValue} name="homepage" className="homepageUrl" placeholder="웹사이트 (https:// 포함)"  />
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" className="contestIn">등록하기</button>
+                </Form>
             </div>
-
-        <Form onSubmit={SopSummit}>
-            <h1>접수 기간</h1>
-            <Form>
-                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Control onChange={changeValue} name="duration_start" type="text" placeholder="시작일" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                    <Form.Control onChange={changeValue} name="duration_end"   type="text"  placeholder="마감일"  />
-                </Form.Group>
-            </Form>
-
-            <Form>
-                <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                    <Form.Label>주최</Form.Label>
-                    <Form.Control onChange={changeValue} name="host"  type="textarea" rows={10} placeholder="주최"  />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                    <Form.Label>주관</Form.Label>
-                    <Form.Control onChange={changeValue} name="supervision"  type="textarea" rows={10} placeholder="주관"  />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                    <Form.Label>후원/협찬</Form.Label>
-                    <Form.Control onChange={changeValue} name="sponsor"  type="textarea" rows={10} placeholder="후원/협찬"  />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                    <Form.Label>상금</Form.Label>
-                    <Form.Control onChange={changeValue} name="prize"  type="textarea" rows={10} placeholder="시상"  />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                    <Form.Label>홈페이지</Form.Label>
-                    <Form.Control onChange={changeValue} name="homepage"  type="textarea" rows={10} placeholder="홈페이지"  />
-                </Form.Group>
-
-            </Form>
-
-
-
-            <Form>
-                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label>제목</Form.Label>
-                    <Form.Control onChange={changeValue} name="title" type="textarea" placeholder="제목" />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                    <Form.Label>내용</Form.Label>
-                    <Form.Control onChange={changeValue} name="content"  as="textarea" rows={10} placeholder="내용"  />
-                </Form.Group>
-            </Form>
-            <Button  type="submit">생성</Button>
-        </Form>
-        </div>
+        </>
     )
 }
 

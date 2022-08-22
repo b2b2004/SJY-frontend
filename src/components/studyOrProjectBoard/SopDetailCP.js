@@ -1,4 +1,6 @@
 import {useEffect, useState} from "react";
+import './SopDetailCP';
+// 상세페이지
 
 function SopDetailCP(props){
 

@@ -1,0 +1,22 @@
+.arrow-left-tech {
+    float: left;
+    cursor: pointer;
+}
+.arrow-right-tech {
+    float: right;
+    cursor: pointer;
+}
+.title-wrapper-tech {
+    text-align: center;
+    margin-top: 10%;
+}
+
+.modal_footer {
+    position: absolute;
+    height: 60px;
+    width: 100%;
+    padding: 0 25px;
+    line-height: 60px;
+    color: #8a8c8f;
+    bottom: 0;
+}

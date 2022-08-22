@@ -15,6 +15,7 @@ function StudyOrProjectBoard(){
     const [SopBoard, setSopboard] = useState([]);
     const dispatch = useDispatch();
     const modalVisible = useSelector((state) => state.sopBoardStep.modalVisible);
+    const Authorization = localStorage.getItem("Authorization");
 
     useEffect(()=>{
         fetch(
@@ -42,14 +43,19 @@ function StudyOrProjectBoard(){
             <h6 className='main'>recruit</h6>
             <h3 className="studyOrProject_write_title">프로젝트 or 스터디</h3>
 
-            <Button className={styles.postRegister} onClick={openModal}>
-                글쓰기
-            </Button>
+
             <SopModal visible={modalVisible} name="login" onClose={closeModal}>
                 <SopWriteModal handleClose={closeModal} tabIndex={0}></SopWriteModal>
             </SopModal>
 
-            <Button  className='button_write' variant="primary" href="/sopwrite">글쓰기</Button>
+            {Authorization !== 'null'
+                ?
+                <Button className='button_write' onClick={openModal}>
+                    글쓰기
+                </Button>
+                :
+                <></>
+            }
 
             <div className='Project_wrap'>
                 <div className='newProject_wrap'>

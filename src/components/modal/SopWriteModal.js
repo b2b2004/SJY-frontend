@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./LoginModal.module.css";
+import styles from "./SopWriteModal.module.css";
 import { useSelector } from "react-redux";
 import SopMeetType from "./SopMeetType";
 import SopArea from "./SopArea";
@@ -49,8 +49,8 @@ const LoginModal = ({ handleClose }) => {
             <div className={styles.modalHeader}>
                 <img
                     className={styles.logo}
-                    src="../../image/codemeter_logo.png"
-                    alt="?"
+                    src="/images/logo/codemeter_logo_.png"
+                    alt="welcome"
                 ></img>
                 <div className={styles.exitWrapper} onClick={handleClose}>
                     <svg

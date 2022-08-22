@@ -34,6 +34,7 @@ function AllSOPBoard(props){
                         <small>{username}</small>
                         <div className='count_number'>
                             <TechStackImage key={id} techStack={techStack} />
+                            <img className='eye_img' src="/images/eye.png" alt='img'/>
                             <small className="text-muted">
                                 {hit}
                             </small>

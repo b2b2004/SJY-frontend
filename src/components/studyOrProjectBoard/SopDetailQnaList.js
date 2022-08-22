@@ -107,11 +107,11 @@ function SopDetailQnaList(props){
                             ))}
                             <SopDetailCommentSaveForm sopboardId={sopboardId} id={id} key={id}/>
                             <br /><br />
-                            <button onClick={toggleShow1}> 댓글닫기 ＾</button>
+                            <button onClick={toggleShow1}> 댓글닫기 <img id='comment_img' src="/images/arrow-top.png"/></button>
                         </div>
 
                         :
-                        <button onClick={toggleShow1}> 댓글보기 ∨</button>
+                        <button onClick={toggleShow1}> 댓글보기 <img id='comment_img' src="/images/arrow-bottom.png"/></button>
                     }
 
                 </Card.Body>

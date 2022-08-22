@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import {nextStep, previousStep, setTechStack} from "../../store/SopBoardStep";
 import {useDispatch} from "react-redux";
-import styles from "./Set_Login.module.css";
+import './SopTechStack.css';
+import Select from "react-select";
 
 const SopTechStack = ({ handleClose }) => {
 
@@ -40,8 +41,31 @@ const SopTechStack = ({ handleClose }) => {
         dispatch(nextStep());
     };
 
-    return <>
-        <h1>기술스택</h1>
+    const options = [
+        { value: 1, label: "react"},
+        { value: 2, label: "node.js"},
+        { value: 3, label: "spring"},
+        { value: 4, label: "vue"},
+        { value: 5, label: "c++"},
+        { value: 6, label: "java"},
+    ] //원래는 select 태그 안에 들어가는 애들을 배열로 만들어준다.
+
+    return<>
+        <div className='title-wrapper-tech'>
+            <div className='fadein'>
+                <h1 className="title">어떤 기술을 쓰실 건가요?</h1>
+            </div>
+        </div>
+
+        <Select
+            isMulti
+            name="area"
+            onChange={changetechStack}
+            className="languages"
+            options={options}
+            placeholder="인원을 선택해주세요."
+        />
+
         {formData.map((item)=>(
             <label key={item.id}>
                 {item.name}
@@ -54,17 +78,18 @@ const SopTechStack = ({ handleClose }) => {
         ))}
 
 
-        <button
-            onClick={backhandleSopBoardStep}
-            className={styles.buttonNext}
-        >이전 단계
-        </button>
+        <footer className='modal_footer'>
 
-        <button
-            onClick={nexthandleSopBoardStep}
-            className={styles.buttonNext}
-        >다음 단계
-        </button>
+            <img
+                className="arrow-right-tech"
+                src="/images/arrow-right.png"
+                onClick={nexthandleSopBoardStep} />
+
+            <img
+                className="arrow-left-tech"
+                src="/images/arrow-left.png"
+                onClick={backhandleSopBoardStep} />
+        </footer>
     </>;
 };
 

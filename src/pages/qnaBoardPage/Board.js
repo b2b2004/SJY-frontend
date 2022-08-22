@@ -6,6 +6,7 @@ import './Board.css'
 
 const Board = () => {
     const [boards, setBoards] = useState([]);
+    const Authorization = localStorage.getItem("Authorization");
 
     useEffect(() => {
         fetch('http://localhost:8000/board/')
@@ -17,15 +18,16 @@ const Board = () => {
     }, []);
 
     return (
-        <div>
+        <div className='qna_wrapper'>
             <br />
             <h1 className="main">Q&A</h1>
-                <h1 className="title">질문 게시판</h1>
+            <h1 className="Qna_title">질문 게시판</h1>
             <br />
-                <BoardSaveForm /> <br />
-                {boards.map((board) => (
-                    <BoardList key={board.id} board={board} />
-                ))}
+            <BoardSaveForm /> <br />
+            {boards.map((board) => (
+                <BoardList key={board.id} board={board} />
+            ))}
+
         </div>
     );
 };

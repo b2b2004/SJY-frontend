@@ -4,7 +4,7 @@ import {Form} from "react-bootstrap";
 import kakao_login from "../../image/kakao1.png";
 import naver_login from "../../image/naver1.png";
 import google_login from "../../image/google1.png";
-import "../modal/Singnin.css"
+import "./Singnin.css"
 
 const SetNickname = ({ nickname, setNickname, handleLoginStep }) => {
     const [User,setUser] = useState({
@@ -28,14 +28,22 @@ const SetNickname = ({ nickname, setNickname, handleLoginStep }) => {
             },
             body: JSON.stringify(User)  // json ->  qs로 변경
         }).then((res) => {
-            let jwtToken = res.headers.get("Authorization");
-            console.log(jwtToken);
-            localStorage.setItem("Authorization", jwtToken);
-            alert("로그인 완료");
-            window.location.href = "/";
+
+            if(res.status === 401){
+                alert("아이디 또는 비밀번호를 잘못 입력했습니다.");
+                window.location.href = "/";
+            }
+            else{
+                let jwtToken = res.headers.get("Authorization");
+                console.log(jwtToken);
+                localStorage.setItem("Authorization", jwtToken);
+                alert("로그인 완료");
+                window.location.href = "/";
+            }
+
         })
             .then((res) => {
-                console.log("");
+                console.log("????????????????");
             });
     };
 

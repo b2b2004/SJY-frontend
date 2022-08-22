@@ -1,0 +1,13 @@
+.sopboard_title {
+    text-align: center;
+    margin-top: 10%;
+    font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+.sopboard_leader {
+    text-align: center;
+    margin-top: 2%;
+}
+.sopboard_leader_font {
+    font-size: x-large;
+    font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
