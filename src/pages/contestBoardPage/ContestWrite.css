@@ -1,0 +1,352 @@
+.writeWrite {
+    margin: 5%;
+    width: 100%;
+    min-height: 10rem;
+    padding-bottom: 5rem;
+}
+
+.contestWriteTitle {
+    margin-top: 5%;
+    margin-left: 5%;
+    resize: none;
+    width: 45rem;
+    height: 50px;
+    padding-left: 20px;
+    padding-top: 12px;
+    border: 1px solid rgb(235, 235, 235);
+    border-radius: 3px;
+    background-color: rgb(255, 255, 255);
+    font-size: 16px;
+}
+
+.contestWriteTitle:focus {
+    outline: none;
+}
+
+.uploader-wrapper {
+    float: left;
+}
+
+.posterCover {
+    height: 70vh;
+    width: 25vw;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgb(150, 150, 150);
+}
+
+.posterIn {
+    background-color: rgb(168, 168, 168);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100px;
+    height: 32px;
+    margin-left: 10%;
+    margin-top: 5%;
+}
+
+.posterIn:hover {
+    background: rgb(183, 183, 183);
+    color: white;
+}
+
+.posterOut {
+    background-color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100px;
+    height: 32px;
+    margin-left: 15%;
+    margin-top: 5%;
+
+}
+
+.posterOut:hover {
+    background: rgb(183, 183, 183);
+    color: white;
+}
+
+.contestWriteWrapper {
+    margin-left: 35%;
+    margin-top: 3%;
+}
+
+.inDurationContainer {
+    display: flex;
+}
+
+.inDurationTitle {
+    width: 200px;
+    text-align: center;
+    height: 60px;
+    line-height: 3.2;
+    background-color: rgb(240, 240, 240);
+    color: rgb(100, 100, 100);
+    font-size: 18px;
+}
+
+.inDurationContent {
+    width: 500px;
+    margin-left: 20px;
+}
+
+.duration_start {
+    resize: none;
+    width: 9rem;
+    height: 45px;
+    padding: 10px;
+    border: 1px solid rgb(235, 235, 235);
+    border-radius: 3px;
+    background-color: rgb(255, 255, 255);
+    font-size: 14px;
+    margin-left: 20px;
+    margin-top: 5px;
+    float: left;
+}
+
+.duration_start:focus {
+    outline: none;
+}
+
+.m {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+    margin-top: 10px;
+    color: rgb(100, 100, 100);
+    float: left;
+}
+
+.duration_end {
+    resize: none;
+    width: 9rem;
+    height: 45px;
+    padding: 10px;
+    border: 1px solid rgb(235, 235, 235);
+    border-radius: 3px;
+    background-color: rgb(255, 255, 255);
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.duration_end:focus {
+    outline: none;
+}
+
+.inHostContainer {
+    display: flex;
+}
+
+.inHostTitle {
+    width: 200px;
+    text-align: center;
+    height: 60px;
+    line-height: 3.2;
+    background-color: rgb(240, 240, 240);
+    color: rgb(100, 100, 100);
+    font-size: 18px;
+}
+
+.inHostContent {
+    width: 500px;
+    margin-left: 20px;
+}
+
+.host {
+    resize: none;
+    width: 20rem;
+    height: 45px;
+    padding: 10px;
+    border: 1px solid rgb(235, 235, 235);
+    border-radius: 3px;
+    background-color: rgb(255, 255, 255);
+    font-size: 14px;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.host:focus {
+    outline: none;
+}
+
+.inSupervisionContainer {
+    display: flex;
+}
+
+.inSupervisionTitle {
+    width: 200px;
+    text-align: center;
+    height: 60px;
+    line-height: 3.2;
+    background-color: rgb(240, 240, 240);
+    color: rgb(100, 100, 100);
+    font-size: 18px;
+}
+
+.inSupervisionContent {
+    width: 500px;
+    margin-left: 20px;
+}
+
+.supervision {
+    resize: none;
+    width: 20rem;
+    height: 45px;
+    padding: 10px;
+    border: 1px solid rgb(235, 235, 235);
+    border-radius: 3px;
+    background-color: rgb(255, 255, 255);
+    font-size: 14px;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.supervision:focus {
+    outline: none;
+}
+
+.inSponsorContainer {
+    display: flex;
+}
+
+.inSponsorTitle {
+    width: 200px;
+    text-align: center;
+    height: 60px;
+    line-height: 3.2;
+    background-color: rgb(240, 240, 240);
+    color: rgb(100, 100, 100);
+    font-size: 18px;
+}
+
+.inSponsorContent {
+    width: 500px;
+    margin-left: 20px;
+}
+
+.sponsor {
+    resize: none;
+    width: 20rem;
+    height: 45px;
+    padding: 10px;
+    border: 1px solid rgb(235, 235, 235);
+    border-radius: 3px;
+    background-color: rgb(255, 255, 255);
+    font-size: 14px;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.sponsor:focus {
+    outline: none;
+}
+
+.inPrizeContainer {
+    display: flex;
+}
+
+.inPrizeTitle {
+    width: 200px;
+    text-align: center;
+    height: 60px;
+    line-height: 3.2;
+    background-color: rgb(240, 240, 240);
+    color: rgb(100, 100, 100);
+    font-size: 18px;
+}
+
+.inPrizeContent {
+    width: 500px;
+    margin-left: 20px;
+}
+
+.prize {
+    resize: none;
+    width: 15rem;
+    height: 45px;
+    padding: 10px;
+    border: 1px solid rgb(235, 235, 235);
+    border-radius: 3px;
+    background-color: rgb(255, 255, 255);
+    font-size: 14px;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.prize:focus {
+    outline: none;
+}
+
+.inHomepageContainer {
+    display: flex;
+}
+
+.inHomepageTitle {
+    width: 200px;
+    text-align: center;
+    height: 60px;
+    line-height: 3.2;
+    background-color: rgb(240, 240, 240);
+    color: rgb(100, 100, 100);
+    font-size: 18px;
+}
+
+.inHomepageContent {
+    width: 500px;
+    margin-left: 20px;
+}
+
+.homepageUrl {
+    resize: none;
+    width: 20rem;
+    height: 45px;
+    padding: 10px;
+    border: 1px solid rgb(235, 235, 235);
+    border-radius: 3px;
+    background-color: rgb(255, 255, 255);
+    font-size: 14px;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.homepageUrl:focus {
+    outline: none;
+}
+
+.outline {
+    background-color: rgb(245, 245, 245);
+    height: 90vh;
+    width: 90%;
+    margin: auto;
+}
+
+.outlineTitle {
+    padding-top: 15px;
+    margin-left: 20px;
+    font-size: 20px;
+    color: rgb(100, 100, 100);
+}
+
+.contestIn {
+    background-color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 52rem;
+    margin-bottom: 20px;
+    margin-top: 40px;
+    width: 90px;
+    height: 32px;
+}
+
+.contestIn:hover {
+    background: rgb(183, 183, 183);
+    color: white;
+}

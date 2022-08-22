@@ -3,7 +3,7 @@ import {nextStep, previousStep, setBoardType, setContent} from "../../store/SopB
 import {useDispatch, useSelector} from "react-redux";
 import styles from "./Set_Login.module.css";
 import {Form} from "react-bootstrap";
-import moment from "moment";
+import './SopContent.css';
 
 const SopContent = ({ handleClose }) => {
 
@@ -51,25 +51,47 @@ const SopContent = ({ handleClose }) => {
     };
 
     return <>
-        <Form>
-        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-            <Form.Label>내용</Form.Label>
-            <Form.Control onChange={changeValue} name="content"  as="textarea" rows={10} placeholder="내용"  />
-        </Form.Group>
-        </Form>
 
-        <button
-            onClick={backhandleSopBoardStep}
-            className={styles.buttonNext}
-        >이전 단계
-        </button>
+        <div className='content_wrapper'>
+            <div className='fadein'>
+                <h1 className='title'>
+                    내용을 입력해줄 수 있나요?
+                </h1>
+
+            </div>
+
+            <Form>
+                <div className="sopContentButton">
+          <textarea
+              placeholder="내용을 입력하세요"
+              onChange={changeValue}
+              name="content"
+          ></textarea>
+                </div>
+            </Form>
+
+        </div>
+        <footer className='modal_footer'>
 
 
-        <button
-            onClick={SopSummit}
-            className={styles.buttonNext}
-        >만들기
-        </button>
+
+            <img
+                className="arrow-left-tech"
+                src="/images/arrow-left.png"
+                onClick={backhandleSopBoardStep} />
+            <button
+                className="contentSubmit"
+                onClick={SopSummit}
+
+            >
+                등록
+            </button>
+        </footer>
+
+
+
+
+
     </>;
 };
 

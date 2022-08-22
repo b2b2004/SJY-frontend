@@ -1,6 +1,7 @@
 import {Button} from "react-bootstrap";
 import React, {useEffect, useState} from "react";
 import ManageNotice from "./manageBoard/ManageNotice";
+import './SopDetailNotice.css';
 
 function SopDetailNotice(props){
 
@@ -52,24 +53,26 @@ function SopDetailNotice(props){
 
 
     return<>
-        {sopManageBoard != null ?
-            <div>
-                <h1>깃헙 주소 : {sopManageBoard.githubAddress}</h1>
-                <h1>줌 주소 : {sopManageBoard.zoomAddress}</h1>
-                <h1>카카오 주소 : {sopManageBoard.kakaoOpenAddress}</h1>
-            </div>
-            :<h1>hi</h1>}
+        <div className='sopDetailContainer'>
+            {sopManageBoard != null ?
+                <div>
+                    <h1 className='sopNoticeFont'>깃헙 주소 : {sopManageBoard.githubAddress}</h1>
+                    <h1 className='sopNoticeFont'>줌 주소 : {sopManageBoard.zoomAddress}</h1>
+                    <h1 className="sopNoticeFont">카카오 주소 : {sopManageBoard.kakaoOpenAddress}</h1>
+                </div>
+                :<h1>hi</h1>}
 
 
-        {sopManageNotice != null
-            ?
-            <div>
-                {sopManageNotice.map((sopManageNotice) => (
-                    <ManageNotice key={sopManageNotice.id} sopManageNotice={sopManageNotice}/>
-                ))}
-            </div>
-            : <></>
-        }
+            {sopManageNotice != null
+                ?
+                <div>
+                    {sopManageNotice.map((sopManageNotice) => (
+                        <ManageNotice key={sopManageNotice.id} sopManageNotice={sopManageNotice}/>
+                    ))}
+                </div>
+                : <></>
+            }
+        </div>
     </>
 }
 

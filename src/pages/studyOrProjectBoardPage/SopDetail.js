@@ -9,6 +9,8 @@ import SopDetailSchedule from "../../components/studyOrProjectBoard/SopDetailSch
 import SopDetailQnaList from "../../components/studyOrProjectBoard/SopDetailQnaList";
 import SopDetailQnaWrite from "../../components/studyOrProjectBoard/SopDetailQnaWrite";
 import BoardList from "../../components/qna/BoardList";
+import './SopDetail.css';
+
 
 function SopDetail(props){
     const id = props.match.params.id;
@@ -93,13 +95,16 @@ function SopDetail(props){
 
     return<>
         <SopNav sopboard={sopboard} key={sopboard.id} />
-        <button onClick={move}>관리페이지로 이동(추후 팀원/팀장만 넘어갈 수 있게 만듬)</button>
+        {/*<button onClick={move}>관리페이지로 이동(추후 팀원/팀장만 넘어갈 수 있게 만듬)</button>*/}
         <div>
-            <Button onClick={setmenu} name="detail" variant="outline-primary">상세페이지</Button> {' '}
-            <Button onClick={setmenu} name="schedule" variant="outline-primary">세부일정</Button>{' '}
-            <Button onClick={setmenu} name="notice" variant="outline-primary">공지사항</Button>{' '}
-            <Button onClick={setmenu} name="Qna" variant="outline-primary">질문게시판</Button>{' '}
-            <Button onClick={setmenu} name="manage" variant="outline-primary">관리</Button>{' '}
+            <div className='menu-wrapper'>
+                <button onClick={setmenu} name="detail" className='w-btn-outline w-btn-blue-outline'>💁‍♂상세페이지</button> {' '}
+                <button onClick={setmenu} name="schedule" className='w-btn-outline w-btn-blue-outline'>🗓세부일정</button>{' '}
+                <button onClick={setmenu} name="notice" className='w-btn-outline w-btn-blue-outline'>📰공지사항</button>{' '}
+                <button onClick={setmenu} name="Qna"className='w-btn-outline w-btn-blue-outline'>❓질문게시판</button>{' '}
+                <button onClick={setmenu} name="manage" className='w-btn-outline w-btn-blue-outline'>🧰관리</button>{' '}
+            </div>
+
 
             <div>
                 {component.detail === true ? <SopDetailCP sopboard={sopboard} key={sopboard.id} /> : <></>}

@@ -1,0 +1,30 @@
+.title-wrapper {
+    text-align: center;
+    margin-top: 20%;
+}
+
+
+.sopBoardTitleWrapper {
+    width: 100%;
+    border-radius: 6px;
+    height: 45px;
+    font-size: x-large;
+    margin-top: 10px;
+    border-width: 2px;
+    border-color: lightslategrey;
+    border-style: solid;
+}
+.sopBoardTitleWrapper::placeholder {
+    color: grey;
+}
+
+input:focus {outline:none;}
+
+.arrow-left-title {
+    float:left;
+    cursor: pointer;
+}
+.arrow-right-title {
+    float: right;
+    cursor: pointer;
+}

@@ -1,11 +1,6 @@
 .commentContainer {
-    display: flex;
-    flex-direction: column;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid rgb(233, 236, 239);
-    margin-right: 30px;
-    margin-left: 30px;
+    margin-top: 9%;
+
 }
 
 .commentHeader {
@@ -21,18 +16,10 @@
     display: flex;
     flex-direction: column;
 }
-
-.title {
-    display: flex;
-    flex-direction: column;
-    font-size: large;
-}
-
 .userImg {
     display: block;
     height: 3rem;
     width: 3rem;
-    margin-right: 0.5rem;
     box-shadow: rgb(0 0 0 / 9%) 0px 0px 8px;
     border-radius: 50%;
     object-fit: cover;
@@ -58,7 +45,6 @@
     font-size: large;
     width: 40rem;
     height: 3rem;
-    padding: 0px;
 }
 
 .commentInputButton {
@@ -66,14 +52,6 @@
     flex-direction: row;
 }
 
-.commentInputButton button {
-    border-radius: 4px;
-    width: 70px;
-    margin-top: 10px;
-    margin-right: 10px;
-    height: 1.75rem;
-    font-size: 1rem;
-}
 
 .commentContent {
     font-size: 1.125rem;
@@ -83,15 +61,6 @@
     overflow-wrap: break-word;
 }
 
-.buttonComplete {
-    background: registerBackground;
-    font-weight: bold;
-    color: white;
-}
-
-.buttonCancel {
-    background: cancelBackground;
-}
 
 hr {
     border: 0;
@@ -101,8 +70,17 @@ hr {
     height: 1px;
 }
 
-@media screen and (max-width: 575px) {
-    .commentContent {
-        font-size: 1rem;
-    }
+
+.commentList_img_wrapper {
+    float: left;
+
+}
+.commentList_date {
+    float: right;
+    font-size: small;
+}
+
+.comment_content {
+    margin-left: 3%;
+    float: bottom;
 }

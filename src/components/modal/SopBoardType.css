@@ -1,0 +1,62 @@
+
+#ModalLetter {
+    font-family: "Spoqa Han Sans Neo", sans-serif;
+    font-size: xxx-large;
+}
+.arrow-right {
+    cursor: pointer;
+}
+.arrow-left {
+    cursor: pointer;
+}
+
+
+.box-radio-input input[type="radio"]{
+    display:none;
+}
+
+.box-radio-input input[type="radio"] + span{
+    display:inline-block;
+    background:none;
+    border:1px solid #dfdfdf;
+    text-align: center;
+    height:50px;
+    width: 200px;
+    line-height:33px;
+    font-weight:500;
+    cursor:pointer;
+    margin-top: 10px;
+    padding: 5%;
+}
+
+.box-radio-input input[type="radio"]:checked + span{
+    padding: 5%;
+    border:1px solid #2A52BE;
+    background:#6495ED;
+    color:#fff;
+}
+
+.fadein{
+    font-size: medium;
+    position: relative;
+    overflow: hidden;
+    animation: fadein 1s ease-in-out;
+
+
+}
+
+
+@keyframes fadein{
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+
+}
+
+.sopBoardType_wrapper {
+    margin-top: 15%;
+}

@@ -1,0 +1,104 @@
+.wrapper {
+    width: 800px;
+    height: 550px;
+    box-shadow: rgb(0 0 0 / 9%) 0px 2px 12px 0px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    top: -200%;
+    margin: 0 auto;
+    transform: translateY(-50%);
+    animation: loginAnimation 0.5s ease 0s 1 normal forwards running;
+}
+
+.modalHeader {
+    background: #f8f9fa;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px 8px 0 0;
+    height: 3rem;
+}
+
+.modalContent {
+    background: white;
+    height: 100%;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0 0 8px 8px;
+}
+
+.exitWrapper {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1.5rem;
+    color: rgb(134, 142, 150);
+    cursor: pointer;
+}
+
+.blockContent {
+    flex: 1 1 0%;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    width: 10rem;
+    height: auto;
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.titleWrapper {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.titleWrapper input {
+    border-color: hsl(0, 0%, 80%);
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    font-size: large;
+    width: 25rem;
+    padding: 0px;
+}
+.titleWrapper h3 {
+    margin: 10px 10px 10px 0px;
+    width: 130px;
+}
+
+.backButton {
+    color: gray;
+}
+
+@keyframes loginAnimation {
+    0% {
+        opacity: 0;
+        top: -100%;
+    }
+
+    100% {
+        opacity: 1;
+        top: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        flex: 1 1 0%;
+        width: auto;
+        height: 100%;
+    }
+
+    .modalHeader {
+        background: #f8f9fa;
+        padding: 0 1rem;
+        border-radius: 0;
+    }
+}
+.wrapper {}

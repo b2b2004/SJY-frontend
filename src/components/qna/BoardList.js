@@ -71,47 +71,50 @@ const BoardList = (props) => {
 
   return (
 
-    <div>
-    <Card className="board_container">
-      <Card.Body onSubmit={toggleShow} className="board_body">
-        {isShow ?
-            <BoardUpdateForm id={id} key={id} /> :
-            <div>
-              <button onClick={deleteBoard} className="b-X-button">
-                  삭제
-              </button>
-              <button onClick={toggleShow} className="b-button">
-                수정
-              </button>
-              {'  '}
-                이미지(위치수정)<img src={image.preview_URL} /> <br />
-                시간(위치수정){date}
-              <Card.Title>{username}</Card.Title>
-            <Card.Title> {content}</Card.Title>
+      <div>
+          <Card className="board_container">
+              <Card.Body onSubmit={toggleShow} className="board_body">
+                  {isShow ?
+                      <BoardUpdateForm id={id} key={id}/> :
+                      <div>
+                          <Card.Text className='boardList_date'>{date}</Card.Text>
+                          <div className='boardList_img_wrapper'>
+                              <img src={image.preview_URL}/>
+                              <Card.Title className='board_user_name'>{username}</Card.Title>
+                          </div>
+                          <br/>
+                          <div className='board_content_wrapper'>
+                              <Card.Title className='board_content'> {content}</Card.Title>
+                          </div>
+                      </div>
+                  }
+              </Card.Body>
 
-            </div>
-        }
-            </Card.Body>
+              <Card.Body onSubmit={toggleShow1} className="board_body">
+                  <button onClick={deleteBoard} className="b-X-button">
+                      삭제
+                  </button>
+                  <button onClick={toggleShow} className="b-button">
+                      수정
+                  </button>
 
-      <Card.Body onSubmit={toggleShow1}>
-        {isShow1 ?
-            <div>
-                {comment.map((comment) => (
-                    <CommentList comment={comment} />
-                ))}
-              <CommentSaveForm id={id} key={id}/>
-              <br /><br />
-              <button onClick={toggleShow1}> 댓글닫기 ＾</button>
-            </div>
-
-            :
-            <button onClick={toggleShow1}> 댓글보기 ∨</button>
-        }
-
-      </Card.Body>
-      </Card>
-      <br className="br_class"/>
-  </div>
+                  {isShow1 ?
+                      <div>
+                          <hr className='board_hr'/>
+                          {comment.map((comment) => (
+                              <CommentList comment={comment}/>
+                          ))}
+                          <CommentSaveForm id={id} key={id}/>
+                          <br/><br/>
+                          <button onClick={toggleShow1}> 댓글닫기 <img id='comment_img' src="/images/arrow-top.png"/></button>
+                      </div>
+                      :
+                      <button onClick={toggleShow1}> 댓글보기 <img id='comment_img' src="/images/arrow-bottom.png"/></button>
+                  }
+              </Card.Body>
+          </Card>
+          <br className="br_class"/>
+      </div>
   );
 };
 

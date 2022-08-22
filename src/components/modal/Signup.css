@@ -8,19 +8,28 @@
     z-index: 99;
     background-color: rgba(0, 0, 0, 0.6);
 }
+.logo {
+    width: 160px;
+    height: 34px;
+}
 
-/* .modal button {
+.exitWrapper {
+    float: right;
+    cursor: pointer;
+}
+.modal button {
     outline: none;
     cursor: pointer;
     border: 0;
-} */
+}
 
-/* .modal > section {
+.modal > section {
     width: 90%;
     max-width: 450px;
     margin: 0 auto;
     border-radius: 0.3rem;
     background-color: #fff;
+    /* 팝업이 열릴때 스르륵 열리는 효과 */
     animation: modal-show 0.3s;
     overflow: hidden;
 }
@@ -53,8 +62,9 @@
 .modal.openModal {
     display: flex;
     align-items: center;
+    /* 팝업이 열릴때 스르륵 열리는 효과 */
     animation: modal-bg-show 0.3s;
-} */
+}
 
 @keyframes modal-show {
     from {
@@ -75,33 +85,13 @@
     }
 }
 
-.user {
-    font-size: 15px;
-    white-space: nowrap;
+.name {
+    margin-top: 8px;
+    color: dimgrey;
 }
 
-.userName {
-    border-radius: 2px;
-    width: 100%;
-    height: 40px;
-    border: 1px solid #e5e5e5;
-    padding: 9px 12px;
-    box-sizing: border-box;
-    font-size: 15px;
-    margin-bottom: 15px;
-}
-
-.id {
-    font-size: 15px;
-    white-space: nowrap;
-}
-
-.modal img {
-    align-items: center;
-}
-
-.signupId {
-    margin-bottom: 15px;
+#signupId {
+    margin-top: 5px;
     border-radius: 2px;
     width: 100%;
     height: 40px;
@@ -110,17 +100,16 @@
     box-sizing: border-box;
     font-size: 15px;
 }
-input::placeholder {
-    color: #999999;
+::placeholder {
+    color: #1d88f2;
 }
 
-.pw {
-    font-size: 15px;
-    white-space: nowrap;
+input:focus {
+    outline: 1px solid #1d88f2;
 }
 
-.signupPw {
-    margin-bottom: 15px;
+#signinPw {
+    margin-top: 15px;
     border-radius: 2px;
     width: 100%;
     height: 40px;
@@ -130,31 +119,40 @@ input::placeholder {
     font-size: 15px;
 }
 
-.pwCheck {
-    font-size: 15px;
-    white-space: nowrap;
-}
-
-.signupPwCheck {
-    margin-bottom: 15px;
-    border-radius: 2px;
-    width: 100%;
-    height: 40px;
-    border: 1px solid #e5e5e5;
-    padding: 9px 12px;
-    box-sizing: border-box;
-    font-size: 15px;
-}
-
-.signupBtn {
+.signinBtn {
     height: 40px;
     width: 100%;
     align-items: center;
-    background-color: #000000;
+    background-color: #1d88f2;
     border-radius: 3px;
     color: white;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 10px;
     font-size: 15px;
+    size: 100px;
 }
 
+#signupEmail {
+    margin-top: 5px;
+    border-radius: 2px;
+    width: 100%;
+    height: 40px;
+    border: 1px solid #e5e5e5;
+    padding: 9px 12px;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+.signinLine {
+    color: #bcbcbc;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+}
+
+#signupLine {
+    color: #bcbcbc;
+    font-size: 15px;
+    cursor: pointer;
+    margin: auto;
+    display: block;
+    margin-top: 30px;
+}

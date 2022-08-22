@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import {Card, CardGroup} from "react-bootstrap";
 import TechStackImage from "../TechStackImage";
 
-
 function PopularBoardLanking(){
 
     const [SopBoard, setSopBoard] = useState([]);
@@ -13,9 +12,6 @@ function PopularBoardLanking(){
             .then((res)=> res.json())
             .then((res)=>{
                 setSopBoard(res.content);
-                console.log("hi");
-                console.log(res.content);
-                console.log(SopBoard);
             })
     },[])
 
@@ -44,6 +40,7 @@ function PopularBoardLanking(){
                                     <small>{SopBoard.username}</small>
                                     <div className='count_number'>
                                         <TechStackImage key={SopBoard.id} techStack={SopBoard.techStack} />
+                                        <img className='eye_img' src="/images/eye.png" alt='img'/>
                                         <small className="text-muted">
                                             {SopBoard.hit}
                                         </small>

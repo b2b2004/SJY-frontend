@@ -8,7 +8,15 @@
     z-index: 99;
     background-color: rgba(0, 0, 0, 0.6);
 }
+.logo {
+    width: 160px;
+    height: 34px;
+}
 
+.exitWrapper {
+    float: right;
+    cursor: pointer;
+}
 .modal button {
     outline: none;
     cursor: pointer;
@@ -77,27 +85,29 @@
     }
 }
 
-.signinId {
+#signinId {
     margin-top: 10px;
     border-radius: 2px;
     width: 100%;
     height: 40px;
     border: 1px solid #e5e5e5;
-    padding: 9px 12px;
     box-sizing: border-box;
     font-size: 15px;
 }
-input::placeholder {
-    color: #999999;
+::placeholder {
+    color: #1d88f2;
 }
 
-.signinPw {
+input:focus {
+    outline: 1px solid #1d88f2;
+}
+
+#signinPw {
     margin-top: 15px;
     border-radius: 2px;
     width: 100%;
     height: 40px;
     border: 1px solid #e5e5e5;
-    padding: 9px 12px;
     box-sizing: border-box;
     font-size: 15px;
 }
@@ -106,7 +116,7 @@ input::placeholder {
     height: 40px;
     width: 100%;
     align-items: center;
-    background-color: #000000;
+    background-color: #1d88f2;
     border-radius: 3px;
     color: white;
     margin-top: 10px;
@@ -116,6 +126,7 @@ input::placeholder {
 .socialBox {
     margin-bottom: 30px;
     margin-top: 30px;
+    cursor:pointer;
 }
 
 .kakao {
@@ -130,7 +141,7 @@ input::placeholder {
 }
 
 .kakaoText {
-    width: 300px;
+    width: 100%;
     font-size: 15px;
     text-align: center;
     display: inline-block;
@@ -170,7 +181,7 @@ input::placeholder {
 
 .google {
     background-color: #ffffff;
-    border: 1px solid #000000;
+    border: 1px solid #bcbcbc;
     height: 40px;
     display: flex;
     align-items: center;
@@ -195,12 +206,23 @@ input::placeholder {
 }
 
 .signinLine {
-    text-align: center;
     color: #bcbcbc;
-    font-size: 12px;
-}
-.nsignup {
-    color: black;
-    text-decoration: underline;
+    font-size: 15px;
     cursor: pointer;
+    text-align: center;
+}
+
+.signupLine {
+    color: #bcbcbc;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    align-content: center;
+    margin-top: 10px;
+
+}
+
+.set_login_form {
+    margin-left: 3.5%;
+    margin-right: 3.5%;
 }

@@ -1,0 +1,30 @@
+.sop_qna_input {
+    width: 70%;
+    height: 100px;
+    background-color: rgb(250, 251, 252);
+    border-color: rgb(223, 225, 230);
+    color: rgb(9, 30, 66);
+    cursor: text;
+    border-radius: 3px;
+    border-width: 2px;
+    border-style: solid;
+    box-sizing: border-box;
+    font-size: 14px;
+    transition: background-color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s;
+    line-height: 1.42857;
+
+}
+.sop_qna_input:hover{
+    background-color: rgb(235, 236, 240);
+}
+.sop_qna_input:focus{
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(76, 154, 255);
+}
+
+
+
+.sop_qna_wrapper {
+    margin-top: 5%;
+    text-align: center;
+}

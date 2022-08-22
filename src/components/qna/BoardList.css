@@ -60,14 +60,59 @@ textarea::placeholder {
     transform: scale(1.01);
     border-color: #1d88f2;
     transition: transform .20s;
-
 }
 
 .board_container {
     border-radius: 20px;
 }
-.board_body {
-    margin-right: 30px;
-    margin-left: 30px;
-    margin-top: 10px
+
+
+.boardList_img_wrapper {
+    float: left;
+
+}
+
+.boardList_date {
+    float: right;
+    font-size: small;
+
+}
+
+.board_body{
+    margin-top: 1%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.board_content {
+    margin-left: 5%;
+    font-family: "Spoqa Han Sans Neo", sans-serif;
+
+}
+
+.board_user_name {
+    margin-left: 15%;
+    font-family: "Spoqa Han Sans Neo", sans-serif;
+}
+
+.board_content_wrapper {
+    margin-left: 3%;
+    margin-top: -2.5%;
+}
+
+.board_hr {
+    margin-top: 5%;
+    color: #8a8c8f;
+    margin-bottom: -6%;
+}
+
+.comment_closer {
+    float: left;
+    width: 10px;
+    height: 10px;
+}
+
+#comment_img {
+    width: 30px;
+    height: 30px;
 }

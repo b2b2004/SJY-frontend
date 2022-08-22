@@ -3,16 +3,6 @@ import styles from "./LoginModal.module.css";
 import { useSelector } from "react-redux";
 import SetLoginContainer from "./Set_Login_Container";
 import Signup from "./Signup";
-/*
-LoginModal Component
-로그인 시도 시 가입 여부에 따라서 가입 된 유저면 모달을 닫고,
-미가입된 유저면 회원가입을 진행합니다.
-loginStep에 따라
-true면 <SocialLogin>, false면 <SignUp>
-component를 rendering 합니다.
-to-do
-꼭 modalvisible이 전역 state로 관리가 되어야 하는가?
-*/
 
 const SIGNIN = 1;
 const SIGNUP = 2;

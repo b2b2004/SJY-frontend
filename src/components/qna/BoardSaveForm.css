@@ -51,3 +51,7 @@ textarea::placeholder {
         font-size: 1.25rem;
     }
 }
+
+.qna_textarea {
+    resize: none;
+}

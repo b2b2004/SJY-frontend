@@ -1,0 +1,65 @@
+
+.arrow-left-content {
+    float: left;
+    cursor: pointer;
+}
+@value registerBackground from '../../common/color.css';
+
+.sopContentButton {
+    float: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sopContentButton textarea:hover {
+    border-color: #1d88f2;
+}
+
+.sopContentButton textarea {
+    font-family: inherit;
+    padding: 1rem 1rem 1.5rem;
+    outline: none;
+    width: 500px;
+    height: 300px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    border-color: darkgray;
+
+}
+textarea::placeholder {
+    color: grey;
+}
+
+.contentSubmit:hover {
+    background: #1d88f2;
+}
+
+.contentSubmit {
+    float: right;
+    font-weight: bold;
+    color: white;
+    background: black;
+    border-radius: 20px;
+    width: 6rem;
+    margin-top: 40px;
+    height: 2rem;
+    font-size: 1rem;
+}
+
+.buttonWrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.3rem;
+
+}
+
+@media screen and (max-width: 575px) {
+    .commentCount {
+        font-size: 1.25rem;
+    }
+}
+
+.content_wrapper {
+    margin-bottom: 300px;
+}

@@ -1,5 +1,5 @@
 .wrapper {
-    width: 800px;
+    width: 400px;
     height: 550px;
     box-shadow: rgb(0 0 0 / 9%) 0px 2px 12px 0px;
     position: relative;
@@ -46,9 +46,11 @@
 }
 
 .logo {
-    width: 4rem;
+    width: 10rem;
     height: auto;
     display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .titleWrapper {
@@ -99,3 +101,4 @@
         border-radius: 0;
     }
 }
+.wrapper {}
