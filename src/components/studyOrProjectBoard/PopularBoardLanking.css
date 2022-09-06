@@ -1,3 +1,7 @@
 body {
     color: grey;
 }
+
+.count_wrapper {
+    float: right;
+}

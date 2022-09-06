@@ -47,22 +47,22 @@ const BoardSaveForm = (props) => {
 
   return (
       <Form onSubmit={submitBoard}>
-      <div className="boardInput">
+          <div className="boardInput">
           <textarea
               placeholder="내용을 입력하세요"
               onChange={changeValue}
               name="content"
           ></textarea>
-          <div className="buttonWrapper">
-              <button
-                  className="buttonComplete"
-                  name="content"
-                  type="submit"
-              >
-                  등록
-              </button>
+              <div className="buttonWrapper">
+                  <button
+                      className="buttonComplete"
+                      name="content"
+                      type="submit"
+                  >
+                      등록
+                  </button>
+              </div>
           </div>
-      </div>
       </Form>
   );
 };

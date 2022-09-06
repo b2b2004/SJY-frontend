@@ -59,14 +59,14 @@ const SetNickname = ({ nickname, setNickname, handleLoginStep }) => {
             <Form onSubmit={loginUser} >
                 <input
                     name="username"
-                    className="signinId"
+                    id="signinId"
                     type="text"
                     placeholder="아이디"
                     onChange={changeValue}
                 />
                 <input
                     name="password"
-                    className="signinPw"
+                    id="signinPw"
                     type="password"
                     placeholder="비밀번호"
                     onChange={changeValue}

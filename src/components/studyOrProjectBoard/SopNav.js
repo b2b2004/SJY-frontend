@@ -31,8 +31,8 @@ function SopNav(props){
                 })
         }
 
-
     },[])
+
     return<>
         <h1 className='sopboard_title'>{sopboard.title}</h1>
         <h1 className='sopboard_leader'>

@@ -13,6 +13,7 @@ import {useHistory} from "react-router-dom";
 
 function StudyOrProjectBoard(){
     const [SopBoard, setSopboard] = useState([]);
+    const [popularBoard, setPopularBoard] = useState([]);
     const dispatch = useDispatch();
     const modalVisible = useSelector((state) => state.sopBoardStep.modalVisible);
     const Authorization = localStorage.getItem("Authorization");
@@ -28,6 +29,15 @@ function StudyOrProjectBoard(){
             })
     }, [])
 
+    useEffect(()=>{
+        fetch("http://localhost:8000/sopBoard/PopularBoard")
+            .then((res)=> res.json())
+            .then((res)=>{
+                console.log(res);
+                setPopularBoard(res.content);
+            })
+    },[])
+
 
     const closeModal = () => {
         document.body.style.overflow = "auto";
@@ -42,7 +52,6 @@ function StudyOrProjectBoard(){
         <div className='project_container'>
             <h6 className='main'>recruit</h6>
             <h3 className="studyOrProject_write_title">프로젝트 or 스터디</h3>
-
 
             <SopModal visible={modalVisible} name="login" onClose={closeModal}>
                 <SopWriteModal handleClose={closeModal} tabIndex={0}></SopWriteModal>
@@ -60,19 +69,19 @@ function StudyOrProjectBoard(){
             <div className='Project_wrap'>
                 <div className='newProject_wrap'>
                     <h3 className="studyOrProject_title">🔥인기프로젝트🔥</h3>
-                    <PopularBoardLanking />
+                    {popularBoard.map((popularBoard) => (
+                        <PopularBoardLanking key={popularBoard.id} popularBoard={popularBoard}/>
+                    ))}
                 </div>
-                {/*<div className='popularProject_wrap'>*/}
-                {/*    <h3 className="studyOrProject_title">인기프로젝트</h3>*/}
-                {/*    <PopularBoardLanking/>*/}
-                {/*</div>*/}
-            </div>
-            <div className='allProject_wrap'>        <h3 className="studyOrProject_title">✨프로젝트 / 스터디✨</h3>
 
+            </div>
+            <div className='allProject_wrap'>
+                <h3 className="studyOrProject_title">✨프로젝트 / 스터디✨</h3>
                 {/*받아오기*/}
                 {SopBoard.map((SopBoard) => (
                     <AllSOPBoard key={SopBoard.id} SopBoard={SopBoard}/>
                 ))}
+
             </div>
 
         </div>

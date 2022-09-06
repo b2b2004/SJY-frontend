@@ -2,3 +2,65 @@
     font-family: "Spoqa Han Sans Neo", sans-serif;
     font-size: xx-large;
 }
+
+.URL {
+    cursor: pointer;
+}
+
+#Detail_address {
+    position: sticky;
+    top: 300px;
+    width: 25%;
+    height: 50%;
+    border: 2px solid lightgrey;
+    border-radius: 10px;
+    margin-left: -5%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 2%;
+    z-index: 1;
+    display: inline-block;
+    float: left;
+}
+
+.sopDetailContainer {
+}
+
+.URL {
+    margin-right: 9%;
+    border: 1px solid darkgrey;
+    margin-bottom: 5%;
+    padding: 2%;
+    border-radius: 10px;
+}
+
+.text {
+    float: right;
+}
+
+.kakao_logo {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 2%;
+
+
+}
+
+.github {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 2%;
+}
+.zoom {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 2%;
+}
+.sopDetail_notice_null {
+    font-size: x-large;
+    text-align: center;
+    margin-top: 20%;
+    color: grey;
+    margin-bottom: 20%;
+}
+

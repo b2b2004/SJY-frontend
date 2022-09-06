@@ -3,6 +3,8 @@ import {nextStep, previousStep, setTechStack} from "../../store/SopBoardStep";
 import {useDispatch} from "react-redux";
 import './SopTechStack.css';
 import Select from "react-select";
+import { MultiSelect } from "react-multi-select-component";
+import contestSlider from "../contestBordP/ContestSlider";
 
 const SopTechStack = ({ handleClose }) => {
 
@@ -14,15 +16,34 @@ const SopTechStack = ({ handleClose }) => {
         { id: 5, name: "c++"},
         { id: 6, name: "java"},
     ]
+
+    const [selected, setSelected] = useState([]);
     const Checkbox = new Set();
 
     const changetechStack = (e) => {
+        console.log(e);
         if(Checkbox.has(e.target.value) === false){
             Checkbox.add(e.target.value);
             console.log(Checkbox);
         }else if (Checkbox.has(e.target.value) === true)
         {
             Checkbox.delete(e.target.value);
+            console.log(Checkbox);
+        }
+        const test = [...Checkbox];
+        const techStack = test.join(',');
+        console.log("techStack = " + techStack);
+        dispatch(setTechStack(techStack));
+    }
+
+    const changetechStack1 = (e) => {
+        let length = e.length;
+        if(Checkbox.has(e[length-1].value) === false){
+            Checkbox.add(e[length-1].value);
+            console.log(Checkbox);
+        }else if (Checkbox.has(e[length-1].value) === true)
+        {
+            Checkbox.delete(e[length-1].value);
             console.log(Checkbox);
         }
         const test = [...Checkbox];
@@ -42,12 +63,12 @@ const SopTechStack = ({ handleClose }) => {
     };
 
     const options = [
-        { value: 1, label: "react"},
-        { value: 2, label: "node.js"},
-        { value: 3, label: "spring"},
-        { value: 4, label: "vue"},
-        { value: 5, label: "c++"},
-        { value: 6, label: "java"},
+        {id:1, value: "react", label: "react"},
+        {id:2,value: "node.js", label: "node.js"},
+        {id:3, value: "spring", label: "spring"},
+        {id:4, value: "vue", label: "vue"},
+        {id:5, value: "c++", label: "c++"},
+        {id:6, value: "java", label: "java"},
     ] //원래는 select 태그 안에 들어가는 애들을 배열로 만들어준다.
 
     return<>
@@ -60,22 +81,29 @@ const SopTechStack = ({ handleClose }) => {
         <Select
             isMulti
             name="area"
-            onChange={changetechStack}
+            onChange={changetechStack1}
             className="languages"
             options={options}
-            placeholder="인원을 선택해주세요."
+            placeholder="기술을 선택해주세요."
         />
 
-        {formData.map((item)=>(
-            <label key={item.id}>
-                {item.name}
-                <input
-                    type="checkbox"
-                    value={item.name}
-                    onClick={changetechStack}
-                />
-            </label>
-        ))}
+        {/*<MultiSelect*/}
+        {/*    options={options}*/}
+        {/*    value={selected}*/}
+        {/*    labelledBy="Select"*/}
+        {/*    onChange={changetechStack1}*/}
+        {/*/>*/}
+
+        {/*{formData.map((item)=>(*/}
+        {/*    <label key={item.id}>*/}
+        {/*        {item.name}*/}
+        {/*        <input*/}
+        {/*            type="checkbox"*/}
+        {/*            value={item.name}*/}
+        {/*            onClick={changetechStack}*/}
+        {/*        />*/}
+        {/*    </label>*/}
+        {/*))}*/}
 
 
         <footer className='modal_footer'>

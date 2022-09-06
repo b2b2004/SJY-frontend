@@ -204,7 +204,7 @@ function Profile() {
                 />
                 <div className="img-wrapper">
                     {loaded === false || loaded === true ? (
-                        <img src={image.preview_URL} />
+                        <img src={image.preview_URL} className="imgWrapperIn"/>
                     ) : (
                         <Spinner className="img-spinner" tip = "이미지 불러오는중"/>
                     )}
@@ -221,44 +221,35 @@ function Profile() {
                     </button>
                 </div>
             </div>
-            <div className='information__profile'>
-                <p className="description">Codmeter에서 사용되는 이름입니다.</p>
-                <hr />
-                <div className='nicknameTitle' >닉네임</div>
-                <input
-                    onChange={changeNicknameValue}
-                    defaultValue={users.username}
-                    name="username"
-                    className="nickname"
-                    type="text"
-                />
-                <button className='change' onClick={chageNickname}>적용</button>
-                </div>
-            </div>
-            <button className='pwchange'>비밀번호 변경</button>
-            <button className='memberdrop' onClick={deleteId}>회원탈퇴</button>
-
-
-
-
-        <br /><br />
+            <div className="description">Codmeter에서 사용되는 이름입니다.</div>
+            <div className='nicknameTitle' >닉네임</div>
+            <input
+                onChange={changeNicknameValue}
+                defaultValue={users.username}
+                name="username"
+                className="inNickname"
+                type="text"
+            />
+            <button className='apply' onClick={chageNickname}>적용</button>
+            <div className="description2">Codmeter에서 사용되는 비밀번호입니다.</div>
             <Form onSubmit={changePw}>
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Control type="password" placeholder="현재 비밀번호"  onChange={changeValue} name = "password" />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Control type="password1" placeholder="바꿀 비밀번호"  onChange={changeValue} name = "password1" />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Control type="password2" placeholder="바꿀 비밀번호 확인"  onChange={changeValue} name = "password2" />
-            </Form.Group>
-            <button variant="primary" type="submit">비밀번호 변경하기</button>
+                <div>
+                    <textarea type="password" placeholder="현재 비밀번호"  onChange={changeValue} name = "password" className="currentPw"/>
+                </div>
+                <div>
+                    <textarea type="password1" placeholder="바꿀 비밀번호"  onChange={changeValue} name = "password1" className="changePw"/>
+                </div>
+                <div>
+                    <textarea type="password2" placeholder="바꿀 비밀번호 확인"  onChange={changeValue} name = "password2" className="changePwCheck"/>
+                </div>
+                <button variant="primary" type="submit" className="InPwChange">비밀번호 변경하기</button>
             </Form>
 
-        {boards.map((board) => (
-            <BoardList key={board.id} board={board} />
-        ))}
-
+            {boards.map((board) => (
+                <BoardList key={board.id} board={board} />
+            ))}
+            <button className='memberDrop' onClick={deleteId}>회원탈퇴</button>
+        </div>
     </div>
 }
 export default Profile;

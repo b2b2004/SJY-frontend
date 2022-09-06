@@ -8,6 +8,11 @@
 
 .boardInput textarea:hover {
     border-color: #1d88f2;
+
+}
+
+.boardInput textarea:focus {
+    border-color: #1d88f2;
 }
 
 .boardInput textarea {
@@ -19,6 +24,7 @@
     margin-bottom: 10px;
     border-radius: 20px;
     border-color: darkgray;
+    resize: none;
 
 }
 textarea::placeholder {

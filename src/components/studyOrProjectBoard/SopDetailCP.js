@@ -1,5 +1,6 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import './SopDetailCP';
+import Parser from "html-react-parser";
 // 상세페이지
 
 function SopDetailCP(props){
@@ -30,7 +31,10 @@ function SopDetailCP(props){
         {sopboard.boardType} / {sopboard.meetType} / {sopboard.area} <br />
         {sopboard.duration_start} ~ {sopboard.duration_end}
         <h1>프로젝트 소개</h1>
-        {sopboard.content}
+
+        <div>
+            <p>{Parser(`${sopboard.content}`)}</p>
+        </div>
         <h1>개발환경</h1>
         {sopboard.techStack}
 

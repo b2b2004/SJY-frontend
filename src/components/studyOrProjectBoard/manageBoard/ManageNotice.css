@@ -1,0 +1,50 @@
+.date_container {
+    cursor: pointer;
+    font-size: xx-large;
+    float: left;
+    color: #8a8c8f;
+}
+
+
+.title_container {
+    cursor: pointer;
+    margin-left: 20%;
+    margin-bottom: 100px;
+
+}
+
+
+.manage_wrapper {
+    margin-left: 25%;
+    border: 1.5px solid lightgrey;
+    padding: 3%;
+    width: 65%;
+    height: 100px;
+    margin-bottom: 3%;
+
+}
+
+.desc {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 50%, #BFDBFE 50%);
+    background-size: 200%;
+    transition: .35s;
+    font-size: x-large;
+    color: #666;
+}
+
+.desc:hover {
+    background-position: -100% 0;
+}
+
+.manageNotice_manage {
+    outline: 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    min-width: 100px;
+    height: 40px;
+    font-size: 18px;
+    background-color: #fd0;
+    color: #222;
+    float: right;
+}

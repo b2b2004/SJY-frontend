@@ -83,25 +83,29 @@ function SopDetailQnaList(props){
                     {isShow ?
                         <SopDetailQnaUpdateForm sopboardId={sopboardId} id={id} key={id} /> :
                         <div>
-                            <button onClick={deleteBoard} className="b-X-button">
-                                삭제
-                            </button>
-                            <button onClick={toggleShow} className="b-button">
-                                수정
-                            </button>
-                            {'  '}
-                            이미지(위치수정)<img src={image.preview_URL} /> <br />
-                            시간(위치수정){date}
-                            <Card.Title>{username}</Card.Title>
-                            <Card.Title> {content}</Card.Title>
-
+                            <Card.Text className='boardList_date'>{date}</Card.Text>
+                            <div className='boardList_img_wrapper'>
+                                <img src={image.preview_URL}/>
+                                <Card.Title className='board_user_name'>{username}</Card.Title>
+                            </div>
+                            <br/>
+                            <div className='board_content_wrapper'>
+                                <Card.Title className='board_content'> {content}</Card.Title>
+                            </div>
                         </div>
                     }
                 </Card.Body>
 
-                <Card.Body onSubmit={toggleShow1}>
+                <Card.Body onSubmit={toggleShow1} className="board_body">
+                    <button onClick={deleteBoard} className="b-X-button">
+                        삭제
+                    </button>
+                    <button onClick={toggleShow} className="b-button">
+                        수정
+                    </button>
                     {isShow1 ?
                         <div>
+                            <hr className='board_hr'/>
                             {comment.map((comment) => (
                                 <SopDetailCommentList comment={comment} />
                             ))}

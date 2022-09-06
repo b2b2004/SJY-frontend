@@ -86,14 +86,21 @@
 }
 
 #signinId {
-    margin-top: 10px;
+    margin-top: 15px;
     border-radius: 2px;
     width: 100%;
     height: 40px;
     border: 1px solid #e5e5e5;
     box-sizing: border-box;
     font-size: 15px;
+    padding-left: 12px;
 }
+
+input text {
+    margin-left: 30px;
+}
+
+#signinId
 ::placeholder {
     color: #1d88f2;
 }
@@ -110,16 +117,16 @@ input:focus {
     border: 1px solid #e5e5e5;
     box-sizing: border-box;
     font-size: 15px;
+    padding-left: 12px;
 }
 
 .signinBtn {
-    height: 40px;
+    margin-top: 15px;
+    border-radius: 2px;
     width: 100%;
-    align-items: center;
-    background-color: #1d88f2;
-    border-radius: 3px;
-    color: white;
-    margin-top: 10px;
+    height: 40px;
+    border: 1px solid #e5e5e5;
+    box-sizing: border-box;
     font-size: 15px;
 }
 
