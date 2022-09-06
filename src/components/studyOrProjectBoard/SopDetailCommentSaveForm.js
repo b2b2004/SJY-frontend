@@ -52,18 +52,25 @@ function SopDetailCommentSaveForm(props){
 
     return<>
         <div>
+
             <br></br>
             <br></br>
+            <br></br>
+            <br></br>
+
             <Form onSubmit={submitComment} className="comment_saveForm">
 
-                <Form.Group controlId="formBasicEmail">
-                    <Form.Control
-                        type="text"
-                        placeholder="내용을 입력하세요"
-                        onChange={changeValue}
-                        name="content"
-                    />
-                </Form.Group>
+                <div className='comment_form_wrapper'>
+                    <Form.Group >
+                        <Form.Control
+                            className='comment_Form'
+                            type="text"
+                            placeholder="내용을 입력하세요"
+                            onChange={changeValue}
+                            name="content"
+                        />
+                    </Form.Group>
+                </div>
 
                 <button
                     className="comment_input"

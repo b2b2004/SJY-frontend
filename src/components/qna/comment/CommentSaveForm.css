@@ -23,6 +23,9 @@
     margin-top: 0.15%;
 
 }
+.comment_Form:focus {
+    box-shadow: none;
+}
 
 /*input{*/
 /*    margin:0;*/

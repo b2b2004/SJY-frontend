@@ -5,11 +5,14 @@
 }
 @value registerBackground from '../../common/color.css';
 
-.sopContentButton {
+.sopContent_Button {
     float: right;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    color: white;
+    background: black;
+    border-radius: 20px;
 }
 
 .sopContentButton textarea:hover {
@@ -20,11 +23,12 @@
     font-family: inherit;
     padding: 1rem 1rem 1.5rem;
     outline: none;
-    width: 500px;
-    height: 300px;
+    width: 700px;
+    height: 350px;
     margin-bottom: 10px;
     border-radius: 20px;
     border-color: darkgray;
+    resize: none;
 
 }
 textarea::placeholder {
@@ -42,11 +46,11 @@ textarea::placeholder {
     background: black;
     border-radius: 20px;
     width: 6rem;
-    margin-top: 40px;
     height: 2rem;
-    font-size: 1rem;
+    margin-top: 2%;
+    padding-bottom: 40px;
+    text-align: center;
 }
-
 .buttonWrapper {
     display: flex;
     justify-content: flex-end;
@@ -60,6 +64,32 @@ textarea::placeholder {
     }
 }
 
-.content_wrapper {
-    margin-bottom: 300px;
+.sopContent_button {
+    outline: none;
+    border-width: 0px;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-weight: 500;
+    max-width: 100%;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.1s ease-out 0s, box-shadow 0.15s cubic-bezier(0.47, 0.03, 0.49, 1.38) 0s;
+    background: rgb(0, 82, 204);
+    cursor: pointer;
+    height: 32px;
+    line-height: 32px;
+    padding: 0px 12px;
+    vertical-align: middle;
+    width: auto;
+    font-size: 14px;
+    color: rgb(255, 255, 255);
+    float: right;
+    margin-top: 1.5%;
+    margin-right: 4%;
+}
+.sopContent_button :hover {
+    background: rgb(0, 101, 255);
+    text-decoration: inherit;
+    transition-duration: 0s, 0.15s;
+    color: rgb(255, 255, 255);
 }

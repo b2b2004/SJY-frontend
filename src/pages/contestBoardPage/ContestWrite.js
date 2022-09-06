@@ -4,13 +4,16 @@ import {Button, Form, Spinner} from "react-bootstrap";
 import axios from "axios";
 import moment from "moment";
 import "./ContestWrite.css";
+import {CKEditor} from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import editor from "draft-js/lib/ContentBlock";
 
 
 function ContestWrite(){
     const Authorization = localStorage.getItem("Authorization");
     const [image, setImage] = useState({
         image_file: '',
-        preview_URL: "img/default_image.png"
+        preview_URL: "/images/eye.png"
         });
     const [loaded, setLoaded] = useState(false);
     let inputRef;
@@ -27,6 +30,9 @@ function ContestWrite(){
         title: '',
         content: '',
     });
+    const [data , setData] = useState({
+        content:''
+    })
 
     const saveImage = (e) =>{
         e.preventDefault();
@@ -48,6 +54,8 @@ function ContestWrite(){
     }
 
     const changeValue = (e) => {
+        console.log(e.target.value);
+        console.log(e.target.name);
         setContestBoard({
             ...contestBoard,
             [e.target.name]: e.target.value,
@@ -56,11 +64,10 @@ function ContestWrite(){
 
     const SopSummit = async (e) => {
         e.preventDefault();
-
         const FrontName = moment().format('YYYYMMDDHHmmss');
         const BackName = image.image_file.name;
         const imageName = FrontName + BackName;
-        console.log(imageName);
+        console.log(contestBoard);
 
 
         if(image.image_file){
@@ -69,7 +76,6 @@ function ContestWrite(){
             formData.append('multipartFiles', image.image_file);
             formData.append('imageName', imageName);
             await axios.post('http://localhost:8000/uploadImage', formData);
-            alert("서버에 등록이 완료되었습니다!");
             setImage({
                 image_file: "",
                 preview_URL: "img/default_image.png",
@@ -77,11 +83,14 @@ function ContestWrite(){
             setLoaded(false);
         }
         else{
-            alert("사진을 등록하세요!")
+            alert("사진을 등록하세요!");
+            return;
         }
 
+
         contestBoard.image = imageName;
-        console.log(contestBoard.image);
+        contestBoard.content = data.content;
+        console.log(contestBoard);
 
         fetch("http://localhost:8000/contestBoard/contestBoardWrite",
             {
@@ -179,6 +188,35 @@ function ContestWrite(){
                                 <textarea onChange={changeValue} name="homepage" className="homepageUrl" placeholder="웹사이트 (https:// 포함)"  />
                             </div>
                         </div>
+                        <CKEditor
+                            editor={ ClassicEditor }
+                            data="  <h2>1.응모주제</h2>
+                                    <br /><br />
+                                    <h2>2.응모자격</h2>
+                                    <br /><br />
+                                    <h2>3.혜택내역</h2>
+                                    <br /><br />
+                                    <h2>4.접수방법</h2>
+                                    <br /><br />
+                                    "
+                            onReady={ editor => {
+                                // You can store the "editor" and use when it is needed.
+                                console.log( 'Editor is ready to use!', editor );
+                            } }
+                            onChange={ ( event, editor ) => {
+                                const data = editor.getData();
+                                setData({
+                                    content: data,
+                                });
+                                console.log( { event, editor, data } );
+                            } }
+                            onBlur={ ( event, editor ) => {
+                                console.log( 'Blur.', editor );
+                            } }
+                            onFocus={ ( event, editor ) => {
+                                console.log( 'Focus.', editor );
+                            } }
+                        />
                     </div>
                     <button type="submit" className="contestIn">등록하기</button>
                 </Form>

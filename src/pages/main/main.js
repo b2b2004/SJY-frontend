@@ -8,7 +8,7 @@ function Main() {
     return <>
         <Slider />
         <div>
-            
+
         </div>
         <div className='main_project_container'>
             <div className='Project_wrap'>

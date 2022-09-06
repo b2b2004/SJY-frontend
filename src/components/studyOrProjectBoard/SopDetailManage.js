@@ -106,7 +106,7 @@ function SopDetailManage(props){
 
     return<>
 
-    <hi>팀장 페이지</hi> <br />
+        <hi>팀장 페이지</hi> <br />
         <Button onClick={move}>공지시항 글쓰기(팀장)</Button><br /><br />
         <Button onClick={move1}>관리자 관리창(관리자) (진행중)</Button>
 

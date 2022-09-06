@@ -4,6 +4,8 @@ import {useDispatch, useSelector} from "react-redux";
 import styles from "./Set_Login.module.css";
 import {Form} from "react-bootstrap";
 import './SopContent.css';
+import {CKEditor} from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 const SopContent = ({ handleClose }) => {
 
@@ -80,11 +82,11 @@ const SopContent = ({ handleClose }) => {
                 src="/images/arrow-left.png"
                 onClick={backhandleSopBoardStep} />
             <button
-                className="contentSubmit"
+                className='sopContent_button'
                 onClick={SopSummit}
 
             >
-                등록
+                등록하기
             </button>
         </footer>
 

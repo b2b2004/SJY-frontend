@@ -2,6 +2,7 @@ import {Button} from "react-bootstrap";
 import React, {useEffect, useState} from "react";
 import ManageNotice from "./manageBoard/ManageNotice";
 import './SopDetailNotice.css';
+import {CopyToClipboard} from "react-copy-to-clipboard/src";
 
 function SopDetailNotice(props){
 
@@ -53,16 +54,27 @@ function SopDetailNotice(props){
 
 
     return<>
+
+
+        {sopManageBoard != null ?
+            <div id='Detail_address'>
+                <img className='github' src="/images/github.png" alt='img'/>
+                <CopyToClipboard text={sopManageBoard.githubAddress} onCopy={()=>alert("주소가 복사되었습니다")}>
+                    <div className="URL">{sopManageBoard.githubAddress}<div className='text'>📋</div></div>
+                </CopyToClipboard>
+                <img className='zoom' src="/images/zoom.png" alt='img'/>
+                <CopyToClipboard text={sopManageBoard.zoomAddress} onCopy={()=>alert("주소가 복사되었습니다")}>
+                    <div className="URL">{sopManageBoard.zoomAddress}<div className='text'>📋</div></div>
+                </CopyToClipboard>
+                <img className='kakao_logo' src="/images/kakao-logo.png" alt='img'/>
+                <CopyToClipboard text={sopManageBoard.kakaoOpenAddress} onCopy={()=>alert("주소가 복사되었습니다")}>
+                    <div className="URL">{sopManageBoard.kakaoOpenAddress}<div className='text'>📋</div></div>
+                </CopyToClipboard>
+                {/*클립보드로 구현*/}
+            </div>
+            : <div className='sopDetail_notice_null'>공지사항이 없습니다.</div>}
+
         <div className='sopDetailContainer'>
-            {sopManageBoard != null ?
-                <div>
-                    <h1 className='sopNoticeFont'>깃헙 주소 : {sopManageBoard.githubAddress}</h1>
-                    <h1 className='sopNoticeFont'>줌 주소 : {sopManageBoard.zoomAddress}</h1>
-                    <h1 className="sopNoticeFont">카카오 주소 : {sopManageBoard.kakaoOpenAddress}</h1>
-                </div>
-                :<h1>hi</h1>}
-
-
             {sopManageNotice != null
                 ?
                 <div>
@@ -70,7 +82,7 @@ function SopDetailNotice(props){
                         <ManageNotice key={sopManageNotice.id} sopManageNotice={sopManageNotice}/>
                     ))}
                 </div>
-                : <></>
+                : <><div></div></>
             }
         </div>
     </>

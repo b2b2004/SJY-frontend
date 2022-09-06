@@ -48,22 +48,26 @@ function SopDetailQnaWrite(props){
 
     return<>
         <Form onSubmit={submitBoard}>
-            <div className='sop_qna_wrapper'>
-                    <textarea className='sop_qna_input'
-                              placeholder={sopQnaboard.content}
-                              onChange={changeValue}
-                              name="content">
+            <div className="sop_board_wrapper">
+
+
+                <div className='boardInput'>
+                    <textarea
+                        placeholder={sopQnaboard.content}
+                        onChange={changeValue}
+                        name="content">
 
                     </textarea>
-                <div className="buttonWrapper">
-                    <button
-                        className="c-button-complete"
-                        name="content"
-                        type="submit"
-                    >
-                        완료
-                    </button>
+                    <div className="buttonWrapper">
+                        <button
+                            className="buttonComplete"
+                            name="content"
+                            type="submit"
+                        >
+                            등록
+                        </button>
 
+                    </div>
                 </div>
             </div>
         </Form>

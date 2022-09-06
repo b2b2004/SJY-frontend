@@ -4,6 +4,7 @@ import {useDispatch} from "react-redux";
 import "./SopDuration.css";
 import Calendar from "react-calendar";
 import moment from "moment";
+import 'react-calendar/dist/Calendar.css';
 
 const SopDuration = ({ handleClose }) => {
 

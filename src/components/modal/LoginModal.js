@@ -25,7 +25,7 @@ const LoginModal = ({ handleClose }) => {
             <div className={styles.modalHeader}>
                 <img
                     className={styles.logo}
-                    src="/images/logo/hola_logo_y.png"
+                    src="/images/logo/codemeter_logo_.png"
                     alt="welcome"
                 ></img>
                 <div className={styles.exitWrapper} onClick={handleClose}>

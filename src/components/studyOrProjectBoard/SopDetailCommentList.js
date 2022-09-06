@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import moment from "moment";
+import {Card} from "react-bootstrap";
 
 function SopDetailCommentList(props){
 
@@ -34,14 +35,17 @@ function SopDetailCommentList(props){
         <div>
             <div className="commentContainer">
                 <div className="userNickname">
-                    작성자 : {username} <br />
-                    이미지(위치수정)<img src={image.preview_URL} /> <br />
-                    시간(위치수정){date}
+                    <div className='commentList_img_wrapper'>
+                        <img src={image.preview_URL}/> <br/>
+                        <Card.Title className='board_user_name'>{username}</Card.Title>
+                    </div>
                 </div>
-
-                <div className="title">
-                    내용 : {content}
+                <div className='comment_content_wrapper'>
+                    <Card.Title className='board_content'>
+                        <div className='comment_content'>{content}</div>
+                    </Card.Title>
                 </div>
+                <footer><div className='commentList_date'>{date}</div></footer>
             </div>
 
         </div>
