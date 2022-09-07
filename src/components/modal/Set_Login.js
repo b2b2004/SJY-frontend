@@ -5,6 +5,7 @@ import kakao_login from "../../image/kakao1.png";
 import naver_login from "../../image/naver1.png";
 import google_login from "../../image/google1.png";
 import "./Singnin.css"
+import LoadingSpinner from "../loading/LoadingSpinner";
 
 const SetNickname = ({ nickname, setNickname, handleLoginStep }) => {
     const [User,setUser] = useState({
@@ -96,26 +97,6 @@ const SetNickname = ({ nickname, setNickname, handleLoginStep }) => {
                     </div>
                 </div>
             </div>
-
-
-            {/*<h1 className={styles.title}>*/}
-            {/*    Hola에 처음 오셨군요!*/}
-            {/*    <br />*/}
-            {/*    우선, 사용하실 닉네임을 설정해 볼까요?*/}
-            {/*</h1>*/}
-            {/*<div className={styles.inputWrapper}>*/}
-            {/*    <h3 className={styles.nicknameText}>닉네임</h3>*/}
-            {/*    <input*/}
-            {/*        className={styles.nicknameInput}*/}
-            {/*        type="text"*/}
-            {/*        name="nickNameInput"*/}
-            {/*        value={nickname}*/}
-            {/*        onChange={(e) => {*/}
-            {/*            setNickname(e.target.value);*/}
-            {/*        }}*/}
-            {/*    />*/}
-            {/*</div>*/}
-
 
             <button
                 onClick={handleLoginStep}

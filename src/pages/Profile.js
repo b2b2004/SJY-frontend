@@ -4,6 +4,7 @@ import BoardList from "../components/qna/BoardList";
 import axios from "axios";
 import "./Profile.css";
 import moment from "moment";
+import LoadingSpinner from "../components/loading/LoadingSpinner";
 
 
 function Profile() {
@@ -21,6 +22,7 @@ function Profile() {
     });
     const [loaded, setLoaded] = useState(false);
     const [username,setUsername] = useState();
+    const [loading, setLoading] = useState(null);
     let inputRef;
 
 
@@ -34,6 +36,7 @@ function Profile() {
 
 
     useEffect(() => {
+        setLoading(true);
             fetch("http://localhost:8000/profile",{
                     method: 'GET',
                     headers:{
@@ -42,6 +45,7 @@ function Profile() {
                 }
             ).then((res) =>res.json()
             ).then((data)=>{
+                setLoading(false);
                 setuser(data);
                 console.log(data);
                     setImage(
@@ -194,62 +198,68 @@ function Profile() {
 
     return <div>
 
-        <div className='information'>
-            <h1>내 정보</h1>
-            <div className="image">
-                <input type="file" accept="image/*"
-                       onChange={saveImage}
-                       ref={refParam => inputRef = refParam}
-                       style={{ display: "none" }}
-                />
-                <div className="img-wrapper">
-                    {loaded === false || loaded === true ? (
-                        <img src={image.preview_URL} className="imgWrapperIn"/>
-                    ) : (
-                        <Spinner className="img-spinner" tip = "이미지 불러오는중"/>
-                    )}
-                </div>
-                <div className="imageControl">
-                    <button className="imageUpload" onClick={() => inputRef.click()}>
-                        이미지 선택
-                    </button>
-                    <button className="imageDelete" onClick={deleteImage}>
-                        이미지 제거
-                    </button>
-                    <button className="imageDelete" onClick={sendImageToServer}>
-                        이미지 저장
-                    </button>
-                </div>
-            </div>
-            <div className="description">Codmeter에서 사용되는 이름입니다.</div>
-            <div className='nicknameTitle' >닉네임</div>
-            <input
-                onChange={changeNicknameValue}
-                defaultValue={users.username}
-                name="username"
-                className="inNickname"
-                type="text"
-            />
-            <button className='apply' onClick={chageNickname}>적용</button>
-            <div className="description2">Codmeter에서 사용되는 비밀번호입니다.</div>
-            <Form onSubmit={changePw}>
-                <div>
-                    <textarea type="password" placeholder="현재 비밀번호"  onChange={changeValue} name = "password" className="currentPw"/>
-                </div>
-                <div>
-                    <textarea type="password1" placeholder="바꿀 비밀번호"  onChange={changeValue} name = "password1" className="changePw"/>
-                </div>
-                <div>
-                    <textarea type="password2" placeholder="바꿀 비밀번호 확인"  onChange={changeValue} name = "password2" className="changePwCheck"/>
-                </div>
-                <button variant="primary" type="submit" className="InPwChange">비밀번호 변경하기</button>
-            </Form>
+        {
+            loading
+            ?<LoadingSpinner />
+                :
+                <div className='information'>
+                    <h1>내 정보</h1>
+                    <div className="image">
+                        <input type="file" accept="image/*"
+                               onChange={saveImage}
+                               ref={refParam => inputRef = refParam}
+                               style={{ display: "none" }}
+                        />
+                        <div className="img-wrapper">
+                            {loaded === false || loaded === true ? (
+                                <img src={image.preview_URL} className="imgWrapperIn"/>
+                            ) : (
+                                <Spinner className="img-spinner" tip = "이미지 불러오는중"/>
+                            )}
+                        </div>
+                        <div className="imageControl">
+                            <button className="imageUpload" onClick={() => inputRef.click()}>
+                                이미지 선택
+                            </button>
+                            <button className="imageDelete" onClick={deleteImage}>
+                                이미지 제거
+                            </button>
+                            <button className="imageDelete" onClick={sendImageToServer}>
+                                이미지 저장
+                            </button>
+                        </div>
+                    </div>
+                    <div className="description">Codmeter에서 사용되는 이름입니다.</div>
+                    <div className='nicknameTitle' >닉네임</div>
+                    <input
+                        onChange={changeNicknameValue}
+                        defaultValue={users.username}
+                        name="username"
+                        className="inNickname"
+                        type="text"
+                    />
+                    <button className='apply' onClick={chageNickname}>적용</button>
+                    <div className="description2">Codmeter에서 사용되는 비밀번호입니다.</div>
+                    <Form onSubmit={changePw}>
+                        <div>
+                            <textarea type="password" placeholder="현재 비밀번호"  onChange={changeValue} name = "password" className="currentPw"/>
+                        </div>
+                        <div>
+                            <textarea type="password1" placeholder="바꿀 비밀번호"  onChange={changeValue} name = "password1" className="changePw"/>
+                        </div>
+                        <div>
+                            <textarea type="password2" placeholder="바꿀 비밀번호 확인"  onChange={changeValue} name = "password2" className="changePwCheck"/>
+                        </div>
+                        <button variant="primary" type="submit" className="InPwChange">비밀번호 변경하기</button>
+                    </Form>
 
-            {boards.map((board) => (
-                <BoardList key={board.id} board={board} />
-            ))}
-            <button className='memberDrop' onClick={deleteId}>회원탈퇴</button>
-        </div>
+                    {boards.map((board) => (
+                        <BoardList key={board.id} board={board} />
+                    ))}
+                    <button className='memberDrop' onClick={deleteId}>회원탈퇴</button>
+                </div>
+        }
+
     </div>
 }
 export default Profile;

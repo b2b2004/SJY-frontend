@@ -12,8 +12,8 @@
 }
 
 .contestCover {
-    height: 70vh;
-    width: 25vw;
+    height: 60vh;
+    width: 20vw;
     border-radius: 5px;
     box-shadow: 2px 2px 5px rgb(190, 190, 190);
     float: left;
@@ -21,7 +21,7 @@
 }
 
 .contestInfo {
-    margin-left: 40%;
+    margin-left: 35%;
     padding-top: 3%;
 }
 

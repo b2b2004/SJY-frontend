@@ -3,6 +3,7 @@ import AllSOPBoard from "./studyOrProjectBoard/AllSOPBoard";
 import "./TechStackImage.css"
 
 function TechStackImage(props){
+    console.log(props);
     const ts = props.techStack;
     const techStack = ts.split(',');
     console.log(techStack);
