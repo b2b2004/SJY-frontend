@@ -1,7 +1,6 @@
 .writeWrite {
     margin: 5%;
     width: 100%;
-    min-height: 10rem;
     padding-bottom: 5rem;
 }
 
@@ -28,10 +27,12 @@
 }
 
 .posterCover {
-    height: 70vh;
-    width: 25vw;
+    height: 25rem;
+    width: 20rem;
     border-radius: 5px;
     box-shadow: 2px 2px 5px rgb(150, 150, 150);
+    margin-left: 30px;
+
 }
 
 .posterIn {
@@ -43,7 +44,7 @@
     cursor: pointer;
     width: 100px;
     height: 32px;
-    margin-left: 10%;
+    margin-left: 13%;
     margin-top: 5%;
 }
 
@@ -319,17 +320,8 @@
 }
 
 .outline {
-    background-color: rgb(245, 245, 245);
-    height: 90vh;
     width: 90%;
-    margin: auto;
-}
-
-.outlineTitle {
-    padding-top: 15px;
-    margin-left: 20px;
-    font-size: 20px;
-    color: rgb(100, 100, 100);
+    margin-top: 10%;
 }
 
 .contestIn {
@@ -350,3 +342,4 @@
     background: rgb(183, 183, 183);
     color: white;
 }
+

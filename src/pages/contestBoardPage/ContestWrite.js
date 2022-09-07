@@ -82,11 +82,10 @@ function ContestWrite(){
             });
             setLoaded(false);
         }
-        else{
+        else {
             alert("사진을 등록하세요!");
             return;
         }
-
 
         contestBoard.image = imageName;
         contestBoard.content = data.content;
@@ -188,15 +187,17 @@ function ContestWrite(){
                                 <textarea onChange={changeValue} name="homepage" className="homepageUrl" placeholder="웹사이트 (https:// 포함)"  />
                             </div>
                         </div>
+                    </div>
+                    <div className="outline">
                         <CKEditor
                             editor={ ClassicEditor }
-                            data="  <h2>1.응모주제</h2>
+                            data="  <h4>1.응모주제</h4>
                                     <br /><br />
-                                    <h2>2.응모자격</h2>
+                                    <h4>2.응모자격</h4>
                                     <br /><br />
-                                    <h2>3.혜택내역</h2>
+                                    <h4>3.혜택내역</h4>
                                     <br /><br />
-                                    <h2>4.접수방법</h2>
+                                    <h4>4.접수방법</h4>
                                     <br /><br />
                                     "
                             onReady={ editor => {

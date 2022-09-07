@@ -72,8 +72,6 @@ function ContestDetail(props){
     };
 
     return<>
-
-        <>
             <div className="contestDetailTitle">{contestboard.title}</div>
             <div className="detail">
                 <img className="contestCover" alt="cover" src={contestImageUrl.imageUrl} />
@@ -135,11 +133,6 @@ function ContestDetail(props){
                 <button className="contestList">목록</button>
             </div>
         </>
-
-        <Button variant="danger" onClick={deleteContestBoard}>
-            삭제
-        </Button>
-    </>
 }
 
 export default ContestDetail;
