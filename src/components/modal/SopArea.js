@@ -10,7 +10,7 @@ const SopArea = ({ handleClose }) => {
     const changeValue = (e) => {
         console.log(e.value);
         console.log("e.target.value = " +e.value);
-        dispatch(setRecruitment(e.value));
+        dispatch(setArea(e.value));
     };
 
     const backhandleSopBoardStep = async () => {
@@ -21,7 +21,8 @@ const SopArea = ({ handleClose }) => {
         dispatch(nextStep());
     };
 
-    const options = [
+    const areas = [
+        { value: "상관없음", label: "상관없음" },
         { value: "서울", label: "서울" },
         { value: "경기도", label: "경기도" },
         { value: "부산광역시", label: "부산광역시" },
@@ -57,7 +58,7 @@ const SopArea = ({ handleClose }) => {
                 onChange={changeValue}
                 className="languages"
                 classNamePrefix="select"
-                options={options}
+                options={areas}
                 placeholder="지역을 선택해주세요."
             />
 

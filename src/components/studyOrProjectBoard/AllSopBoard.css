@@ -11,6 +11,8 @@
     margin-top: 30px;
     align-content: center;
     cursor: pointer;
+    transform: scale(1.0);
+    transition: transform .3s;  /* 시간 설정 */
 }
 
 .HashTag{
@@ -47,6 +49,7 @@
 
 .CardGroup:hover {
     transform: scale(1.02);
+    transition: transform .3s;  /* 시간 설정 */
 }
 
 .sopBoard_user_name {

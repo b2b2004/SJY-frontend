@@ -57,42 +57,72 @@ function Main() {
     return<>
         {
             loading
-            ? <LoadingSpinner /> :
+                ? <LoadingSpinner /> :
 
                 <>
                     <Slider />
                     <div className='main_project_container'>
                         <div className='Project_wrap'>
-                            <div className='newProject_wrap'>
+                            {/*                            <div className='newProject_wrap'>
                                 <h3 className="studyOrProject_title">🔥인기 프로젝트 / 스터디🔥</h3>
                                 {popularBoard.map((popularBoard) => (
                                     <PopularBoardLanking key={popularBoard.id} popularBoard={popularBoard}/>
                                 ))}
-                            </div>
+                            </div>*/}
                         </div>
 
 
-                    </div>
 
-                    <div onClick={ShowTech}  value={languages.value} className='aa'>
-                        {languages.map((languages) =>(
-                            <MainTechImage key={languages.id} techStack={languages} />
-                        ))}
-                    </div>
 
-                    { show == true
-                        ?
-                        <div>
-                            {SopBoard.map((SopBoard) => (
-                                <AllSOPBoard key={SopBoard.id} SopBoard={SopBoard}/>
+                        <div onClick={ShowTech}  value={languages.value} className='aa'>
+                            {languages.map((languages) =>(
+                                <MainTechImage key={languages.id} techStack={languages} />
                             ))}
                         </div>
 
-                        :<div>bye</div>
-                    }
+                        { show == true
+                            ?
+                            <div className='sopboard_container_main'>
+                                {SopBoard.map((SopBoard) => (
+                                    <AllSOPBoard key={SopBoard.id} SopBoard={SopBoard}/>
+                                ))}
+                            </div>
+
+                            :<div className='sopboard_container_main'>
+                                {popularBoard.map((popularBoard) => (
+                                    <PopularBoardLanking key={popularBoard.id} popularBoard={popularBoard}/>
+                                ))}</div>
+                        }</div>
+
+                    <img
+                        className="main_photo"
+                        src="/images/main_photo.png"/>
+
+
+                    <div className='contest_container_main'>
+                        공모전 부분입니다
+                    </div>
+
+
+                    <footer>
+                        <div className="inner">
+
+                            <div className="info">
+                                <span>중부대학교 정보보호학전공 3조</span>
+                                <span>주소 : 경기도 고양시 덕양구</span>
+                                <span>TEL : 031) 0000-0000 / FAX : 031) 0000-0000</span>
+                                <span>개인정보 책임자 : 권용호</span>
+                            </div>
+
+                            <p className="copyright">
+                                &copy; <span className="this-year"></span> Copyright ⓒ 2022 CODEMETER. All rights reserved.
+                            </p>
+
+                        </div>
+                    </footer>
                 </>
         }
-</>
+    </>
 
 }
 

@@ -1,0 +1,18 @@
+.main_tech_img {
+    border: 2px solid lightgrey;
+    margin-right: 1%;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+    transform: scale(1.0); /* 이미지 확대 */
+    transition: transform .5s; /* 시간 설정 */
+}
+.main_tech_img:hover {
+    border: 2px solid #60A5FA;
+    transform: scale(1.2);   /* 이미지 확대 */
+    transition: transform .3s;  /* 시간 설정 */
+}
+
+

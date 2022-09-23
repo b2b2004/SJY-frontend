@@ -92,8 +92,9 @@ textarea::placeholder {
 }
 
 .board_user_name {
-    margin-left: 15%;
+    margin-left: 13%;
     font-family: "Spoqa Han Sans Neo", sans-serif;
+    font-size: small;
 }
 
 .board_content_wrapper {
