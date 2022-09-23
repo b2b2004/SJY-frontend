@@ -10,17 +10,17 @@
 #Detail_address {
     position: sticky;
     top: 300px;
-    width: 25%;
+    width: 20%;
     height: 50%;
     border: 2px solid lightgrey;
     border-radius: 10px;
-    margin-left: -5%;
     padding-top: 3%;
     padding-bottom: 3%;
     padding-left: 2%;
+    margin-left: 2%;
     z-index: 1;
     display: inline-block;
-    float: left;
+    float: right;
 }
 
 .sopDetailContainer {

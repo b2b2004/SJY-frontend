@@ -94,46 +94,46 @@ function SopMangerWrite(){
     }
 
     return<>
-                {testSopManageBoard.id === ''
-                    ?
-                    <Form onSubmit={SopManageBoardSumit}>
-                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                            <Form.Label>깃헙 주소</Form.Label>
-                            <Form.Control onChange={changeValue} name="githubAddress" type="textarea"   />
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                            <Form.Label>줌 주소</Form.Label>
-                            <Form.Control onChange={changeValue} name="zoomAddress" type="textarea"  />
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                            <Form.Label>카카오 오픈채팅방 주소</Form.Label>
-                            <Form.Control onChange={changeValue} name="kakaoOpenAddress" type="textarea"   />
-                        </Form.Group>
-                        <Button type="submit">등록</Button>
-                    </Form>
-                    :
-                            <Form onSubmit={SopManageBoardUpdate}>
-                            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                <Form.Label>깃헙 주소</Form.Label>
-                                <Form.Control onChange={changeValue} name="githubAddress" type="textarea"  defaultValue={testSopManageBoard.githubAddress}  />
-                            </Form.Group>
+        {testSopManageBoard.id === ''
+            ?
+            <Form onSubmit={SopManageBoardSumit}>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>깃헙 주소</Form.Label>
+                    <Form.Control onChange={changeValue} name="githubAddress" type="textarea"   />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>줌 주소</Form.Label>
+                    <Form.Control onChange={changeValue} name="zoomAddress" type="textarea"  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>카카오 오픈채팅방 주소</Form.Label>
+                    <Form.Control onChange={changeValue} name="kakaoOpenAddress" type="textarea"   />
+                </Form.Group>
+                <Button type="submit">등록</Button>
+            </Form>
+            :
+            <Form onSubmit={SopManageBoardUpdate}>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>깃헙 주소</Form.Label>
+                    <Form.Control onChange={changeValue} name="githubAddress" type="textarea"  defaultValue={testSopManageBoard.githubAddress}  />
+                </Form.Group>
 
-                            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                            <Form.Label>줌 주소</Form.Label>
-                            <Form.Control onChange={changeValue} name="zoomAddress" type="textarea" defaultValue={testSopManageBoard.zoomAddress} />
-                            </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>줌 주소</Form.Label>
+                    <Form.Control onChange={changeValue} name="zoomAddress" type="textarea" defaultValue={testSopManageBoard.zoomAddress} />
+                </Form.Group>
 
-                            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                            <Form.Label>카카오 오픈채팅방 주소</Form.Label>
-                            <Form.Control onChange={changeValue} name="kakaoOpenAddress" type="textarea"  defaultValue={testSopManageBoard.kakaoOpenAddress} />
-                            </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>카카오 오픈채팅방 주소</Form.Label>
+                    <Form.Control onChange={changeValue} name="kakaoOpenAddress" type="textarea"  defaultValue={testSopManageBoard.kakaoOpenAddress} />
+                </Form.Group>
 
-                            <Button type="submit">수정</Button>
-                             </Form>
-                }
-                <div><a>팀원한테 과제 낼수 있는 창 추가</a></div>
+                <Button type="submit">수정</Button>
+            </Form>
+        }
+        <div><a>팀원한테 과제 낼수 있는 창 추가</a></div>
 
-</>
+    </>
 }
 
 export default SopMangerWrite;

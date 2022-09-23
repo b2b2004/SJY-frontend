@@ -109,7 +109,6 @@ function ContestWrite(){
 
     return(
         <>
-            <textarea onChange={changeValue} name="title" className="contestWriteTitle" placeholder="제목" />
             <div className="writeWrite">
 
                 <div className="uploader-wrapper">
@@ -188,6 +187,7 @@ function ContestWrite(){
                             </div>
                         </div>
                     </div>
+                    <textarea onChange={changeValue} name="title" className="contestWriteTitle" placeholder="제목" />
                     <div className="outline">
                         <CKEditor
                             editor={ ClassicEditor }
@@ -200,6 +200,7 @@ function ContestWrite(){
                                     <h4>4.접수방법</h4>
                                     <br /><br />
                                     "
+                            placeholder= 'Type the content here!'
                             onReady={ editor => {
                                 // You can store the "editor" and use when it is needed.
                                 console.log( 'Editor is ready to use!', editor );

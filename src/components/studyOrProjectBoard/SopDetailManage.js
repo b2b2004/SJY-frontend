@@ -1,6 +1,8 @@
-import {Button, Form} from "react-bootstrap";
+import {Button, Card, Form} from "react-bootstrap";
 import React, {useEffect, useState} from "react";
 import './SopDetailManage.css';
+import SopDetailApplicant from "./SopDetailApplicant";
+import BoardList from "../qna/BoardList";
 // 스터디 상세 관리 페이지
 
 function SopDetailManage(props){
@@ -15,6 +17,7 @@ function SopDetailManage(props){
     });
     const [sopManageBoard , setSopManageBoard] = useState();
     const [help, setHelp] = useState(true);
+    const [recuitMsg, setRecuitMsg] = useState([]);
 
     const changeValue = (e) =>{
         console.log(e.target.value);
@@ -25,7 +28,6 @@ function SopDetailManage(props){
     }
 
     useEffect(()=>{
-
         fetch('http://localhost:8000/sopBoard/aaa/'+ id,{
             method: "GET",
             headers: {
@@ -47,10 +49,23 @@ function SopDetailManage(props){
                     setSopManageBoard(res);
                 }
             })
-
     },[help])
 
-    const SopManageBoardSumit = (e) =>{
+
+    useEffect(()=>{
+        fetch('http://localhost:8000/sopBoard/recruitMsg/'+ id,{
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8', Authorization
+            },
+        }).then(res=>
+            res.json()
+        ).then((res)=>{
+            setRecuitMsg(res);
+            })
+    },[])
+
+    const SopManageBoardSubmit = (e) =>{
         e.preventDefault();
         const a = parseInt(id);
         sopManageBoard.sopBoardId = a;
@@ -105,48 +120,81 @@ function SopDetailManage(props){
     }
 
     return<>
+        <div className='SopDetailManage_container'>
+            <div className='SopDetailManage_button_container'>
+                <button className='sopDetail_manage_button1' onClick={move}>공지시항 등록</button>
+                <button className='sopDetail_manage_button2' onClick={move1}>과제 등록</button>
+            </div>
 
-        <hi>팀장 페이지</hi> <br />
-        <Button onClick={move}>공지시항 글쓰기(팀장)</Button><br /><br />
-        <Button onClick={move1}>관리자 관리창(관리자) (진행중)</Button>
+            <div className='SopDetailManage_content_container'>
+                {testSopManageBoard.id === ''
+                    ?
+                    <div id='Manage_address'>
+                        <Form onSubmit={SopManageBoardSubmit}>
+                            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                <Form.Label>깃헙 주소</Form.Label>
+                                <Form.Control onChange={changeValue} name="githubAddress" type="textarea"   />
+                            </Form.Group>
+                            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                <Form.Label>줌 주소</Form.Label>
+                                <Form.Control onChange={changeValue} name="zoomAddress" type="textarea"  />
+                            </Form.Group>
+                            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                <Form.Label>카카오 오픈채팅방 주소</Form.Label>
+                                <Form.Control onChange={changeValue} name="kakaoOpenAddress" type="textarea"   />
+                            </Form.Group>
+                            <Button type="submit">등록</Button>
+                        </Form>
+                    </div>
+                    :
+                    <div>
+                        <div id='Manage_address'>
+                            <Form onSubmit={SopManageBoardUpdate}>
+                                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                    <Form.Label>Github 주소</Form.Label>
+                                    <Form.Control onChange={changeValue} name="githubAddress" type="textarea"  defaultValue={testSopManageBoard.githubAddress}  />
+                                </Form.Group>
 
-        {testSopManageBoard.id === ''
-            ?
-            <Form onSubmit={SopManageBoardSumit}>
-                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label>깃헙 주소</Form.Label>
-                    <Form.Control onChange={changeValue} name="githubAddress" type="textarea"   />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label>줌 주소</Form.Label>
-                    <Form.Control onChange={changeValue} name="zoomAddress" type="textarea"  />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label>카카오 오픈채팅방 주소</Form.Label>
-                    <Form.Control onChange={changeValue} name="kakaoOpenAddress" type="textarea"   />
-                </Form.Group>
-                <Button type="submit">등록</Button>
-            </Form>
-            :
-            <Form onSubmit={SopManageBoardUpdate}>
-                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label>깃헙 주소</Form.Label>
-                    <Form.Control onChange={changeValue} name="githubAddress" type="textarea"  defaultValue={testSopManageBoard.githubAddress}  />
-                </Form.Group>
+                                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                    <Form.Label>Zoom 주소</Form.Label>
+                                    <Form.Control onChange={changeValue} name="zoomAddress" type="textarea" defaultValue={testSopManageBoard.zoomAddress} />
+                                </Form.Group>
 
-                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label>줌 주소</Form.Label>
-                    <Form.Control onChange={changeValue} name="zoomAddress" type="textarea" defaultValue={testSopManageBoard.zoomAddress} />
-                </Form.Group>
+                                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                    <Form.Label>KaKao 오픈채팅방 주소</Form.Label>
+                                    <Form.Control onChange={changeValue} name="kakaoOpenAddress" type="textarea"  defaultValue={testSopManageBoard.kakaoOpenAddress} />
+                                </Form.Group>
+                                <button className='sopDetail_manage_button3' type="submit">등록</button>
+                            </Form>
+                        </div>
 
-                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label>카카오 오픈채팅방 주소</Form.Label>
-                    <Form.Control onChange={changeValue} name="kakaoOpenAddress" type="textarea"  defaultValue={testSopManageBoard.kakaoOpenAddress} />
-                </Form.Group>
-                <Button type="submit">수정</Button>
-            </Form>
-        }
-        <div><a>팀원한테 과제 낼수 있는 창 추가</a></div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div>
+            <h3 className='team_manage_title'>팀원 관리</h3>
+            <Card id="manage_team_container">
+                <Card.Body className="manage_apply_body">
+
+                    <div>
+                        <Card.Text className='apply_username'>팀원 이름</Card.Text>
+                        <Card.Title className='apply_content'>담당 업무</Card.Title>
+
+                        <button className='manage_disagree'>탈퇴 처리</button>
+                        <button className='manage_agree'>과제 등록</button>
+                    </div>
+                </Card.Body>
+            </Card>
+        </div>
+        <div>
+            <hr className='manage_hr'/>
+            <h3 className='apply_title'>신청 인원</h3>
+        </div>
+        {recuitMsg.map((recuitMsg) => (
+            <SopDetailApplicant key={recuitMsg.id} recuitMsg={recuitMsg} />
+        ))}
+
     </>
 }
 

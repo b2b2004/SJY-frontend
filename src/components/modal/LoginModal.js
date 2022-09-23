@@ -3,9 +3,11 @@ import styles from "./LoginModal.module.css";
 import { useSelector } from "react-redux";
 import SetLoginContainer from "./Set_Login_Container";
 import Signup from "./Signup";
+import Login_FindPW from "./Login_FindPW";
 
 const SIGNIN = 1;
 const SIGNUP = 2;
+const FindPW = 3;
 
 const LoginModal = ({ handleClose }) => {
     const loginStep = useSelector((state) => state.loginStep.currentStep);
@@ -16,6 +18,8 @@ const LoginModal = ({ handleClose }) => {
                 return <SetLoginContainer />;
             case SIGNUP:
                 return <Signup handleClose={handleClose}></Signup>;
+            case FindPW:
+                return <Login_FindPW handleClose={handleClose}></Login_FindPW>;
             default:
                 return <div></div>;
         }

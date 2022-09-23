@@ -200,10 +200,10 @@ function Profile() {
 
         {
             loading
-            ?<LoadingSpinner />
+                ?<LoadingSpinner />
                 :
                 <div className='information'>
-                    <h1>내 정보</h1>
+                    <h1 className='profile_title'>내 정보</h1>
                     <div className="image">
                         <input type="file" accept="image/*"
                                onChange={saveImage}
@@ -231,31 +231,33 @@ function Profile() {
                     </div>
                     <div className="description">Codmeter에서 사용되는 이름입니다.</div>
                     <div className='nicknameTitle' >닉네임</div>
-                    <input
-                        onChange={changeNicknameValue}
-                        defaultValue={users.username}
-                        name="username"
-                        className="inNickname"
-                        type="text"
-                    />
+                    <div className='nickname_input_tag'>
+                        <input
+                            onChange={changeNicknameValue}
+                            defaultValue={users.username}
+                            name="username"
+                            className="inNickname"
+                            type="text"
+                        />
+                    </div>
                     <button className='apply' onClick={chageNickname}>적용</button>
                     <div className="description2">Codmeter에서 사용되는 비밀번호입니다.</div>
                     <Form onSubmit={changePw}>
                         <div>
-                            <textarea type="password" placeholder="현재 비밀번호"  onChange={changeValue} name = "password" className="currentPw"/>
+                            <input type="password" placeholder="현재 비밀번호"  onChange={changeValue} name = "password" className="currentPw"/>
                         </div>
                         <div>
-                            <textarea type="password1" placeholder="바꿀 비밀번호"  onChange={changeValue} name = "password1" className="changePw"/>
+                            <input type="password1" placeholder="바꿀 비밀번호"  onChange={changeValue} name = "password1" className="currentPw"/>
                         </div>
                         <div>
-                            <textarea type="password2" placeholder="바꿀 비밀번호 확인"  onChange={changeValue} name = "password2" className="changePwCheck"/>
+                            <input type="password2" placeholder="바꿀 비밀번호 확인"  onChange={changeValue} name = "password2" className="currentPw"/>
                         </div>
                         <button variant="primary" type="submit" className="InPwChange">비밀번호 변경하기</button>
                     </Form>
 
-                    {boards.map((board) => (
-                        <BoardList key={board.id} board={board} />
-                    ))}
+                    {/*{boards.map((board) => (*/}
+                    {/*    <BoardList key={board.id} board={board} />*/}
+                    {/*))}*/}
                     <button className='memberDrop' onClick={deleteId}>회원탈퇴</button>
                 </div>
         }

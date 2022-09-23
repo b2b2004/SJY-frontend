@@ -1,12 +1,10 @@
 import {Card} from "react-bootstrap";
-import BoardUpdateForm from "../qna/BoardUpdateForm";
-import CommentList from "../qna/comment/CommentList";
-import CommentSaveForm from "../qna/comment/CommentSaveForm";
 import React, {useEffect, useState} from "react";
 import moment from "moment";
 import SopDetailCommentSaveForm from "./SopDetailCommentSaveForm";
 import SopDetailCommentList from "./SopDetailCommentList";
 import SopDetailQnaUpdateForm from "./SopDetailQnaUpdateForm";
+import './SopDetailQnaList.css';
 
 function SopDetailQnaList(props){
     console.log(props);
@@ -78,7 +76,7 @@ function SopDetailQnaList(props){
     return<>
 
         <div>
-            <Card className="board_container">
+            <Card className="sopDetail_container">
                 <Card.Body onSubmit={toggleShow} className="board_body">
                     {isShow ?
                         <SopDetailQnaUpdateForm sopboardId={sopboardId} id={id} key={id} /> :

@@ -85,6 +85,6 @@ function SopManage(props){
         <h1>팀원이 팀장에게 질문 할 수 있는 창 (공지사항과 별도의 창) + 관리자 및 팀원이 피드백 해줄수 있는 창</h1><br />
 
 
-        </>
+    </>
 }
 export default SopManage;

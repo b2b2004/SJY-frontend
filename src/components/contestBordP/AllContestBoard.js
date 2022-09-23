@@ -37,7 +37,7 @@ function AllContestBoard(props){
                         </div>
                         <div className="contestListHost">주최: {host}</div>
                     </div>
-                    <div className="contestListDay">{duration_end}</div>
+                    <div className="contestListDay">~{duration_end}</div>
                     <div className="contestListHit">{hit}</div>
                 </div>
             </div>

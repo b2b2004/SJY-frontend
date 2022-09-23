@@ -47,5 +47,8 @@
 
 .CardGroup:hover {
     transform: scale(1.02);
-    transition: transform .35s;
+}
+
+.sopBoard_user_name {
+    padding-left: 1%;
 }

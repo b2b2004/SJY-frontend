@@ -1,0 +1,35 @@
+
+
+#formBasicEmail {
+    box-shadow: none;
+}
+
+.comment_input_sopDetail {
+    background: #93C5FD;
+    margin-top: 2px;
+    font-weight: bold;
+    color: white;
+    border-radius: 2px;
+    width: 3rem;
+    height: 2.3rem;
+    margin-left: 1%;
+
+}
+
+.comment_Form_sopDetail {
+    width: 100%;
+    float: left;
+    margin-top: 0.15%;
+
+}
+.comment_Form:focus {
+    box-shadow: none;
+}
+
+/*input{*/
+/*    margin:0;*/
+/*}*/
+input[type="text"]{
+    width:90%;
+    font-size:1em;}
+

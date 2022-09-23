@@ -1,13 +1,50 @@
 .sopboard_title {
-    text-align: center;
-    margin-top: 10%;
+    margin-left: 20%;
+    margin-bottom: 3%;
+    font-weight: bolder;
+    font-size: 50px;
     font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 .sopboard_leader {
-    text-align: center;
+    margin-left: 20%;
     margin-top: 2%;
+    font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 .sopboard_leader_font {
+    float: left;
     font-size: x-large;
     font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    margin-left: 2%;
+    font-weight: 500;
+}
+.sop_nav_arrow {
+    margin-left: 20%;
+    margin-bottom: 3%;
+}
+
+.sopNav_wrapper {
+    margin-top: 5%;
+    font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+.sopNav_img_wrapper {
+    float: left;
+    margin-left: 20%;
+}
+
+.v-line {
+    border-left : 2px solid lightgrey;
+    height : 25px;
+    float: left;
+    margin-left: 1%;
+    margin-top: 10px;
+}
+
+.sopboard_leader_date {
+    float: left;
+    margin-left: 1%;
+    margin-top: 6px;
+    font-weight: 400;
+    color: #8a8c8f;
+    font-size: large;
 }

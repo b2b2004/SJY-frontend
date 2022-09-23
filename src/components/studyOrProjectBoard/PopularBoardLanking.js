@@ -45,7 +45,7 @@ function PopularBoardLanking(props){
                     }}>
                         <Card.Body className='Card_Body'>
                             <Card.Text className='Card_Text'>
-                                <Card.Text>시작 예정일 {duration_start}</Card.Text>
+                                <Card.Text>시작 예정일  |  {duration_start}</Card.Text>
                                 <Card.Title className='Card_Title'>{title}</Card.Title>
                                 <Card.Text className='HashTag'>#{boardType} #{meetType} #{recruitment}명</Card.Text>
                                 <TechStackImage key={id} techStack={techStack} />

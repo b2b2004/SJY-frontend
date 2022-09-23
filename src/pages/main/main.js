@@ -17,7 +17,7 @@ function Main() {
 
     useEffect(()=>{
         setLoading(true);
-        fetch("http://localhost:8000/sopBoard/PopularBoard")
+        fetch("http://localhost:8000/sopBoard/MainBoard")
             .then((res)=> res.json())
             .then((res)=>{
                 setLoading(false);

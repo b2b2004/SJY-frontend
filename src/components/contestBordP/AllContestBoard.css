@@ -1,5 +1,4 @@
 .contestWrapper {
-    margin-top: 5%;
 }
 
 .contestPostWrapper {
@@ -11,7 +10,7 @@
 }
 
 .contestListName {
-    margin: auto;
+
     width: 80%;
     height: 40px;
     background-color: rgb(241, 241, 241);
@@ -22,11 +21,11 @@
 .contestName {
     margin-top: 1%;
     margin-left: 40%;
+    width: 10rem;
 }
 
 .contestDay {
     margin-top: 1%;
-    margin-left: 40%
 }
 
 .contestHit {
@@ -36,9 +35,10 @@
 
 .contestListOne {
     margin: auto;
-    width: 80%;
+    width: 80rem;
     min-height: 60px;
     display: flex;
+    cursor: pointer;
 }
 
 .contestListImage {
@@ -59,6 +59,7 @@
 .contestListTitle {
     font-weight: bold;
     font-size: 16px;
+    width: 80%;
 }
 
 .contestListContent {
@@ -79,9 +80,6 @@
 }
 
 .contestListHit {
-    font-size: 12px;
-    margin-top: 5px;
-    margin-left: 4%;
-    color: rgb(100, 100, 100);
+
 }
 
