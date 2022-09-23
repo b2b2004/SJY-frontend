@@ -7,7 +7,7 @@ import google_login from "../../image/google1.png";
 import "./Singnin.css"
 import LoadingSpinner from "../loading/LoadingSpinner";
 
-const SetNickname = ({ nickname, setNickname, handleLoginStep }) => {
+const SetNickname = ({ nickname, setNickname, handleLoginStep ,FindPWLoginStep}) => {
     const [User,setUser] = useState({
         username: '',
         password: '',
@@ -103,6 +103,12 @@ const SetNickname = ({ nickname, setNickname, handleLoginStep }) => {
                 className={styles.buttonNext}
             >
                 회원가입
+            </button>
+            <button
+                onClick={FindPWLoginStep}
+                className={styles.buttonNext}
+            >
+                비밀번호 찾기
             </button>
         </>
     );

@@ -16,9 +16,10 @@ function SopDetail(props){
     const id = props.match.params.id;
     const Authorization = localStorage.getItem("Authorization");
     const [sopboard, setSopboard] = useState({
-        username:""
+        username:"",
     })
-    const [user, setUser] = useState([])
+    const [user, setUser] = useState([]);
+    const [checkmember, setCheckMember] = useState(false);
     const [component, setComponent] = useState({
         detail: true,
         schedule: false,
@@ -42,6 +43,7 @@ function SopDetail(props){
             }
         ).then((res) => res.json())
             .then((res) => {
+                console.log(res);
                 setSopboard(res);
                 console.log(sopboard);
             })
@@ -59,6 +61,18 @@ function SopDetail(props){
         ).then((data)=>{
             setUser(data);
             console.log(data);
+
+            fetch('http://localhost:8000/sopBoard/recruitMemberCheck/' + data.username)
+                .then((res)=> res.text())
+                .then((res)=>{
+                    console.log(res);
+                    if(res == "Member")
+                    {
+                        console.log("###################");
+                        setCheckMember(true);
+                    }
+                })
+
         })
     },[])
 
@@ -85,6 +99,7 @@ function SopDetail(props){
     },[])
 
 
+
     const move = () =>{
         window.location.href = "/SopManage/"+ id;
     }
@@ -98,16 +113,35 @@ function SopDetail(props){
         {/*<button onClick={move}>관리페이지로 이동(추후 팀원/팀장만 넘어갈 수 있게 만듬)</button>*/}
         <div>
             <div className='menu-wrapper'>
-                <button onClick={setmenu} name="detail" className='w-btn-outline w-btn-blue-outline'>💁‍♂상세페이지</button> {' '}
-                <button onClick={setmenu} name="schedule" className='w-btn-outline w-btn-blue-outline'>🗓세부일정</button>{' '}
-                <button onClick={setmenu} name="notice" className='w-btn-outline w-btn-blue-outline'>📰공지사항</button>{' '}
-                <button onClick={setmenu} name="Qna"className='w-btn-outline w-btn-blue-outline'>❓질문게시판</button>{' '}
-                <button onClick={setmenu} name="manage" className='w-btn-outline w-btn-blue-outline'>🧰관리</button>{' '}
+                <button onClick={setmenu} name="detail" className='w-btn-outline w-btn-blue-outline'>상세페이지</button> {' '}
+
+                {checkmember === true || user.username === sopboard.username ?
+                    <button onClick={setmenu} name="schedule" className='w-btn-outline w-btn-blue-outline'>세부일정</button>
+                :
+                    <button onClick={setmenu} name="schedule" className='w-btn-outline w-btn-blue-outline' disabled>🔒세부일정</button>
+                }
+                {' '}
+                {checkmember === true || user.username === sopboard.username ?
+                    <button onClick={setmenu} name="notice" className='w-btn-outline w-btn-blue-outline'>공지사항</button>
+                    :
+                    <button onClick={setmenu} name="notice" className='w-btn-outline w-btn-blue-outline' disabled>🔒공지사항</button>
+                }
+                {' '}
+                {checkmember === true || user.username === sopboard.username ?
+
+                    <button onClick={setmenu} name="Qna"className='w-btn-outline w-btn-blue-outline'>질문게시판</button>
+                    :
+
+                    <button onClick={setmenu} name="Qna"className='w-btn-outline w-btn-blue-outline' disabled>🔒질문게시판</button>
+                }
+                {' '}
+
+                {user.username === sopboard.username ?  <button onClick={setmenu} name="manage" className='w-btn-outline w-btn-blue-outline'>관리</button> :
+                    <button  onClick={setmenu} name="manage" className='w-btn-outline w-btn-blue-outline' disabled>🔒관리</button>}
             </div>
 
-
             <div>
-                {component.detail === true ? <SopDetailCP sopboard={sopboard} key={sopboard.id} /> : <></>}
+                {component.detail === true ? <SopDetailCP sopboard={sopboard} key={sopboard.id} checkmember={checkmember} /> : <></>}
                 {component.schedule === true ? <SopDetailSchedule sopboard={sopboard} key={sopboard.id} /> : <></>}
                 {component.notice === true ? <SopDetailNotice sopboard={sopboard} key={sopboard.id} /> : <></>}
                 {component.Qna === true ?
@@ -123,6 +157,7 @@ function SopDetail(props){
 
         </div>
     </>
+
 }
 
 export default SopDetail;

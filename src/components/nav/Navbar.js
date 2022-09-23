@@ -22,7 +22,6 @@ const Navbar = React.memo(() => {
 
     const [click, setClick] = useState(false);
     const [button, setButton] = useState(true);
-
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
 
@@ -44,6 +43,10 @@ const Navbar = React.memo(() => {
         window.location.href = `/${e.target.value}`;
     };
 
+    const ChagePage1 = (e) => {
+         window.location.href = `/${e.target.name}`;
+    };
+
     const logout = (e) =>{
         window.confirm("로그아웃 하시겠습니까?");
         localStorage.setItem("Authorization", null);
@@ -53,11 +56,19 @@ const Navbar = React.memo(() => {
     return (
         <>
             <nav className={styles.navbar}>
-                <a href="/">
+                <a>
                     <img
                         className={styles.logo}
                         src="/images/logo/codemeter_logo_.png"
                         alt="logo"
+                        name=""
+                        onClick={ChagePage1}
+                    />
+                    <img
+                        src="/images/logo/loadingImg.ico"
+                        className={styles.postRegister2}
+                        name="introduce"
+                        onClick={ChagePage1}
                     />
                 </a>
                 <div className={styles.loginElementWrapper}>

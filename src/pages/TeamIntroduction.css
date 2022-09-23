@@ -1,0 +1,103 @@
+.introContainer {
+    margin-bottom: 5rem;
+}
+
+.introWrapper {
+    display: flex;
+}
+
+.leeIntro, .kwonIntro, .kimIntro {
+    width: 30%;
+    height: 30rem;
+    border: 1.5px solid rgb(219, 225, 255);
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.leeImg, .kwonImg, .kimImg {
+    width: 150px;
+    height: 150px;
+    margin-left: 25%;
+    margin-top: 10%;
+    border-radius: 50%;
+    border: 1px solid rgb(204, 204, 204);
+    box-shadow: 3px 3px 5px rgb(230, 230, 230);
+}
+
+.leeName, .kwonName, .kimName {
+    margin-top: 15px;
+    margin-left: 40%;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(70, 70, 70);
+}
+
+.Backend {
+    background-color: rgb(218, 234, 255);
+    padding: 4px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-left: 23%;
+    float: left;
+    color: rgb(100, 100, 100);
+}
+
+.Frontend {
+    background-color: rgb(255, 224, 249);
+    padding: 4px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-right: 26%;
+    float: right;
+    color: rgb(100, 100, 100);
+}
+
+.leeIntroduction, .kwonIntroduction {
+    margin-top: 15%;
+    padding: 1rem;
+    width: 100%;
+    height: 5rem;
+    word-break: break-all;
+    color: rgb(100, 100, 100);
+
+}
+
+.KimFrontend {
+    background-color: rgb(255, 224, 249);
+    padding: 4px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-left: 37%;
+    margin-right: 40%;
+    color: rgb(100, 100, 100);
+}
+
+.kimIntroduction {
+    margin-top: 3%;
+    padding: 1rem;
+    width: 100%;
+    height: 5rem;
+    word-break: break-all;
+    color: rgb(100, 100, 100);
+}
+
+.projectIntroContainer {
+    margin-top: 3rem;
+
+}
+
+.codmeterTitle {
+    margin-left: 3%;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.codmeterIntro {
+    width: 97%;
+    border: 1.5px solid rgb(219, 225, 255);
+    border-radius: 10px;
+    margin: auto;
+    padding: 1rem;
+    font-size: 25px;
+}

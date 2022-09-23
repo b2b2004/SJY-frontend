@@ -35,7 +35,7 @@ function ContestSlider(){
 
     const Image = styled.img`
   width: 100%;
-  height: 100%;
+  height: 30rem;
   border-radius: 8px;
   box-shadow: 2px 2px 5px rgb(200, 200, 200);
 `;

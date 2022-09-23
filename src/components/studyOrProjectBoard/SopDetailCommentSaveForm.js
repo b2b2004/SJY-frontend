@@ -1,5 +1,6 @@
 import {Form} from "react-bootstrap";
 import React, {useState} from "react";
+import './SopDetailCommentSaveForm.css';
 
 function SopDetailCommentSaveForm(props){
     console.log(props);
@@ -63,7 +64,7 @@ function SopDetailCommentSaveForm(props){
                 <div className='comment_form_wrapper'>
                     <Form.Group >
                         <Form.Control
-                            className='comment_Form'
+                            className='comment_Form_sopDetail'
                             type="text"
                             placeholder="내용을 입력하세요"
                             onChange={changeValue}
@@ -73,7 +74,7 @@ function SopDetailCommentSaveForm(props){
                 </div>
 
                 <button
-                    className="comment_input"
+                    className="comment_input_sopDetail"
                     name="content"
                     type="submit"
 

@@ -7,7 +7,7 @@
   /*display: block;*/
   height: 10rem;
   width: 10rem;
-  box-shadow: rgb(0 0 0 / 9%) 0px 0px 8px;
+  box-shadow: rgba(149, 157, 165, 0.3) 0px 12px 48px 0px;
   border-radius: 50%;
   object-fit: cover;
   transition: all 0.125s ease-in 0s;
@@ -19,52 +19,68 @@
   display: flex;
   flex-direction: column;
   padding-left: 5%;
-  padding-top: 3%;
+  padding-top: 5%;
 }
 
 .imageUpload {
-  background-color: rgb(168, 168, 168);
-  border: none;
-  border-radius: 4px;
-  color: white;
-  font-size: 16px;
+  border: 0;
+  outline: 0;
   cursor: pointer;
-  text-align: center;
-  width: 120px;
-  height: 32px;
-  font-family: "NotoSansKR-Bold";
-  margin-top: 3%;
-}
-
-.imageUpload:hover {
-  background: rgb(183, 183, 183);
   color: white;
+  background-color: rgb(84, 105, 212);
+  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+  rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(84 105 212) 0px 0px 0px 1px,
+  rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+  rgb(60 66 87 / 8%) 0px 2px 5px 0px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 4px 8px;
+  display: inline-block;
+  min-height: 28px;
+  transition: background-color 0.24s, box-shadow 0.24s;
+  width: 15%;
+}
+.imageUpload:hover {
+  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+  rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(84 105 212) 0px 0px 0px 1px,
+  rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 3px 9px 0px,
+  rgb(60 66 87 / 8%) 0px 2px 5px 0px;
 }
 
 .imageDelete {
-  background-color: rgb(0, 0, 0);
-  border: none;
-  color: white;
-  font-size: 16px;
-  border-radius: 4px;
+  border: 0;
+  outline: 0;
   cursor: pointer;
-  text-align: center;
-  width: 120px;
-  height: 32px;
-  font-family: "NotoSansKR-Bold";
+  color: rgb(60, 66, 87);
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+  rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(60 66 87 / 16%) 0px 0px 0px 1px,
+  rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+  rgb(60 66 87 / 8%) 0px 2px 5px 0px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 4px 8px;
+  display: inline-block;
+  min-height: 28px;
+  transition: background-color 0.24s, box-shadow 0.24s;
+  width: 15%;
   margin-top: 1%;
 }
-
 .imageDelete:hover {
-  background: rgb(40, 40, 40);
-  color: white;
+  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+  rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(60 66 87 / 16%) 0px 0px 0px 1px,
+  rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 3px 9px 0px,
+  rgb(60 66 87 / 8%) 0px 2px 5px 0px;
 }
 
 .description {
   color: rgb(170, 170, 170);
-  font-size: 13px;
+  font-size: 14px;
   font-family: "NotoSansKR-Bold";
   margin-top: 13%;
+  margin-bottom: 2%;
 }
 
 .description2 {
@@ -78,53 +94,86 @@
   font-size: 20px;
   float: left;
   font-family: "NotoSansKR-Bold";
-  margin-top: 2%;
 }
 
 .inNickname {
-  width: 200px;
+  box-shadow: inset #abacaf 0 0 0 2px;
+  border: 0;
+  background: rgba(0, 0, 0, 0);
+  appearance: none;
+  width: 50%;
+  border-radius: 3px;
+  padding: 9px 12px;
+  line-height: 1.4;
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  font-weight: 400;
   height: 40px;
-  font-size: 15px;
-  border: 1px solid rgb(220, 220, 220);
-  border-radius: 5px;
-  padding: 1rem;
-  outline: none;
-  margin-left: 2%;
-  margin-top: 1.5%;
-
+  transition: all 0.2s ease;
+  margin-left: 8%;
+}
+.inNickname:hover {
+  box-shadow: 0 0 0 0 #fff inset, #bfdbfe 0 0 0 2px;
+}
+.inNickname:focus {
+  background: #fff;
+  outline: 0;
+  box-shadow: 0 0 0 0 #fff inset, #bfdbfe 0 0 0 3px;
 }
 
+.nickname_input_tag {
+  float: left;
+}
 .apply {
-  background-color: rgb(0, 57, 241);
-  border: none;
-  border-radius: 5px;
-  color: white;
-  padding: 5px 10px;
-  display: inline-block;
-  font-size: 15px;
+  border: 0;
+  outline: 0;
   cursor: pointer;
-  transition-duration: 0.4s;
-  font-family: "NotoSansKR-Bold";
-  margin-left: 2%;
-  margin-top: 1.5%;
-}
-.apply:hover {
-  background-color: rgb(65, 116, 255);
   color: white;
+  background-color: rgb(84, 105, 212);
+  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+  rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(84 105 212) 0px 0px 0px 1px,
+  rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+  rgb(60 66 87 / 8%) 0px 2px 5px 0px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 4px 8px;
+  display: inline-block;
+  min-height: 28px;
+  transition: background-color 0.24s, box-shadow 0.24s;
+  margin-top: 0.5%;
+  margin-left: 1%;
+}
+.apply :hover {
+  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+  rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(84 105 212) 0px 0px 0px 1px,
+  rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 3px 9px 0px,
+  rgb(60 66 87 / 8%) 0px 2px 5px 0px;
 }
 
 .currentPw {
-  resize: none;
-  width: 20rem;
-  height: 45px;
-  padding: 10px;
-  border: 1px solid rgb(220, 220, 220);
+  box-shadow: inset #abacaf 0 0 0 2px;
+  border: 0;
+  background: rgba(0, 0, 0, 0);
+  appearance: none;
+  width: 30%;
   border-radius: 3px;
-  font-size: 14px;
-  outline: none;
-  margin-top: 2%;
+  padding: 9px 12px;
+  line-height: 1.4;
+  font-size: 16px;
+  font-weight: 400;
+  height: 40px;
+  transition: all 0.2s ease;
+  margin-top: 1%;
 }
-
+.currentPw :hover {
+  box-shadow: 0 0 0 0 #fff inset, #bfdbfe 0 0 0 2px;
+}
+.currentPw:focus {
+  background: #fff;
+  outline: 0;
+  box-shadow: 0 0 0 0 #fff inset, #bfdbfe 0 0 0 3px;
+}
 .changePw {
   resize: none;
   width: 20rem;
@@ -149,44 +198,54 @@
   margin-top: 2%;
 }
 
-.InPwChange {
-  background-color: rgb(0, 57, 241);
-  border: none;
-  border-radius: 5px;
-  color: white;
-  padding: 5px 10px;
-  font-size: 15px;
-  cursor: pointer;
-  transition-duration: 0.4s;
-  font-family: "NotoSansKR-Bold";
-  float: left;
-  margin-top: 2%;
-  height: 40px;
-}
-
-.InPwChange:hover {
-  background-color: rgb(65, 116, 255);
-  color: white;
+input::placeholder {
+  color: grey;
 }
 
 .memberDrop {
-  background-color: rgb(230, 0, 0);
-  border: none;
-  border-radius: 5px;
-  color: white;
-  font-size: 16px;
+  margin-top: 5%;
+  display: inline-block;
+  outline: 0;
   cursor: pointer;
-  padding: 5px 10px;
-  transition-duration: 0.4s;
-  width: 100px;
-  font-family: "NotoSansKR-Bold";
-  margin-top: 2%;
+  border: none;
+  padding: 0 20px;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 7px;
+  background-color: #dc2626;
+  color: white;
+  font-weight: 400;
+  font-size: 16px;
+  box-shadow: 0 4px 14px 0 rgb(220 38 38 / 39%);
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
   float: right;
 }
-
 .memberDrop:hover {
-  background: rgb(255, 56, 56);
+  background: rgba(233, 38, 38, 0.9);
+  box-shadow: 0 6px 20px rgb(220 38 38 / 23%);
+}
+
+.InPwChange {
+  margin-top: 5%;
+  display: inline-block;
+  outline: 0;
+  cursor: pointer;
+  border: none;
+  padding: 0 25px;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 7px;
+  background-color: #0070f3;
   color: white;
+  font-weight: 400;
+  font-size: 16px;
+  box-shadow: 0 4px 14px 0 rgb(0 118 255 / 39%);
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  float: left;
+}
+.InPwChange:hover {
+  background: rgba(0, 118, 255, 0.9);
+  box-shadow: 0 6px 20px rgb(0 118 255 / 23%);
 }
 
 .complete {
@@ -205,4 +264,8 @@
 .complete:hover {
   background: rgb(54, 54, 54);
   color: white;
+}
+
+.profile_title {
+  font-size: 60px;
 }

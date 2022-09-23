@@ -1,0 +1,121 @@
+.b-button {
+    float: right;
+}
+.b-button:hover {
+    color: #1d88f2;
+}
+
+.b-X-button {
+    float: right;
+}
+.b-X-button:hover {
+    color: red;
+}
+@value registerBackground from '../../common/color.css';
+
+.commentInput {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.commentInput textarea {
+    font-family: inherit;
+    padding: 1rem 1rem 1.5rem;
+    outline: none;
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    resize: none;
+
+}
+textarea::placeholder {
+    color: grey;
+}
+
+.buttonComplete {
+    font-weight: bold;
+    color: white;
+    background: black;
+    border-radius: 20px;
+    width: 6rem;
+    margin-bottom: 40px;
+    height: 2rem;
+    font-size: 1rem;
+}
+
+.buttonWrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.3rem;
+}
+
+@media screen and (max-width: 575px) {
+    .commentCount {
+        font-size: 1.25rem;
+    }
+}
+
+.sopDetail_container:hover {
+    transform: scale(1.01);
+    border-color: #1d88f2;
+    transition: transform .20s;
+}
+
+.sopDetail_container {
+    border-radius: 20px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+
+.boardList_img_wrapper {
+    float: left;
+}
+
+.boardList_date {
+    float: right;
+    font-size: small;
+
+}
+
+.board_body{
+    margin-top: 1%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.board_content {
+    margin-left: 5%;
+    font-family: "Spoqa Han Sans Neo", sans-serif;
+
+}
+
+.board_user_name {
+    margin-left: 10%;
+    font-family: "Spoqa Han Sans Neo", sans-serif;
+
+}
+
+.board_content_wrapper {
+    margin-left: 3%;
+    margin-top: -2.5%;
+}
+
+.board_hr {
+    margin-top: 5%;
+    color: #8a8c8f;
+    margin-bottom: -6%;
+}
+
+.comment_closer {
+    float: left;
+    width: 10px;
+    height: 10px;
+}
+
+#comment_img {
+    width: 30px;
+    height: 30px;
+}

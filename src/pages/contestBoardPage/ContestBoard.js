@@ -53,14 +53,15 @@ function ContestBoard(){
             }
                 <ContestSlider  />
 
-                <div className="contestWrapper">
+                <div className="contestWrapperWrapper">
                     <div className="contestListContainer">
                         <div className="contestListName">
                             <div className="contestName">공모전명</div>
                             <div className="contestDay">접수기간</div>
                             <div className="contestHit">조회수</div>
                         </div>
-                    </div></div>
+                    </div>
+                </div>
                 {contestBoard.map((contestBoard) => (
                     <AllContestBoard key={contestBoard.id} contestBoard={contestBoard} />
                 ))}

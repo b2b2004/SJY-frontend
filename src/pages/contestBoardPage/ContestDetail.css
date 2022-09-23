@@ -7,13 +7,13 @@
 
 .contestDetailTitle {
     font-size: 50px;
-    margin-top: 5%;
+    margin-top: 3%;
     margin-left: 5%;
 }
 
 .contestCover {
-    height: 60vh;
-    width: 20vw;
+    height: 25rem;
+    width: 20rem;
     border-radius: 5px;
     box-shadow: 2px 2px 5px rgb(190, 190, 190);
     float: left;
@@ -173,86 +173,8 @@
 
 .subjectContainer {
     display: flex;
-    margin-top: 10px;
-}
-
-.subjectTitle {
-    margin-left: 30px;
-    color: rgb(90, 90, 90);
-    font-family: "NotoSansKR-Medium";
-    font-size: 18px;
-    width: 200px;
-    height: 60px;
-    color: rgb(100, 100, 100);
-}
-
-.subjectContent {
-    font-family: "NotoSansKR-Regular";
-    color: rgb(100, 100, 100);
-    margin-bottom: 30px;
-}
-
-.qualificationContainer {
-    display: flex;
-    margin-top: 10px;
-}
-
-.qualificationTitle {
-    margin-left: 30px;
-    color: rgb(90, 90, 90);
-    font-family: "NotoSansKR-Medium";
-    font-size: 18px;
-    width: 200px;
-    height: 60px;
-    color: rgb(100, 100, 100);
-}
-
-.qualificationContent {
-    font-family: "NotoSansKR-Regular";
-    color: rgb(100, 100, 100);
-    margin-bottom: 30px;
-}
-
-.benefitContainer {
-    display: flex;
-    margin-top: 10px;
-}
-
-.benefitTitle {
-    margin-left: 30px;
-    color: rgb(90, 90, 90);
-    font-family: "NotoSansKR-Medium";
-    font-size: 18px;
-    width: 200px;
-    height: 60px;
-    color: rgb(100, 100, 100);
-}
-
-.benefitContent {
-    font-family: "NotoSansKR-Regular";
-    color: rgb(100, 100, 100);
-    margin-bottom: 30px;
-}
-
-.wayContainer {
-    display: flex;
-    margin-top: 10px;
-}
-
-.wayTitle {
-    margin-left: 30px;
-    color: rgb(90, 90, 90);
-    font-family: "NotoSansKR-Medium";
-    font-size: 18px;
-    width: 200px;
-    height: 60px;
-    color: rgb(100, 100, 100);
-}
-
-.wayContent {
-    font-family: "NotoSansKR-Regular";
-    color: rgb(100, 100, 100);
-    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-left: 2%;
 }
 
 .contestCoverFull {
@@ -260,6 +182,7 @@
     width: 45rem;
     height: 65rem;
     margin-left: 9rem;
+    border-radius: 8px;
 }
 
 .contestList {

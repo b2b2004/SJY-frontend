@@ -5,14 +5,12 @@
 }
 
 .contestWriteTitle {
-    margin-top: 5%;
-    margin-left: 5%;
     resize: none;
-    width: 45rem;
+    width: 90%;
     height: 50px;
     padding-left: 20px;
     padding-top: 12px;
-    border: 1px solid rgb(235, 235, 235);
+    border: 1px solid rgb(225, 225, 225);
     border-radius: 3px;
     background-color: rgb(255, 255, 255);
     font-size: 16px;
@@ -24,6 +22,7 @@
 
 .uploader-wrapper {
     float: left;
+    height: 30rem;
 }
 
 .posterCover {
@@ -75,6 +74,7 @@
 .contestWriteWrapper {
     margin-left: 35%;
     margin-top: 3%;
+    height: 30rem;
 }
 
 .inDurationContainer {
@@ -321,7 +321,7 @@
 
 .outline {
     width: 90%;
-    margin-top: 10%;
+    margin-top: 3%;
 }
 
 .contestIn {
