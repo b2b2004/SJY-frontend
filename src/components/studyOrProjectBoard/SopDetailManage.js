@@ -3,10 +3,13 @@ import React, {useEffect, useState} from "react";
 import './SopDetailManage.css';
 import SopDetailApplicant from "./SopDetailApplicant";
 import BoardList from "../qna/BoardList";
+import SopDetailMember from "./SopDetailMember";
 // 스터디 상세 관리 페이지
 
 function SopDetailManage(props){
-    const {id} = props.sopboard;
+    const {id , member} = props.sopboard;
+    const str = member;
+    const arr = str.split(/[,]/);
     const Authorization = localStorage.getItem("Authorization");
     const [testSopManageBoard, setTestSopManageBoard] = useState({
         id:'',
@@ -18,7 +21,6 @@ function SopDetailManage(props){
     const [sopManageBoard , setSopManageBoard] = useState();
     const [help, setHelp] = useState(true);
     const [recuitMsg, setRecuitMsg] = useState([]);
-
     const changeValue = (e) =>{
         console.log(e.target.value);
         setSopManageBoard({
@@ -26,6 +28,7 @@ function SopDetailManage(props){
             [e.target.name]: e.target.value,
         });
     }
+
 
     useEffect(()=>{
         fetch('http://localhost:8000/sopBoard/aaa/'+ id,{
@@ -173,20 +176,12 @@ function SopDetailManage(props){
             </div>
         </div>
         <div>
+            <hr className='manage_hr'/>
             <h3 className='team_manage_title'>팀원 관리</h3>
-            <Card id="manage_team_container">
-                <Card.Body className="manage_apply_body">
-
-                    <div>
-                        <Card.Text className='apply_username'>팀원 이름</Card.Text>
-                        <Card.Title className='apply_content'>담당 업무</Card.Title>
-
-                        <button className='manage_disagree'>탈퇴 처리</button>
-                        <button className='manage_agree'>과제 등록</button>
-                    </div>
-                </Card.Body>
-            </Card>
         </div>
+        {arr.map((arr , index) => (
+            <SopDetailMember key={index} arr={arr} />
+        ))}
         <div>
             <hr className='manage_hr'/>
             <h3 className='apply_title'>신청 인원</h3>

@@ -1,0 +1,194 @@
+.sopDetailContainer {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 3%;
+}
+h1 {
+    font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+.Detail_address {
+    width: 30%;
+    height: 30%;
+    background: #1f98f4;
+}
+
+.SopDetailManage_container {
+    margin: 3% 20% 10%;
+}
+
+.sopDetail_manage_button1 {
+    float: right;
+    outline: none;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 3px;
+    padding: 12px 24px;
+    border: 0;
+    color: white;
+    background: #93C5FD;
+    line-height: 1.15;
+    font-size: 16px;
+}
+.sopDetail_manage_button1:hover {
+    transition: all .1s ease;
+    box-shadow: 0 0 0 0 #fff, 0 0 0 3px #1de9b6;
+}
+
+
+.sopDetail_manage_button1:hover {
+    transition: all .1s ease;
+    box-shadow: 0 0 0 0 #fff, 0 0 0 3px #93C5FD;
+}
+
+.sopDetail_manage_button2 {
+    margin-right: 2%;
+    float: right;
+    outline: none;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 3px;
+    padding: 12px 24px;
+    border: 0;
+    color: white;
+    background: #93C5FD;
+    line-height: 1.15;
+    font-size: 16px;
+}
+.sopDetail_manage_button2:hover {
+    transition: all .1s ease;
+    box-shadow: 0 0 0 0 #fff, 0 0 0 3px #93C5FD;
+}
+
+.SopDetailManage_button_container {
+    padding-bottom: 5%;
+    margin-right: 4%;
+
+}
+
+.sopDetail_manage_button3 {
+    margin-right: 2%;
+    float: right;
+    outline: none;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 3px;
+    padding: 12px 24px;
+    border: 0;
+    color: white;
+    background: #93C5FD;
+    line-height: 1.15;
+    font-size: 16px;
+}
+
+.sopDetail_manage_button3:hover {
+    transition: all .1s ease;
+    box-shadow: 0 0 0 0 #fff, 0 0 0 3px #93C5FD;
+}
+
+#Manage_address {
+    position: sticky;
+    top: 300px;
+    width: 40%;
+    height: 50%;
+    border: 2px solid lightgrey;
+    border-radius: 10px;
+    padding: 3% 2%;
+    display: inline-block;
+    float: right;
+    margin-right: -80%;
+}
+#manage_apply_container {
+    margin-left: 18%;
+    width: 60%;
+    height: 20%;
+    margin-top: 10px;
+    border: 2px lightgrey solid;
+    border-radius: 20px;
+}
+
+
+.manage_apply_body {
+    margin-left: 3%;
+}
+
+#manage_team_container {
+    margin-left: 18%;
+    width: 60%;
+    height: 20%;
+    margin-top: 10px;
+    border: 2px lightgrey solid;
+    border-radius: 20px;
+}
+
+
+.manage_hr {
+    margin-left: 18%;
+    width: 60%;
+    margin-bottom: 2%;
+}
+
+.apply_title {
+    margin-left: 19%;
+    margin-bottom: 10%;
+}
+
+.team_manage_title {
+    margin-left: 19%;
+    margin-bottom: 10%;
+    margin-top: -8%;
+}
+
+.manage_agree {
+    float: right;
+    margin-right: 2%;
+    display: inline-block;
+    outline: 0;
+    text-align: center;
+    cursor: pointer;
+    height: 34px;
+    padding: 0 13px;
+    color: #fff;
+    vertical-align: top;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    transition: all .3s ease;
+    background: #2563EB;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 16px;
+    font-size: 11px;
+}
+
+.manage_agree:hover {
+    background: #3B82F6;
+    border-color: #3B82F6;
+}
+
+
+.manage_disagree {
+    float: right;
+    display: inline-block;
+    outline: 0;
+    text-align: center;
+    cursor: pointer;
+    height: 34px;
+    padding: 0 13px;
+    color: #fff;
+    vertical-align: top;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    transition: all .3s ease;
+    background: #ee243c;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 16px;
+    font-size: 11px;
+}
+
+.manage_disagree:hover {
+    background: #f4495d;
+    border-color: #f4495d;
+}

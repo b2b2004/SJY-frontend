@@ -80,7 +80,7 @@ const BoardList = (props) => {
                           <Card.Text className='boardList_date'>{date}</Card.Text>
                           <div className='boardList_img_wrapper'>
                               <img src={image.preview_URL}/>
-                              <Card.Title className='board_user_name'>{username}</Card.Title>
+                              <Card.Text className='board_user_name'>{username}</Card.Text>
                           </div>
                           <br/>
                           <div className='board_content_wrapper'>
