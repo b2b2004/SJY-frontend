@@ -7,7 +7,6 @@ const SopBoardType = ({ handleSopStep }) => {
     const dispatch = useDispatch();
 
     const changeValue = (e) => {
-        console.log("e.target.value = " +e.target.value);
         dispatch(setBoardType(e.target.value));
     };
     const nexthandleSopBoardStep = async () => {

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import BoardList from '../../components/qna/BoardList';
 import BoardSaveForm from "../../components/qna/BoardSaveForm";
-
 import './Board.css'
 import LoadingSpinner from "../../components/loading/LoadingSpinner";
 
@@ -17,7 +16,6 @@ const Board = () => {
             .then((res) => {
                 setLoading(false);
                 setBoards(res);
-                console.log(res);
             });
     }, []);
 

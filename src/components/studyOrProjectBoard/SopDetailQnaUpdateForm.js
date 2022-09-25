@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import {Form} from "react-bootstrap";
 
 function SopDetailQnaUpdateForm(props){
-    console.log(props);
     const id = props.id;
     const sopboardId = props.sopboardId;
 

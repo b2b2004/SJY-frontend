@@ -5,12 +5,12 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-function ContestSlider(){
+function MainContestSlider(){
 
     const [contestBoard, setContestBoard] = useState([]);
 
     useEffect(()=>{
-        fetch("http://localhost:8000/contestBoard/NewBoard")
+        fetch("http://localhost:8000/contestBoard/PopularBoard")
             .then((res)=> res.json())
             .then(res =>{
                 setContestBoard(res.content);
@@ -18,7 +18,7 @@ function ContestSlider(){
     }, [])
 
     const Container = styled.div`
-  width: 90%;
+  width: 70%;
   margin: auto;
 `;
 
@@ -68,4 +68,4 @@ function ContestSlider(){
     </>
 }
 
-export default ContestSlider;
+export default MainContestSlider;

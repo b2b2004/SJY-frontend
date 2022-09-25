@@ -6,7 +6,6 @@ import './SopMeetType.css';
 const SopMeetType = ({ handleClose }) => {
 
     const changeValue = (e) => {
-        console.log("e.target.value = " +e.target.value);
         dispatch(setMeetType(e.target.value));
     };
 

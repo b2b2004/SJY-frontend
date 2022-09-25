@@ -3,7 +3,6 @@ import {Card, CardGroup} from "react-bootstrap";
 import TechStackImage from "../TechStackImage";
 
 function PopularBoardLanking(props){
-    console.log(props.popularBoard);
     const Authorization = localStorage.getItem("Authorization");
     const [image, setImage] = useState({
         imageUrl: '',
@@ -21,7 +20,6 @@ function PopularBoardLanking(props){
             })
                 .then((res) => res.json())
                 .then((data) => {
-                    console.log(data.image);
                     setImage(
                         {
                             imageUrl: require(`../../image/ProfileImage/${data.image}`)

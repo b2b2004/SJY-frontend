@@ -10,8 +10,6 @@ const SopRecruitment = ({ handleClose }) => {
 
 
     const changeValue = (e) => {
-        console.log(e.value);
-        console.log("e.target.value = " +e.value);
         dispatch(setRecruitment(e.value));
     };
 

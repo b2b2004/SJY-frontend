@@ -24,7 +24,6 @@ function ContestDetail(props){
         ).then((res)=>res.json())
             .then((res)=>{
                 setContestboard(res);
-                console.log(res);
                 setContestImageUrl(
                     {
                         imageUrl: require(`../../image/ContestImage/${res.image}`)
@@ -41,16 +40,14 @@ function ContestDetail(props){
         ).then((res) =>res.json()
         ).then((data)=>{
             setUser(data);
-            console.log(data);
         })
 
         if(user.username !== contestboard.username)
         {
             contestboard.hit =1;
-            console.log(contestboard.hit);
         }
         else{
-            console.log("d");
+            console.log("");
         }
 
 

@@ -17,8 +17,7 @@ const BoardSaveForm = (props) => {
   };
 
   const submitBoard = (e) => {
-    e.preventDefault(); // submit이 action을 안타고 자기 할일을 그만함.
-
+    e.preventDefault();
     fetch('http://localhost:8000/board', {
       method: 'POST',
       headers: {
@@ -27,7 +26,6 @@ const BoardSaveForm = (props) => {
       body: JSON.stringify(board),
     })
       .then((res) => {
-        console.log(res);
         if (res.status === 201) {
           return res.json();
         } else {
@@ -35,7 +33,6 @@ const BoardSaveForm = (props) => {
         }
       })
       .then((res) => {
-        console.log(res);
         // Catch는 여기서 오류가 나야 실행됨.
         if (res !== null) {
             window.location.href = "/boardtest";

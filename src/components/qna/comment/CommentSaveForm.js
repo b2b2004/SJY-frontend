@@ -31,7 +31,6 @@ const CommentSaveForm = (props) => {
             body: JSON.stringify(comment),
         })
             .then((res) => {
-                console.log(res);
                 if (res.status === 201) {
                     return res.json();
                 } else {
@@ -39,7 +38,6 @@ const CommentSaveForm = (props) => {
                 }
             })
             .then((res) => {
-                console.log(res);
                 // Catch는 여기서 오류가 나야 실행됨.
                 if (res !== null) {
                     window.location.href = "/boardtest";

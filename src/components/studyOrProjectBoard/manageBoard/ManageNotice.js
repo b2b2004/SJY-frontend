@@ -2,7 +2,6 @@ import moment from "moment";
 import './ManageNotice.css';
 
 function ManageNotice(props){
-    console.log(props.sopManageNotice);
 
     const {id , sopDate, sopBoardId , title , content} = props.sopManageNotice;
     const date = moment(sopDate).format("MM.DD");

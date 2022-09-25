@@ -7,7 +7,6 @@ function SopManageNoticeDetail(){
     const [sopManageBoard, setSopManageBoard] = useState([]);
     const param = useParams();
     const id = param.id;
-    console.log(id);
 
     useEffect(()=>{
 
@@ -16,8 +15,6 @@ function SopManageNoticeDetail(){
             ).then((res)=>res.json())
              .then((res)=>{
                  setSopManageBoard(res);
-                 console.log(res);
-                 console.log(sopManageBoard);
              })
     },[])
 

@@ -28,7 +28,6 @@ function StudyOrProjectBoard(){
             .then((res)=> res.json())
             .then(res =>{
                 setLoading(false);
-                console.log(res);
                 setSopboard(res);
             })
     }, [])
@@ -37,7 +36,6 @@ function StudyOrProjectBoard(){
         fetch("http://localhost:8000/sopBoard/PopularBoard")
             .then((res)=> res.json())
             .then((res)=>{
-                console.log(res);
                 setPopularBoard(res.content);
             })
     },[])

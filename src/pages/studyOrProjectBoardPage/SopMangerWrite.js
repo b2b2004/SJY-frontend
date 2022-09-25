@@ -17,7 +17,6 @@ function SopMangerWrite(){
 
 
     const changeValue = (e) =>{
-        console.log(e.target.value);
         setSopManageBoard({
             ...sopManageBoard,
             [e.target.name]: e.target.value,
@@ -54,7 +53,6 @@ function SopMangerWrite(){
         e.preventDefault();
         const a = parseInt(id);
         sopManageBoard.sopBoardId = a;
-        console.log("sopBoardId = " + sopManageBoard.sopBoardId);
 
         fetch(
             "http://localhost:8000/sopBoard/ManagerWrite",
@@ -75,7 +73,6 @@ function SopMangerWrite(){
 
     const SopManageBoardUpdate = (e) =>{
         e.preventDefault();
-        console.log(sopManageBoard);
         fetch('http://localhost:8000/sopBoard/ManagerUpdate/' + id, {
             method: 'PUT',
             headers: {
@@ -85,7 +82,6 @@ function SopMangerWrite(){
         })
             .then((res) => res.json())
             .then((res) => {
-                console.log(res);
                 setTestSopManageBoard(res);
                 alert("수정 완료");
                 window.location.href = "/SopManage/"+ id;

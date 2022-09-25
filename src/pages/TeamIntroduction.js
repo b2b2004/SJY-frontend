@@ -12,9 +12,6 @@ function TeamIntroduction() {
                     </div>
                     <div className="Backend">Backend</div>
                     <div className="Frontend">Frontend</div>
-                    <div className="leeIntroduction">
-                        안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
-                    </div>
                 </div>
                 <div className="kwonIntro">
                     <img className="kwonImg" src="/images/team/kwon.jpg" alt="kwon"/>
@@ -23,9 +20,6 @@ function TeamIntroduction() {
                     </div>
                     <div className="Backend">Backend</div>
                     <div className="Frontend">Frontend</div>
-                    <div className="kwonIntroduction">
-                        안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
-                    </div>
                 </div>
                 <div className="kimIntro">
                     <img className="kimImg" src="/images/team/kim.jpg" alt="kim" />
@@ -33,9 +27,6 @@ function TeamIntroduction() {
                         김수빈
                     </div>
                     <div className="KimFrontend">Frontend</div>
-                    <div className="kimIntroduction">
-                        안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
-                    </div>
                 </div>
             </div>
             <div className="projectIntroContainer">
@@ -43,7 +34,22 @@ function TeamIntroduction() {
                     Codmeter
                 </div>
                 <div className="codmeterIntro">
-                    1. 소개
+                    <div className="codmeterIntroTitle">
+                        1. 소개
+                    </div>
+                    <div className="codmeterIntroContent">
+                        코드미터는<br/><br/>
+                        ☝코드미터 시작동기<br/>
+                        ✌코드미터 장점
+                    </div>
+                </div>
+                <div className="codmeterStack">
+                    <div className="codmeterStackTitle">
+                        2. 개발 기술 스택
+                    </div>
+                    <div className="codmeterStackContent">
+
+                    </div>
                 </div>
             </div>
         </div>

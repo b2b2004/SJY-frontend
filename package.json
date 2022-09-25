@@ -5,6 +5,7 @@
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^35.0.1",
     "@ckeditor/ckeditor5-react": "^5.0.2",
+    "@hookform/resolvers": "^2.9.8",
     "@reduxjs/toolkit": "^1.8.2",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.4",
@@ -24,6 +25,7 @@
     "react-datepicker": "^4.8.0",
     "react-dom": "^18.0.0",
     "react-draft-wysiwyg": "^1.15.0",
+    "react-hook-form": "^7.36.1",
     "react-kakao-login": "^2.1.0",
     "react-loader-spinner": "^5.3.3",
     "react-multi-select-component": "^4.3.3",
@@ -38,7 +40,8 @@
     "redux-persist": "^6.0.0",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "react-scripts start",

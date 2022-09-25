@@ -4,9 +4,7 @@ import Parser from "html-react-parser";
 // 상세페이지
 
 function SopDetailCP(props){
-
-    const [checkrecruit, setCheckrecruit] = useState(false);
-    console.log(props.checkmember);
+    const checkmember = props.checkmember;
     const [sopboard,setSopboard] = useState({
         id: '',
         boardType: '',
@@ -20,6 +18,7 @@ function SopDetailCP(props){
         title: '',
         content: '',
         roleType: '',
+        username: '',
     });
     const Authorization = localStorage.getItem("Authorization");
     const [recuitMsg, setRecuitMsg] = useState({
@@ -27,12 +26,12 @@ function SopDetailCP(props){
         content: '',
         sopboardid: ''
     });
+    const [user, setUser] = useState();
 
     // sopboard에 boardType / meetType / username / title / content / area
     // techStack / hit / duration_start / duration_end / date 있음
     useEffect(()=>{
         setSopboard(props.sopboard);
-        setCheckrecruit(props.checkmember);
         fetch("http://localhost:8000/profile",{
                 method: 'GET',
                 headers:{
@@ -41,7 +40,7 @@ function SopDetailCP(props){
             }
         ).then((res) =>res.json()
         ).then((data)=>{
-            console.log(data.user);
+            setUser(data.user.username);
             recuitMsg.username = data.user.username;
 
         })
@@ -49,8 +48,6 @@ function SopDetailCP(props){
 
 
     const changeValue = (e) =>{
-        console.log(e.target.name);
-        console.log(e.target.value);
        setRecuitMsg({
            ...recuitMsg,
            [e.target.name]: e.target.value,
@@ -60,7 +57,6 @@ function SopDetailCP(props){
     const sendMsg = (e) =>{
         e.preventDefault();
         recuitMsg.sopboardid = props.sopboard.id;
-        console.log(recuitMsg);
             fetch("http://localhost:8000/sopBoard/recruitMsg",
                 {
                     method: "POST",
@@ -71,57 +67,82 @@ function SopDetailCP(props){
                 })
             .then((res)=>{res.json()})
             .then((res)=>{
-                console.log(res);
                 alert("신청 되었습니다. 팀장 확인까지 기다려주세요!");
+                window.location.href = "/sopDetail/"+ props.sopboard.id;
             });
     }
-
-
     return<>
-                {(sopboard.recruitment === sopboard.recruitment_cnt)
-                    ?
-                    (
+        {(sopboard.recruitment === sopboard.recruitment_cnt)
+            ?
+            (
+                <>
+                    <div className='sidebar_detail_wrapper'>
+                        <div className='v-line_detail_cp'></div>
+                        <div className='sopboard_detailCP_font'>이 프로젝트에<br/> 관심이 있으신가요?</div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <form className='SopDatail_team_apply' onSubmit={sendMsg}>
+                        <div className='boardInput'>
+                            마감되었습니다.
+                        </div>
+                    </form>
+                </>
+            )
+            : (checkmember === 2) && sopboard.username != user ?
+                (
                     <>
                         <div className='sidebar_detail_wrapper'>
                             <div className='v-line_detail_cp'></div>
                             <div className='sopboard_detailCP_font'>이 프로젝트에<br/> 관심이 있으신가요?</div>
                         </div>
-                    <br/>
-                    <br/>
-                    <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <form className='SopDatail_team_apply' onSubmit={sendMsg}>
+                            <div className='boardInput'>
+                                신청 대기 중 입니다.
+                            </div>
+                        </form>
+                    </>
+                ) : (checkmember === 1) || sopboard.username === user ?
+
+                    (
+                        <>
+                            <div className='sidebar_detail_wrapper'>
+                                <div className='v-line_detail_cp'></div>
+                                <div className='sopboard_detailCP_font'>
+                                    이 프로젝트에<br/> 관심이 있으신가요?
+                                </div>
+                            </div>
+                            <br/>
+                            <br/>
+                            <br/>
+                        </>
+                    )
+                    :
+                    (<>
+                        <div className='sidebar_detail_wrapper'>
+                            <div className='v-line_detail_cp'></div>
+                            <div className='sopboard_detailCP_font'>
+                                이 프로젝트에<br/> 관심이 있으신가요?
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+                        <br/>
+
                         <form className='SopDatail_team_apply' onSubmit={sendMsg}>
                             <h6>지원 이유</h6>
                             {sopboard.recruitment_cnt} / {sopboard.recruitment}
                             <div className='boardInput'>
-                                마감되었습니다.
+                                <textarea onChange={changeValue} style={{resize:'none'}} name="content" id="sopDetail_textarea" cols="30" rows="3"></textarea>
                             </div>
+                            <button className='sopDetail_manage_button3' type="submit">지원하기</button>
                         </form>
-                    </>
-                    )
-                    : (checkrecruit === false) ?
-                    (
-                    <>
-                    <div className='sidebar_detail_wrapper'>
-                        <div className='v-line_detail_cp'></div>
-                        <div className='sopboard_detailCP_font'>
-                            이 프로젝트에<br/> 관심이 있으신가요?
-                        </div>
-                    </div>
-                    <br/>
-                    <br/>
-                    <br/>
-
-                    <form className='SopDatail_team_apply' onSubmit={sendMsg}>
-                    <h6>지원 이유</h6>
-                    {sopboard.recruitment_cnt} / {sopboard.recruitment}
-                    <div className='boardInput'>
-                    <textarea onChange={changeValue} style={{resize:'none'}} name="content" id="sopDetail_textarea" cols="30" rows="3"></textarea>
-                    </div>
-                    <button className='sopDetail_manage_button3' type="submit">지원하기</button>
-                    </form>
-                    </>
-                    ) : <>hi</>
-                }
+                    </>)
+        }
 
 
 

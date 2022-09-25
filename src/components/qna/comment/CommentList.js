@@ -16,13 +16,13 @@ const CommentList = (props) => {
     useEffect(()=>{
         fetch('http://localhost:8000/profile/sopboard/'+ username ,{
                 method: 'GET',
-                headers:{
-                    Authorization
-                }
+            headers: {
+                Authorization,
+                'Content-Type': 'application/json; charset=utf-8',
+            },
             }
         ).then((res) =>res.json()
         ).then((data)=>{
-            console.log(data.image);
             setImage(
                 {
                     preview_URL: require(`../../../image/ProfileImage/${data.image}`)
@@ -37,9 +37,8 @@ const CommentList = (props) => {
                 <div className="userNickname">
                     <div className='commentList_img_wrapper'>
                         <img src={image.preview_URL}/> <br/>
-                        <Card.Title className='board_user_name'>{username}</Card.Title>
+                        <Card.Text className='board_user_name'>{username}</Card.Text>
                     </div>
-
                 </div>
                 <div className='comment_content_wrapper'>
                     <Card.Title className='board_content'>

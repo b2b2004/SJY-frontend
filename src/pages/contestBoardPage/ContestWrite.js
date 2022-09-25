@@ -54,8 +54,6 @@ function ContestWrite(){
     }
 
     const changeValue = (e) => {
-        console.log(e.target.value);
-        console.log(e.target.name);
         setContestBoard({
             ...contestBoard,
             [e.target.name]: e.target.value,
@@ -67,11 +65,9 @@ function ContestWrite(){
         const FrontName = moment().format('YYYYMMDDHHmmss');
         const BackName = image.image_file.name;
         const imageName = FrontName + BackName;
-        console.log(contestBoard);
 
 
         if(image.image_file){
-            console.log(image.image_file);
             const formData = new FormData()
             formData.append('multipartFiles', image.image_file);
             formData.append('imageName', imageName);
@@ -86,10 +82,8 @@ function ContestWrite(){
             alert("사진을 등록하세요!");
             return;
         }
-
         contestBoard.image = imageName;
         contestBoard.content = data.content;
-        console.log(contestBoard);
 
         fetch("http://localhost:8000/contestBoard/contestBoardWrite",
             {

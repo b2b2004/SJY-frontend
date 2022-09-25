@@ -3,7 +3,6 @@ import React, {useState} from "react";
 import './SopDetailCommentSaveForm.css';
 
 function SopDetailCommentSaveForm(props){
-    console.log(props);
     const Authorization = localStorage.getItem("Authorization");
     const id = props.id;
     const sopboardId = props.sopboardId;
@@ -33,7 +32,6 @@ function SopDetailCommentSaveForm(props){
             body: JSON.stringify(comment),
         })
             .then((res) => {
-                console.log(res);
                 if (res.status === 201) {
                     return res.json();
                 } else {
@@ -41,7 +39,6 @@ function SopDetailCommentSaveForm(props){
                 }
             })
             .then((res) => {
-                console.log(res);
                 // Catch는 여기서 오류가 나야 실행됨.
                 if (res !== null) {
                     window.location.href = "/SopDetail/" + sopboardId;

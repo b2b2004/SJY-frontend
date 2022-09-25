@@ -9,7 +9,6 @@ import SopDetailMember from "./SopDetailMember";
 function SopDetailManage(props){
     const [recuitMsg, setRecuitMsg] = useState([]);
     const {id , member} = props.sopboard;
-    console.log(member);
     const str = member;
     let arr = [];
     if(str != null)
@@ -27,7 +26,6 @@ function SopDetailManage(props){
     const [sopManageBoard , setSopManageBoard] = useState();
     const [help, setHelp] = useState(true);
     const changeValue = (e) =>{
-        console.log(e.target.value);
         setSopManageBoard({
             ...sopManageBoard,
             [e.target.name]: e.target.value,
@@ -64,7 +62,6 @@ function SopDetailManage(props){
         e.preventDefault();
         const a = parseInt(id);
         sopManageBoard.sopBoardId = a;
-        console.log("sopBoardId = " + sopManageBoard.sopBoardId);
 
         fetch(
             "http://localhost:8000/sopBoard/ManagerWrite",
@@ -85,7 +82,6 @@ function SopDetailManage(props){
 
     const SopManageBoardUpdate = (e) =>{
         e.preventDefault();
-        console.log(sopManageBoard);
         fetch('http://localhost:8000/sopBoard/ManagerUpdate/' + id, {
             method: 'PUT',
             headers: {
@@ -95,7 +91,6 @@ function SopDetailManage(props){
         })
             .then((res) => res.json())
             .then((res) => {
-                console.log(res);
                 setTestSopManageBoard(res);
                 alert("수정 완료");
                 window.location.href = "/SopDetail/"+ id;
@@ -168,18 +163,19 @@ function SopDetailManage(props){
             </div>
         </div>
         <div>
+            <h3 id='team_manage_title'>팀원 관리</h3>
             <hr className='manage_hr'/>
-            <h3 className='team_manage_title'>팀원 관리</h3>
         </div>
         {arr.map((arr , index) => (
             <SopDetailMember key={index} arr={arr} id={id}/>
         ))}
         <div>
+            <h3 id='apply_title'>신청 인원</h3>
             <hr className='manage_hr'/>
-            <h3 className='apply_title'>신청 인원</h3>
+
         </div>
         {recuitMsg.map((recuitMsg) => (
-            <SopDetailApplicant key={recuitMsg.id} recuitMsg={recuitMsg} />
+            <SopDetailApplicant key={recuitMsg.id} recuitMsg={recuitMsg} id={id}/>
         ))}
 
     </>

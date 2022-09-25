@@ -8,7 +8,7 @@ import moment from "moment";
 
 
 const BoardList = (props) => {
-  const Authorization = localStorage.getItem("Authorization");
+  let Authorization = localStorage.getItem("Authorization");
   const { id, title, content, board_date, username } = props.board;
   const date = moment(board_date).format("YYYY,MM,DD, H:mm:ss");
   const [comment,setComment] = useState([]);
@@ -25,7 +25,6 @@ const BoardList = (props) => {
   }
   const toggleShow1 = () =>{
     setIsShow1(!isShow1);
-    console.log(isShow1);
   }
   const deleteBoard = () => {
     fetch('http://localhost:8000/board/' + id, {
@@ -42,16 +41,19 @@ const BoardList = (props) => {
   };
 
   useEffect(()=>{
+
     // 프로필 이미지 가져오기
     fetch('http://localhost:8000/profile/sopboard/'+ username ,{
-          method: 'GET',
-          headers:{
-            Authorization
-          }
+        method: 'GET',
+        headers: {
+            Authorization,
+            'Content-Type': 'application/json; charset=utf-8',
+        },
         }
-    ).then((res) =>res.json()
+    ).then(res =>res.json()
     ).then((data)=>{
-      console.log(data.image);
+
+        console.log(data);
       setImage(
           {
             preview_URL: require(`../../image/ProfileImage/${data.image}`)
@@ -64,8 +66,8 @@ const BoardList = (props) => {
           .then(res => res.json())
           .then((res) => {
               setComment(res);
-              console.log(res);
           });
+
   },[])
 
 

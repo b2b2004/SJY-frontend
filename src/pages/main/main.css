@@ -227,7 +227,8 @@
     height: 100px;
 }
 .contest_container_main {
-    margin-top: 5%;
+    margin-top: 3%;
+    margin-bottom: 3%;
 }
 
 #wrap {
@@ -244,21 +245,21 @@ html,body{
     margin:0; padding:0;
 }
 
-footer {
+.footer_1 {
 
     border-top: 1px solid #D1D5DB;
 }
-footer .inner {
+.footer_1 .inner {
     padding: 40px 0 60px 0
 }
-footer .menu {
+.footer_1 .menu {
     display: flex;
     justify-content: center;
 }
-footer .menu li {
+.footer_1 .menu li {
     position: relative;
 }
-footer .menu li::before {
+.footer_1 .menu li::before {
     content: "";
     width: 3px;
     height: 3px;
@@ -269,49 +270,49 @@ footer .menu li::before {
     right: -1px;
     margin: auto;
 }
-footer .menu li:last-child::before {
+.footer_1 .menu li:last-child::before {
     display: none;
 }
-footer .menu li a {
+.footer_1 .menu li a {
     color: #ccc;
     font-size: 12px;
     font-weight: 700;
     padding: 15px;
     display: block;
 }
-footer .menu li a.green {
+.footer_1 .menu li a.green {
     color: #669900
 }
-footer .btn-group {
+.footer_1 .btn-group {
     margin-top: 20px;
     display: flex;
     justify-content: center;
 }
-footer .btn-group .btn {
+.footer_1 .btn-group .btn {
     font-size: 12px;
     margin-right: 10px;
 }
-footer .btn-group .btn:last-child {
+.footer_1 .btn-group .btn:last-child {
     margin-right: 0px;
 }
-footer .info {
+.footer_1 .info {
     margin-top: 30px;
     text-align: center;
 }
-footer .info span {
+.footer_1 .info span {
     margin-right: 20px;
     color: #999;
     font-size: 12px;
 }
-footer .info span:last-child {
+.footer_1 .info span:last-child {
     margin-right: 0;
 }
-footer .copyright {
+.footer_1 .copyright {
     color: #999;
     font-size: 12px;
     text-align: center;
     margin-top: 12px;
 }
-footer .logo {
+.footer_1 .logo {
     margin: 30px auto 0;
 }

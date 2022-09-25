@@ -11,9 +11,7 @@ const SopTitle = ({ handleClose }) => {
     const dispatch = useDispatch();
 
     const changeValue = (e) => {
-        console.log("e.target.value = " +e.target.value);
         dispatch(setTitle(e.target.value));
-        console.log("e.target.value = " +e.target.value);
     };
 
     const backhandleSopBoardStep = async () => {
