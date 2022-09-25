@@ -21,7 +21,6 @@ function SopDetailNotice(props){
         })
             .then((res)=>res.json())
             .then(res=>{
-                console.log(res);
                 setManageNotice(res);
             })
 

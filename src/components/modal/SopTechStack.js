@@ -3,36 +3,21 @@ import {nextStep, previousStep, setTechStack} from "../../store/SopBoardStep";
 import {useDispatch} from "react-redux";
 import './SopTechStack.css';
 import Select from "react-select";
-import { MultiSelect } from "react-multi-select-component";
-import contestSlider from "../contestBordP/ContestSlider";
+
 
 const SopTechStack = ({ handleClose }) => {
 
-    const formData = [
-        { id: 1, name: "react"},
-        { id: 2, name: "node.js"},
-        { id: 3, name: "spring"},
-        { id: 4, name: "vue"},
-        { id: 5, name: "c++"},
-        { id: 6, name: "java"},
-    ]
-
-    const [selected, setSelected] = useState([]);
     const Checkbox = new Set();
 
     const changetechStack = (e) => {
-        console.log(e);
         if(Checkbox.has(e.target.value) === false){
             Checkbox.add(e.target.value);
-            console.log(Checkbox);
         }else if (Checkbox.has(e.target.value) === true)
         {
             Checkbox.delete(e.target.value);
-            console.log(Checkbox);
         }
         const test = [...Checkbox];
         const techStack = test.join(',');
-        console.log("techStack = " + techStack);
         dispatch(setTechStack(techStack));
     }
 
@@ -40,15 +25,12 @@ const SopTechStack = ({ handleClose }) => {
         let length = e.length;
         if(Checkbox.has(e[length-1].value) === false){
             Checkbox.add(e[length-1].value);
-            console.log(Checkbox);
         }else if (Checkbox.has(e[length-1].value) === true)
         {
             Checkbox.delete(e[length-1].value);
-            console.log(Checkbox);
         }
         const test = [...Checkbox];
         const techStack = test.join(',');
-        console.log("techStack = " + techStack);
         dispatch(setTechStack(techStack));
     }
 

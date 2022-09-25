@@ -7,6 +7,8 @@ import MainTechImage from "../../components/main/MainTechImage";
 import styles from "../../components/nav/Navbar.module.css";
 import AllSOPBoard from "../../components/studyOrProjectBoard/AllSOPBoard";
 import LoadingSpinner from "../../components/loading/LoadingSpinner";
+import ContestSlider from "../../components/contestBordP/ContestSlider";
+import MainContestSlider from "../../components/main/MainContestSlider";
 
 
 function Main() {
@@ -21,20 +23,17 @@ function Main() {
             .then((res)=> res.json())
             .then((res)=>{
                 setLoading(false);
-                console.log(res);
                 setPopularBoard(res.content);
             })
     },[])
     const ShowTech = (e) => {
         setShow(true);
-        console.log(e.target.attributes.value.nodeValue);
         let tech = e.target.attributes.value.nodeValue;
 
         fetch('http://localhost:8000/sopBoard/MainTech/' + tech)
             .then((res)=> res.json())
             .then((res)=>{
                 setSopboard(res);
-                console.log(res);
             })
     };
 
@@ -100,11 +99,11 @@ function Main() {
 
 
                     <div className='contest_container_main'>
-                        공모전 부분입니다
+                        <MainContestSlider  />
                     </div>
 
 
-                    <footer>
+                    <footer className='footer_1'>
                         <div className="inner">
 
                             <div className="info">

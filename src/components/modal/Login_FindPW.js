@@ -33,7 +33,6 @@ const Login_FindPW = ({ handleClose }) => {
             body: JSON.stringify(User)
         }).then((res) =>res.text())
             .then((res)=> {
-                console.log(res);
                 if(res == "유저 확인")
                 {
                    fetch("http://localhost:8000/check/sendMail",{

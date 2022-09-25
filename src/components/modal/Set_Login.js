@@ -36,7 +36,6 @@ const SetNickname = ({ nickname, setNickname, handleLoginStep ,FindPWLoginStep})
             }
             else{
                 let jwtToken = res.headers.get("Authorization");
-                console.log(jwtToken);
                 localStorage.setItem("Authorization", jwtToken);
                 alert("로그인 완료");
                 window.location.href = "/";
@@ -44,7 +43,6 @@ const SetNickname = ({ nickname, setNickname, handleLoginStep ,FindPWLoginStep})
 
         })
             .then((res) => {
-                console.log("????????????????");
             });
     };
 

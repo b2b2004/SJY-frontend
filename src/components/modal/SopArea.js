@@ -8,8 +8,6 @@ const SopArea = ({ handleClose }) => {
     const dispatch = useDispatch();
 
     const changeValue = (e) => {
-        console.log(e.value);
-        console.log("e.target.value = " +e.value);
         dispatch(setArea(e.value));
     };
 
@@ -23,7 +21,7 @@ const SopArea = ({ handleClose }) => {
 
     const areas = [
         { value: "상관없음", label: "상관없음" },
-        { value: "서울", label: "서울" },
+        { value: "서울특별시", label: "서울특별시" },
         { value: "경기도", label: "경기도" },
         { value: "부산광역시", label: "부산광역시" },
         { value: "인천광역시", label: "인천광역시" },

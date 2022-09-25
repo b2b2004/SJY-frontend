@@ -21,7 +21,6 @@ function SopNav(props){
             })
                 .then((res) => res.json())
                 .then((data) => {
-                    console.log(data.image);
                     setmanagerUser(data);
                      setImage(
                          {

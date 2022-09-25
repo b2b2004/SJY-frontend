@@ -16,8 +16,6 @@ const SopDuration = ({ handleClose }) => {
         const duration_end = moment(date[1]).format("YYYY,MM,DD");
         dispatch(set_duration_start(duration_start));
         dispatch(set_duration_end(duration_end));
-        console.log("duration_start =" +duration_start);
-        console.log("duration_end =" +duration_end);
         dispatch(previousStep());
     };
 
@@ -26,8 +24,6 @@ const SopDuration = ({ handleClose }) => {
         const duration_end = moment(date[1]).format("YYYY,MM,DD");
         dispatch(set_duration_start(duration_start));
         dispatch(set_duration_end(duration_end));
-        console.log("duration_start =" +duration_start);
-        console.log("duration_end =" +duration_end);
         dispatch(nextStep());
     };
 

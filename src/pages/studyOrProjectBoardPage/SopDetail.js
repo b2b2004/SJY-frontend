@@ -17,7 +17,7 @@ function SopDetail(props){
         username:"",
     })
     const [user, setUser] = useState([]);
-    const [checkmember, setCheckMember] = useState(false);
+    const [checkmember, setCheckMember] = useState();
     const [component, setComponent] = useState({
         detail: true,
         schedule: false,
@@ -41,9 +41,7 @@ function SopDetail(props){
             }
         ).then((res) => res.json())
             .then((res) => {
-                console.log(res);
                 setSopboard(res);
-                console.log(sopboard);
             })
     },[])
 
@@ -58,7 +56,6 @@ function SopDetail(props){
         ).then((res) =>res.json()
         ).then((data)=>{
             setUser(data);
-            console.log(data);
 
             fetch('http://localhost:8000/sopBoard/recruitMemberCheck/' + data.username,{
                 method: "POST",
@@ -69,11 +66,17 @@ function SopDetail(props){
              })
                 .then((res)=> res.text())
                 .then((res)=>{
-                    console.log(res);
                     if(res == "Member")
                     {
-                        console.log("###################");
-                        setCheckMember(true);
+                        setCheckMember(1);
+                    }
+                    else if(res == "Membercheck")
+                    {
+                        setCheckMember(2);
+                    }
+                    else
+                    {
+                        setCheckMember(3);
                     }
                 })
 
@@ -84,10 +87,8 @@ function SopDetail(props){
         fetch('http://localhost:8000/sopBoard/qnaboard/' + id)
             .then((res) => res.json())
             .then((res) => {
-                console.log(res);
                 setSopDetailQna(res);
-                console.log(res);
-            }); // 비동기 함수
+            });
     }, []);
 
     useEffect(()=>{
@@ -99,9 +100,7 @@ function SopDetail(props){
         }).then(res=>
             res.json()
         ).then((res)=>{
-            console.log("%%%%%%%%%%%%%%%%%%%%%%%%" + res);
             setRecuitMsg(res);
-            console.log("%%%%%%%%%%%%%%%%%%%%%%%%" + recuitMsg);
         })
     },[])
 
@@ -113,7 +112,6 @@ function SopDetail(props){
             sopboard.hit +=1;
         }
         else{
-            console.log("hit++");
         }
     },[])
 
@@ -129,24 +127,23 @@ function SopDetail(props){
 
     return<>
         <SopNav sopboard={sopboard} key={sopboard.id} />
-        {/*<button onClick={move}>관리페이지로 이동(추후 팀원/팀장만 넘어갈 수 있게 만듬)</button>*/}
         <div>
             <div className='menu-wrapper'>
                 <button onClick={setmenu} name="detail" className='w-btn-outline w-btn-blue-outline'>상세페이지</button> {' '}
 
-                {checkmember === true || user.username === sopboard.username ?
+                {checkmember === 1 || user.username === sopboard.username ?
                     <button onClick={setmenu} name="schedule" className='w-btn-outline w-btn-blue-outline'>세부일정</button>
                 :
                     <button onClick={setmenu} name="schedule" className='w-btn-outline w-btn-blue-outline' disabled>🔒세부일정</button>
                 }
                 {' '}
-                {checkmember === true || user.username === sopboard.username ?
+                {checkmember === 1 || user.username === sopboard.username ?
                     <button onClick={setmenu} name="notice" className='w-btn-outline w-btn-blue-outline'>공지사항</button>
                     :
                     <button onClick={setmenu} name="notice" className='w-btn-outline w-btn-blue-outline' disabled>🔒공지사항</button>
                 }
                 {' '}
-                {checkmember === true || user.username === sopboard.username ?
+                {checkmember === 1 || user.username === sopboard.username ?
 
                     <button onClick={setmenu} name="Qna"className='w-btn-outline w-btn-blue-outline'>질문게시판</button>
                     :

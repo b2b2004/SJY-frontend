@@ -6,7 +6,6 @@ import "./BoardUpdateForm.css"
 import backdrop from "bootstrap/js/src/util/backdrop";
 
 const BoardUpdateForm = (props) => {
-  console.log(props);
   const id = props.id;
 
   const [board, setBoard] = useState({

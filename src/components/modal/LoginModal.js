@@ -11,7 +11,6 @@ const FindPW = 3;
 
 const LoginModal = ({ handleClose }) => {
     const loginStep = useSelector((state) => state.loginStep.currentStep);
-    console.log(loginStep);
     const renderByLoginStep = (loginStep) => {
         switch (loginStep) {
             case SIGNIN:

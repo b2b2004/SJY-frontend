@@ -3,7 +3,6 @@ import React, {useState} from "react";
 import './SopDetailQnaWrite.css';
 
 function SopDetailQnaWrite(props){
-    console.log(props);
     const Authorization = localStorage.getItem("Authorization");
     const [sopQnaboard, setSopQnaBoard] = useState({
         content: '',
@@ -28,7 +27,6 @@ function SopDetailQnaWrite(props){
             body: JSON.stringify(sopQnaboard),
         })
             .then((res) => {
-                console.log(res);
                 if (res.status === 201) {
                     return res.json();
                 } else {
@@ -36,8 +34,6 @@ function SopDetailQnaWrite(props){
                 }
             })
             .then((res) => {
-                console.log(res);
-                // Catch는 여기서 오류가 나야 실행됨.
                 if (res !== null) {
                     window.location.href = "/sopDetail/"+props.sopboard.id;
                 } else {

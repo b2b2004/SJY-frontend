@@ -15,7 +15,6 @@ function SopManageNoticeWrite() {
     );
 
     const changeValue = (e) =>{
-        console.log(e.target.value);
         setSopManageBoard({
             ...sopManageBoard,
             [e.target.name]: e.target.value,
@@ -25,7 +24,6 @@ function SopManageNoticeWrite() {
         e.preventDefault();
         const a = parseInt(id);
         sopManageBoard.sopBoardId = a;
-        console.log("sopBoardId = " + sopManageBoard.sopBoardId);
         fetch("http://localhost:8000/sopBoard/NoticeWrite",
             {
                 method: "POST",

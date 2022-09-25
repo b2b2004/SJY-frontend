@@ -9,7 +9,6 @@ const ManagerChart = (props) =>{
 
 
     const deleteId = () =>{
-        console.log(id);
         if(window.confirm("정말 삭제할까요?")){
             fetch('http://localhost:8000/manager/' + id,{
                 method: 'DELETE',

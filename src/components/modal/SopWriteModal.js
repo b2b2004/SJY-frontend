@@ -21,7 +21,6 @@ const SOPCONTENT = 8;
 
 const LoginModal = ({ handleClose }) => {
     const SopBoardStep = useSelector((state) => state.sopBoardStep.currentStep);
-    console.log(SopBoardStep);
     const renderByLoginStep = (SopBoardStep) => {
         switch (SopBoardStep) {
             case SOPBOARDTYPE:

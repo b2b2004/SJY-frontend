@@ -3,8 +3,6 @@ import moment from "moment";
 import {Card} from "react-bootstrap";
 
 function SopDetailCommentList(props){
-
-    console.log(props);
     const { id, username, content, board_date } = props.comment;
     const date = moment(board_date).format("YYYY,MM,DD, H:mm:ss");
     const Authorization = localStorage.getItem("Authorization");
@@ -22,7 +20,6 @@ function SopDetailCommentList(props){
             }
         ).then((res) =>res.json()
         ).then((data)=>{
-            console.log(data.image);
             setImage(
                 {
                     preview_URL: require(`../../image/ProfileImage/${data.image}`)

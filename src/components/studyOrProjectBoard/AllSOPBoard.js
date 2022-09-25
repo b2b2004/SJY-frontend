@@ -23,7 +23,6 @@ function AllSOPBoard(props){
             })
                 .then((res) => res.json())
                 .then((data) => {
-                    console.log(data.image);
                     setImage(
                         {
                             imageUrl: require(`../../image/ProfileImage/${data.image}`)

@@ -47,7 +47,6 @@ function Profile() {
             ).then((data)=>{
                 setLoading(false);
                 setuser(data);
-                console.log(data);
                     setImage(
                         {
                             preview_URL: require(`../image/ProfileImage/${data.user.image}`)
@@ -65,7 +64,6 @@ function Profile() {
              .then(res => res.json())
              .then(res => {
                      setBoards(res);
-                     console.log(res);
                  }
              )
 
@@ -158,7 +156,6 @@ function Profile() {
         const FrontName = moment().format('YYYYMMDDHHmmss');
         const BackName = image.image_file.name;
         const imageName = "P" + FrontName + BackName;
-        console.log(imageName);
 
         if(image.image_file){
             const formData = new FormData()
@@ -174,7 +171,6 @@ function Profile() {
     }
 
     const changeNicknameValue = (e) =>{
-        console.log(e.target.value);
         setUsername({
             ...username,
             [e.target.name]: e.target.value,
@@ -183,7 +179,6 @@ function Profile() {
 
     const chageNickname = (e) =>{
 
-        console.log(username.username);
         const Chagneusername = username.username;
         fetch("http://localhost:8000/profile/changeNickname/"+Chagneusername,{
                 method: 'PUT',

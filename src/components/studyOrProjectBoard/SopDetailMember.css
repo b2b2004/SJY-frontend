@@ -130,9 +130,9 @@ h1 {
     margin-bottom: 2%;
 }
 
-.apply_title {
+#apply_title {
     margin-left: 19%;
-    margin-bottom: 10%;
+    margin-top: 3%;
 }
 
 .team_manage_title {
@@ -191,4 +191,8 @@ h1 {
 .manage_disagree:hover {
     background: #f4495d;
     border-color: #f4495d;
+}
+
+.apply_content_1 {
+    padding-top: 1%;
 }

@@ -7,7 +7,6 @@ import SopDetailQnaUpdateForm from "./SopDetailQnaUpdateForm";
 import './SopDetailQnaList.css';
 
 function SopDetailQnaList(props){
-    console.log(props);
     const Authorization = localStorage.getItem("Authorization");
     const { id, title, content, board_date, username, sopboardId } = props.sopDetailQna;
     const date = moment(board_date).format("YYYY,MM,DD, H:mm:ss");
@@ -56,7 +55,6 @@ function SopDetailQnaList(props){
             }
         ).then((res) =>res.json()
         ).then((data)=>{
-            console.log(data.image);
             setImage(
                 {
                     preview_URL: require(`../../image/ProfileImage/${data.image}`)
@@ -69,7 +67,6 @@ function SopDetailQnaList(props){
             .then(res => res.json())
             .then((res) => {
                 setComment(res);
-                console.log(res);
             });
     },[])
 

@@ -1,9 +1,6 @@
 import {Button, Container, Image} from "react-bootstrap";
 import React, {useEffect, useState} from "react";
 import AllContestBoard from "../../components/contestBordP/AllContestBoard";
-import NewContestBoard from "../../components/contestBordP/NewContestBoard";
-import styled from 'styled-components';
-import Slider from "react-slick";
 import "./ContestBoard.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -22,7 +19,6 @@ function ContestBoard(){
         fetch("http://localhost:8000/contestBoard/AllBoard")
             .then((res)=> res.json())
             .then(res =>{
-                console.log(res);
                 setContestBoard(res);
             })
 
@@ -35,8 +31,6 @@ function ContestBoard(){
             .then((res)=> res.json())
             .then((res)=>{
                 setLoading(false);
-                console.log(res.content);
-                console.log(res.content.image);
                 setNewContestBoard(res.content);
             })
     },[])

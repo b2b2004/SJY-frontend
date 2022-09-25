@@ -8,7 +8,7 @@
 
 .leeIntro, .kwonIntro, .kimIntro {
     width: 30%;
-    height: 30rem;
+    height: 19rem;
     border: 1.5px solid rgb(219, 225, 255);
     border-radius: 10px;
     margin: auto;
@@ -53,16 +53,6 @@
     color: rgb(100, 100, 100);
 }
 
-.leeIntroduction, .kwonIntroduction {
-    margin-top: 15%;
-    padding: 1rem;
-    width: 100%;
-    height: 5rem;
-    word-break: break-all;
-    color: rgb(100, 100, 100);
-
-}
-
 .KimFrontend {
     background-color: rgb(255, 224, 249);
     padding: 4px;
@@ -73,31 +63,48 @@
     color: rgb(100, 100, 100);
 }
 
-.kimIntroduction {
-    margin-top: 3%;
-    padding: 1rem;
-    width: 100%;
-    height: 5rem;
-    word-break: break-all;
-    color: rgb(100, 100, 100);
-}
-
 .projectIntroContainer {
-    margin-top: 3rem;
+    margin-top: 2rem;
 
 }
 
 .codmeterTitle {
-    margin-left: 3%;
+    margin-left: 2%;
     font-weight: bold;
     font-size: 30px;
 }
 
 .codmeterIntro {
     width: 97%;
+    height: 10rem;
     border: 1.5px solid rgb(219, 225, 255);
     border-radius: 10px;
     margin: auto;
-    padding: 1rem;
+    padding-top: 1rem;
+    padding-left: 2rem;
+    padding-bottom: 10rem;
+
+}
+
+.codmeterIntroTitle {
+    font-size: 25px;
+}
+
+.codmeterIntroContent {
+    word-break: break-all;
+}
+
+.codmeterStack {
+    width: 97%;
+    height: 10rem;
+    border: 1.5px solid rgb(219, 225, 255);
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 20px;
+    padding-top: 1rem;
+    padding-left: 2rem;
+}
+
+.codmeterStackTitle {
     font-size: 25px;
 }

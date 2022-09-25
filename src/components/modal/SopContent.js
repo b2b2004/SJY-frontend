@@ -13,17 +13,12 @@ const SopContent = ({ handleClose }) => {
     const sopBoard = useSelector((state) => state.sopBoardStep);
     const Authorization = localStorage.getItem("Authorization");
     const changeValue = (e) => {
-        console.log("e.target.value = " +e.target.value);
         dispatch(setContent(e.target.value));
     };
 
-    useEffect(()=>{
-        console.log(sopBoard);
-    },[])
 
     const SopSummit = (e) => {
         e.preventDefault();
-        console.log(sopBoard);
         if (sopBoard.meetType != null && sopBoard.boardType != null) {
             fetch("http://localhost:8000/sopBoard/sopWrite",
                 {
