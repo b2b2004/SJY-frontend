@@ -1,20 +1,18 @@
 import React, {useEffect, useState} from "react";
-import {Button, Spinner} from "react-bootstrap";
 import SopNav from "../../components/studyOrProjectBoard/SopNav";
-import {useHistory} from "react-router-dom";
 import SopDetailNotice from "../../components/studyOrProjectBoard/SopDetailNotice";
 import SopDetailCP from "../../components/studyOrProjectBoard/SopDetailCP";
 import SopDetailManage from "../../components/studyOrProjectBoard/SopDetailManage";
 import SopDetailSchedule from "../../components/studyOrProjectBoard/SopDetailSchedule";
 import SopDetailQnaList from "../../components/studyOrProjectBoard/SopDetailQnaList";
 import SopDetailQnaWrite from "../../components/studyOrProjectBoard/SopDetailQnaWrite";
-import BoardList from "../../components/qna/BoardList";
 import './SopDetail.css';
 
 
 function SopDetail(props){
     const id = props.match.params.id;
     const Authorization = localStorage.getItem("Authorization");
+    const [recuitMsg, setRecuitMsg] = useState([]);
     const [sopboard, setSopboard] = useState({
         username:"",
     })
@@ -62,7 +60,13 @@ function SopDetail(props){
             setUser(data);
             console.log(data);
 
-            fetch('http://localhost:8000/sopBoard/recruitMemberCheck/' + data.username)
+            fetch('http://localhost:8000/sopBoard/recruitMemberCheck/' + data.username,{
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8',
+                },
+                body: id,
+             })
                 .then((res)=> res.text())
                 .then((res)=>{
                     console.log(res);
@@ -85,6 +89,21 @@ function SopDetail(props){
                 console.log(res);
             }); // 비동기 함수
     }, []);
+
+    useEffect(()=>{
+        fetch('http://localhost:8000/sopBoard/recruitMsg/'+ id,{
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8', Authorization
+            },
+        }).then(res=>
+            res.json()
+        ).then((res)=>{
+            console.log("%%%%%%%%%%%%%%%%%%%%%%%%" + res);
+            setRecuitMsg(res);
+            console.log("%%%%%%%%%%%%%%%%%%%%%%%%" + recuitMsg);
+        })
+    },[])
 
 
     useEffect(()=>{
@@ -152,7 +171,7 @@ function SopDetail(props){
                         ))}
                     </div>
                     : <></>}
-                {component.manage === true ? <SopDetailManage sopboard={sopboard} key={sopboard.id} /> : <></>}
+                {component.manage === true ? <SopDetailManage sopboard={sopboard} key={sopboard.id} recuitMsg={recuitMsg} /> : <></>}
             </div>
 
         </div>

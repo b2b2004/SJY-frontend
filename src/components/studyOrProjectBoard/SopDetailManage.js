@@ -7,9 +7,15 @@ import SopDetailMember from "./SopDetailMember";
 // 스터디 상세 관리 페이지
 
 function SopDetailManage(props){
+    const [recuitMsg, setRecuitMsg] = useState([]);
     const {id , member} = props.sopboard;
+    console.log(member);
     const str = member;
-    const arr = str.split(/[,]/);
+    let arr = [];
+    if(str != null)
+    {
+        arr = str.split(/[,]/);
+    }
     const Authorization = localStorage.getItem("Authorization");
     const [testSopManageBoard, setTestSopManageBoard] = useState({
         id:'',
@@ -20,7 +26,6 @@ function SopDetailManage(props){
     });
     const [sopManageBoard , setSopManageBoard] = useState();
     const [help, setHelp] = useState(true);
-    const [recuitMsg, setRecuitMsg] = useState([]);
     const changeValue = (e) =>{
         console.log(e.target.value);
         setSopManageBoard({
@@ -31,6 +36,7 @@ function SopDetailManage(props){
 
 
     useEffect(()=>{
+        setRecuitMsg(props.recuitMsg);
         fetch('http://localhost:8000/sopBoard/aaa/'+ id,{
             method: "GET",
             headers: {
@@ -53,20 +59,6 @@ function SopDetailManage(props){
                 }
             })
     },[help])
-
-
-    useEffect(()=>{
-        fetch('http://localhost:8000/sopBoard/recruitMsg/'+ id,{
-            method: "GET",
-            headers: {
-                'Content-Type': 'application/json; charset=utf-8', Authorization
-            },
-        }).then(res=>
-            res.json()
-        ).then((res)=>{
-            setRecuitMsg(res);
-            })
-    },[])
 
     const SopManageBoardSubmit = (e) =>{
         e.preventDefault();
@@ -180,7 +172,7 @@ function SopDetailManage(props){
             <h3 className='team_manage_title'>팀원 관리</h3>
         </div>
         {arr.map((arr , index) => (
-            <SopDetailMember key={index} arr={arr} />
+            <SopDetailMember key={index} arr={arr} id={id}/>
         ))}
         <div>
             <hr className='manage_hr'/>
