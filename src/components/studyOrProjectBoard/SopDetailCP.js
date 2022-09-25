@@ -78,15 +78,14 @@ function SopDetailCP(props){
 
 
     return<>
-                {sopboard.recruitment === sopboard.recruitment_cnt
+                {(sopboard.recruitment === sopboard.recruitment_cnt)
                     ?
+                    (
                     <>
-                    <div className='sidebar_detail_wrapper'>
-                        <div className='v-line_detail_cp'></div>
-                        <div className='sopboard_detailCP_font'>
-                            이 프로젝트에<br/> 관심이 있으신가요?
+                        <div className='sidebar_detail_wrapper'>
+                            <div className='v-line_detail_cp'></div>
+                            <div className='sopboard_detailCP_font'>이 프로젝트에<br/> 관심이 있으신가요?</div>
                         </div>
-                    </div>
                     <br/>
                     <br/>
                     <br/>
@@ -98,7 +97,9 @@ function SopDetailCP(props){
                             </div>
                         </form>
                     </>
-                    :
+                    )
+                    : (checkrecruit === false) ?
+                    (
                     <>
                     <div className='sidebar_detail_wrapper'>
                         <div className='v-line_detail_cp'></div>
@@ -112,13 +113,14 @@ function SopDetailCP(props){
 
                     <form className='SopDatail_team_apply' onSubmit={sendMsg}>
                     <h6>지원 이유</h6>
-                {sopboard.recruitment_cnt} / {sopboard.recruitment}
+                    {sopboard.recruitment_cnt} / {sopboard.recruitment}
                     <div className='boardInput'>
                     <textarea onChange={changeValue} style={{resize:'none'}} name="content" id="sopDetail_textarea" cols="30" rows="3"></textarea>
                     </div>
                     <button className='sopDetail_manage_button3' type="submit">지원하기</button>
                     </form>
                     </>
+                    ) : <>hi</>
                 }
 
 
@@ -131,8 +133,8 @@ function SopDetailCP(props){
                 <br/>
                 <br/>
                 <br/>
-                <h4 className='detail_cp_title'>모집 인원</h4>
-                <div className='detail_cp_content'>{sopboard.recruitment}명</div>
+                <h4 className='detail_cp_title'>모집 지역</h4>
+                <div className='detail_cp_content'>{sopboard.area}</div>
                 <br/>
                 <br/>
                 <br/>

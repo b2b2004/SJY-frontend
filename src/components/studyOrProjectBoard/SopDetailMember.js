@@ -3,7 +3,9 @@ import React from "react";
 import './SopDetailMember.css';
 function SopDetailMember(props){
     const member = props.arr;
+    const id = props.id;
     console.log(props.arr);
+    console.log(props.id);
     console.log(member);
 
     const deleteMember = (e) =>{
@@ -16,6 +18,7 @@ function SopDetailMember(props){
                 headers: {
                     'Content-Type': 'application/json; charset=utf-8',
                 },
+                body: id,
             })
                 .then((res)=>res.json())
                 .then(res=>{
