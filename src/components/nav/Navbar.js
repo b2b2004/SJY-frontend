@@ -63,7 +63,7 @@ const Navbar = React.memo(() => {
                         onClick={ChagePage1}
                     />
                     <img
-                        src="/images/logo/loadingImg.ico"
+                        src="/images/logo/joongbu.png"
                         className={styles.postRegister2}
                         name="introduce"
                         onClick={ChagePage1}

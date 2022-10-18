@@ -113,7 +113,7 @@ function SopDetailManage(props){
         <div className='SopDetailManage_container'>
             <div className='SopDetailManage_button_container'>
                 <button className='sopDetail_manage_button1' onClick={move}>공지시항 등록</button>
-                <button className='sopDetail_manage_button2' onClick={move1}>과제 등록</button>
+                {/*<button className='sopDetail_manage_button2' onClick={move1}>과제 등록</button>*/}
             </div>
 
             <div className='SopDetailManage_content_container'>
@@ -157,7 +157,6 @@ function SopDetailManage(props){
                                 <button className='sopDetail_manage_button3' type="submit">등록</button>
                             </Form>
                         </div>
-
                     </div>
                 }
             </div>
@@ -172,7 +171,6 @@ function SopDetailManage(props){
         <div>
             <h3 id='apply_title'>신청 인원</h3>
             <hr className='manage_hr'/>
-
         </div>
         {recuitMsg.map((recuitMsg) => (
             <SopDetailApplicant key={recuitMsg.id} recuitMsg={recuitMsg} id={id}/>

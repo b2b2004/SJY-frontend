@@ -58,7 +58,10 @@ function ContestSlider(){
                     return (
                         <div key={contestBoard.id}>
                             <ImageContainer>
-                                <Image src={require(`../../image/ContestImage/${contestBoard.image}`)}/>
+                                <Image src={require(`../../image/ContestImage/${contestBoard.image}`)} onClick={(e)=>{
+                                    console.log(e);
+                                    window.location.href = "/ContestDetail/" + contestBoard.id;
+                                }}/>
                             </ImageContainer>
                         </div>
                     );
