@@ -15,7 +15,7 @@ button {
     transition-duration: .3s;
     border: 1px solid transparent;
     letter-spacing: 2px;
-    min-width: 160px;
+    min-width: 200px;
     text-transform: uppercase;
     white-space: normal;
     font-weight: 700;

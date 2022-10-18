@@ -33,7 +33,7 @@
     color: rgb(70, 70, 70);
 }
 
-.Backend {
+.backend {
     background-color: rgb(218, 234, 255);
     padding: 4px;
     border-radius: 5px;
@@ -43,7 +43,7 @@
     color: rgb(100, 100, 100);
 }
 
-.Frontend {
+.frontend {
     background-color: rgb(255, 224, 249);
     padding: 4px;
     border-radius: 5px;
@@ -53,7 +53,11 @@
     color: rgb(100, 100, 100);
 }
 
-.KimFrontend {
+.leeIntroduction, .kwonIntroduction {
+    word-break: break-all;
+
+}
+.kimFrontend {
     background-color: rgb(255, 224, 249);
     padding: 4px;
     border-radius: 5px;
@@ -76,35 +80,21 @@
 
 .codmeterIntro {
     width: 97%;
-    height: 10rem;
+    height: 22rem;
     border: 1.5px solid rgb(219, 225, 255);
     border-radius: 10px;
     margin: auto;
     padding-top: 1rem;
     padding-left: 2rem;
     padding-bottom: 10rem;
-
+    padding-right: 2rem;
 }
 
 .codmeterIntroTitle {
     font-size: 25px;
+    margin-bottom: 5px;
 }
 
 .codmeterIntroContent {
     word-break: break-all;
-}
-
-.codmeterStack {
-    width: 97%;
-    height: 10rem;
-    border: 1.5px solid rgb(219, 225, 255);
-    border-radius: 10px;
-    margin: auto;
-    margin-top: 20px;
-    padding-top: 1rem;
-    padding-left: 2rem;
-}
-
-.codmeterStackTitle {
-    font-size: 25px;
 }

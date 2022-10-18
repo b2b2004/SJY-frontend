@@ -13,7 +13,7 @@ function ContestWrite(){
     const Authorization = localStorage.getItem("Authorization");
     const [image, setImage] = useState({
         image_file: '',
-        preview_URL: "/images/eye.png"
+        preview_URL: "/images/load1.png"
         });
     const [loaded, setLoaded] = useState(false);
     let inputRef;

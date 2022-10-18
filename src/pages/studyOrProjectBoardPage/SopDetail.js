@@ -131,12 +131,12 @@ function SopDetail(props){
             <div className='menu-wrapper'>
                 <button onClick={setmenu} name="detail" className='w-btn-outline w-btn-blue-outline'>상세페이지</button> {' '}
 
-                {checkmember === 1 || user.username === sopboard.username ?
-                    <button onClick={setmenu} name="schedule" className='w-btn-outline w-btn-blue-outline'>세부일정</button>
-                :
-                    <button onClick={setmenu} name="schedule" className='w-btn-outline w-btn-blue-outline' disabled>🔒세부일정</button>
-                }
-                {' '}
+                {/*{checkmember === 1 || user.username === sopboard.username ?*/}
+                {/*    <button onClick={setmenu} name="schedule" className='w-btn-outline w-btn-blue-outline'>세부일정</button>*/}
+                {/*:*/}
+                {/*    <button onClick={setmenu} name="schedule" className='w-btn-outline w-btn-blue-outline' disabled>🔒세부일정</button>*/}
+                {/*}*/}
+                {/*{' '}*/}
                 {checkmember === 1 || user.username === sopboard.username ?
                     <button onClick={setmenu} name="notice" className='w-btn-outline w-btn-blue-outline'>공지사항</button>
                     :
@@ -158,7 +158,7 @@ function SopDetail(props){
 
             <div>
                 {component.detail === true ? <SopDetailCP sopboard={sopboard} key={sopboard.id} checkmember={checkmember} /> : <></>}
-                {component.schedule === true ? <SopDetailSchedule sopboard={sopboard} key={sopboard.id} /> : <></>}
+                {/*{component.schedule === true ? <SopDetailSchedule sopboard={sopboard} key={sopboard.id} /> : <></>}*/}
                 {component.notice === true ? <SopDetailNotice sopboard={sopboard} key={sopboard.id} /> : <></>}
                 {component.Qna === true ?
                     <div>

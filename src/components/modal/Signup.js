@@ -15,7 +15,7 @@ const Signup = ({ handleClose }) => {
             .string()
             .required('아이디를 입력해주세요.')
             .max(12, '아이디는 12자리 이하여야 합니다.')
-            .min(4, '아이디는 4자리 이상이어야 합니다.'),
+            .min(6, '아이디는 6자리 이상이어야 합니다.'),
 
         email: yup
             .string()
@@ -23,7 +23,7 @@ const Signup = ({ handleClose }) => {
             .email('이메일 형식이 아닙니다.'),
         password: yup
             .string()
-            .required('영문, 숫자포함 8자리를 입력')
+            .required('영문,숫자,기호 포함 8자리 입력')
             .min(8, '최소 8자 이상 가능합니다')
             .max(15, '최대 15자 까지만 가능합니다')
             .matches(

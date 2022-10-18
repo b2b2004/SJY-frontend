@@ -34,7 +34,7 @@ function SopDetailCommentList(props){
                 <div className="userNickname">
                     <div className='commentList_img_wrapper'>
                         <img src={image.preview_URL}/> <br/>
-                        <Card.Title className='board_user_name'>{username}</Card.Title>
+                        <Card.Text className='board_user_name'>{username}</Card.Text>
                     </div>
                 </div>
                 <div className='comment_content_wrapper'>
